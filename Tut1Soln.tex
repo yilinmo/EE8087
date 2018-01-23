@@ -1,0 +1,319 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{nicefrac}
+\usepackage{amssymb, amsmath, amsfonts}
+\usepackage{amsthm}
+\usepackage{tikz}
+\usetikzlibrary{matrix,shapes,arrows, calc, intersections}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\usepackage[a4paper, margin=1in]{geometry}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+\newtheorem{assumption}{Assumption}
+
+\newlength\figureheight
+\newlength\figurewidth
+\setlength\figureheight{12cm}
+\setlength\figurewidth{14cm}
+
+\newcommand{\tikzdir}[1]{tikz/#1.tikz}
+\newcommand{\inputtikz}[1]{\input{\tikzdir{#1}}}
+
+\newcommand{\pgfextractangle}[3]{%
+    \pgfmathanglebetweenpoints{\pgfpointanchor{#2}{center}}
+                              {\pgfpointanchor{#3}{center}}
+    \global\let#1\pgfmathresult  
+}
+
+\DeclareMathOperator*{\argmin}{arg\; min}     % argmin
+\DeclareMathOperator*{\argmax}{arg\; max}     % argmax
+\DeclareMathOperator*{\tr}{tr}     % trace
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\logdet}{log\;det}
+
+\title{EE8087 Living with Mathematics\\Tutorial 1: Trigonometry}
+\date{}
+\begin{document} \maketitle
+\begin{enumerate}
+\item In a circle of radius 6 cm, a triangle PQR is drawn having QR=$8$ and PQ=$10$. What is the length of PR?
+
+  \begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[scale=0.5]
+      \tikzset{mark coordinate/.style={inner sep=0pt,
+          outer sep=0pt,
+          minimum size=3pt,
+          fill=#1,
+          circle}
+      }
+      \node [mark coordinate=black,label=$O$] (O) at (0,0) {}; 
+      \node [mark coordinate=black,label=50:$Q$] (Q) at (6,0) {}; 
+      \draw [name path=Circle, thick] (O) circle (6cm);
+      \path [name path=Circle1] (Q) circle (8cm);
+      \path [name path=Circle2] (Q) circle (10cm);
+
+      \path [name intersections={of=Circle and Circle1, name=i}] (i-1) coordinate [mark coordinate=black, label=$R$];
+      \path [name intersections={of=Circle and Circle2, name=j}] (j-2) coordinate [mark coordinate=black, label=270:$P$];
+      \draw [thick] (i-1) -- (j-2) -- (Q) -- (i-1) ;
+      \draw [dashed] (i-1)--(O);
+      \draw [dashed] (Q)--(O);
+      \draw [dashed] (j-2)--(O);
+
+      \pgfextractangle{\aaaa}{O}{i-1}
+      \draw [->] (0:0.9) arc (0:\aaaa:0.9) node [anchor=225] {$\theta_1$};
+      \pgfextractangle{\bbbb}{O}{j-2}
+      \draw [->] (\aaaa:0.7) arc (\aaaa:\bbbb:0.7) node [anchor=40] {$\theta_3$};
+      \draw [->] (\bbbb:1.1) arc (\bbbb:360:1.1) node [anchor=135] {$\theta_2$};
+    \end{tikzpicture}
+    \caption{Question 1}
+  \end{figure}
+
+  \emph{Soln}: Consider the triangle $\triangle ORQ$, by the cosine rule, we have
+  \begin{align*}
+    OR^2+OQ^2 - 2OR\times OQ\times \cos \theta_1 = PQ^2,
+  \end{align*}
+  which implies that
+  \begin{align*}
+    \cos \theta_1 = \frac{PQ^2-OR^2-OQ^2}{2OR\times OQ} = \frac{1}{9}.
+  \end{align*}
+  Similarly if we apply the cosine rule in triangle $\triangle OQP$, we get
+  \begin{align*}
+    \cos\theta_2 = -\frac{7}{18}.
+  \end{align*}
+  Therefore
+  \begin{align*}
+    \cos\theta_3 &= \cos(360^\circ - \theta_1-\theta_2) = \cos(\theta_1+\theta_2) = \cos\theta_1\cos\theta_2 - \sin\theta_1\sin\theta_2\\
+    &=\frac{1}{9}\times -\frac{7}{18} - \frac{\sqrt{4\sqrt{5}}}{9}\frac{5\sqrt{11}}{18} = -\frac{7+20\sqrt{55}}{162}.
+  \end{align*}
+  Now if we apply cosine rule in triangle $\triangle OPR$, we have
+  \begin{align*}
+    PR^2 = OP^2 + OR^2 -2OP\times OR \times \cos\theta_3 = 72-72\cos\theta_3.
+  \end{align*}
+  Combining the above 2 equations, we can solve $RP = 11.876$.
+
+
+\item  An engineer determines that the angle of elevation from her position to the top of a tower is $52^o$ . She measures the angle of elevation again from a point $47$ m further away from position and finds it to be $31^o$ . Both positions are due east of the tower. Find the height of the tower.
+
+   \begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[scale=0.5]
+      \tikzset{mark coordinate/.style={inner sep=0pt,
+          outer sep=0pt,
+          minimum size=3pt,
+          fill=#1,
+          circle}
+      }
+      \node [mark coordinate=black,label=270:$A$] (A) at (0,0) {}; 
+      \node [mark coordinate=black,label=270:$B$] (B) at (6,0) {}; 
+      \coordinate (A1) at ($(A)+(31:14)$);
+      \coordinate (B1) at ($(B)+(52:10)$);
+      \path [name path=AC] (A)--(A1);
+      \path [name path=BC] (B)--(B1);
+      \path [name intersections={of=AC and BC, by=C}];
+      \node [mark coordinate=black, label=90:$C$] at (C) {};
+      \node [mark coordinate=black, label=270:$O$] at (C|-B) {};
+      \draw [thick] (A)--(C)--(B)--node [below]{$47$m} (A);
+      \draw [thick] (C)--node [anchor=east] {$y$} (C|-B)-- node[anchor=north] {$x$}(B);
+      \draw (1,0) arc (0:31:1) node [right] {$31^\circ$};
+      \draw (7,0) arc (0:52:1) node [right] {$52^\circ$};
+
+    \end{tikzpicture}
+    \caption{Question 2}
+  \end{figure}
+
+  \emph{Soln}: In $\triangle OBC$, we have
+  \begin{align*}
+    y = x \tan 52^\circ.
+  \end{align*}
+  In $\triangle OAC$, we have
+  \begin{align*}
+    y = (x+47)\tan 31^\circ.
+  \end{align*}
+  From the above 2 equations, we get
+  \begin{align*}
+    y = 47\frac{\tan 52^\circ\tan 31^\circ}{\tan 52^\circ-\tan 31^\circ} = 53.23.
+  \end{align*}
+
+\item Two towers, whose tops are labeled as P and Q, are of the same height. They are $4.1$ km apart on level ground. A pilot measures the angle of depressions to P and Q to be $36.5^o$ and $25^o$ , respectively. Find the height of the airplane from the top of the towers.
+
+   \begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[scale=0.5]
+      \tikzset{mark coordinate/.style={inner sep=0pt,
+          outer sep=0pt,
+          minimum size=3pt,
+          fill=#1,
+          circle}
+      }
+      \node [mark coordinate=black,label=270:$Q$] (A) at (0,0) {}; 
+      \node [mark coordinate=black,label=270:$P$] (B) at (6,0) {}; 
+      \coordinate (A1) at ($(A)+(25:14)$);
+      \coordinate (B1) at ($(B)+(36.5:10)$);
+      \path [name path=AC] (A)--(A1);
+      \path [name path=BC] (B)--(B1);
+      \path [name intersections={of=AC and BC, by=C}];
+      \node [mark coordinate=black, label=90:$C$] at (C) {};
+      \draw [thick] (A)--(C)--(B)--node [below]{$4.1$km} (A);
+      \draw [dashed] (C)--node [right]{$y$}(C|-B)--node[below]{$x$}(B);
+
+      \draw (1,0) arc (0:31:1) node [right] {$25^\circ$};
+      \draw (7,0) arc (0:52:1) node [right] {$36.5^\circ$};
+
+    \end{tikzpicture}
+    \caption{Question 4}
+  \end{figure}
+   \emph{Soln}: Similar to the above question, we have
+  \begin{align*}
+    y = x \tan 36.5^\circ.
+  \end{align*}
+  \begin{align*}
+    y = (x+4.1)\tan 25^\circ.
+  \end{align*}
+  From the above 2 equations, we get
+  \begin{align*}
+    y = 4.1\frac{\tan 36.5^\circ\tan 25^\circ}{\tan 36.5^\circ-\tan 25^\circ} = 5.17.
+  \end{align*}
+
+\item  In a triangle ABC, angle A is trisected by segments AE and AD where points E and D lie on BC. Let BD = $2$cm, DE = $3$cm and EC = $6$cm. Find the length of the shortest side of the triangle ABC.
+    \begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[scale=1]
+      \tikzset{mark coordinate/.style={inner sep=0pt,
+          outer sep=0pt,
+          minimum size=3pt,
+          fill=#1,
+          circle}
+      }
+      \node [mark coordinate=black,label=90:$A$] (A) at (0,0) {}; 
+      \node [mark coordinate=black,label=270:$B$] (B) at (-70:3.87) {};
+      \node [mark coordinate=black,label=270:$C$] (C) at (-26.57:9) {};
+
+      \node [mark coordinate=black,label=270:$D$] (D) at ($(B)!.182!(C)$) {};
+      \node [mark coordinate=black,label=270:$E$] (E) at ($(B)!.455!(C)$) {};
+
+      \draw [thick] (A)--(B)-- node [below] {$2$cm} (D)
+      -- node [below] {$3$cm} (E)
+      -- node [below] {$6$cm} (C)--(A);
+      \draw [thick] (A)--(D);
+      \draw [thick] (A)--(E);
+      \draw (-70:1) arc (-70:-26.57:1);
+      \node at (-63:1.3) {$\theta$};
+      \node at (-48:1.3) {$\theta$};
+      \node at (-33:1.3) {$\theta$};
+    \end{tikzpicture}
+    \caption{Question 4}
+  \end{figure}
+
+  \emph{Soln}: In $\triangle ABD$, using the sine rule we have
+  \begin{align}
+    \frac{AD}{\sin\angle ABD} = \frac{BD}{\sin\theta}.
+    \label{eq:sine1}
+  \end{align}
+
+  In $\triangle ABE$, using the sine rule we have
+  \begin{align}
+    \frac{AE}{\sin\angle ABD} = \frac{BE}{\sin 2\theta}.
+    \label{eq:sine2}
+  \end{align}
+
+  Combining \eqref{eq:sine1} and \eqref{eq:sine2}, we get
+  \begin{align}
+   \frac{AD}{AE} = \frac{2}{5}\times \frac{\sin 2\theta}{\sin \theta} = \frac{4}{5}\cos\theta.
+    \label{eq:ratio1}
+  \end{align}
+  The last equality is due to the fact $\sin 2\theta = 2\sin \theta\cos\theta$.
+
+  Similarly applying the sine rule in $\triangle AEC$ and $\triangle ADC$, we get
+  \begin{align}
+   \frac{AD}{AE} = \frac{3}{2}\times \frac{\sin \theta}{\sin 2\theta} = \frac{3}{4\cos\theta}
+    \label{eq:ratio2}
+  \end{align}
+  As a result
+  \begin{align*}
+    \frac{3}{4\cos\theta} = \frac{4}{5}\cos\theta,
+  \end{align*}
+  which implies that $\cos\theta = \nicefrac{\sqrt{15}}{4}$.
+
+ In $\triangle ABD$, using the sine rule we have
+  \begin{align}
+    \frac{AB}{\sin\angle ADB} = \frac{BD}{\sin\theta}.
+    \label{eq:sine3}
+  \end{align}
+
+  In $\triangle ADE$, using the sine rule we have
+  \begin{align}
+    \frac{AE}{\sin\angle ADE} = \frac{DE}{\sin \theta}.
+    \label{eq:sine4}
+  \end{align}
+  Since $\angle ADE + \angle ADB = 180^\circ$, we know that
+  \begin{align*}
+    \sin \angle ADE = \sin \angle ADB.
+  \end{align*}
+  Combining this with \eqref{eq:sine3} and \eqref{eq:sine4}, we have
+  \begin{align*}
+    AE = 1.5 AB.
+  \end{align*}
+  Assuming the length of $AB$ is $l$, then applying the cosine rule in $\triangle ABE$, we have
+  \begin{align*}
+  25= BE^2=  AB^2 + AE^2 - 2AB\times AE\times \cos 2\theta = l^2+2.25l^2 - 3(2\cos^2\theta-1)l^2 = 0.625l^2.
+  \end{align*}
+  Therefore, $l = \sqrt{40} = 6.32$.
+
+\item You have a pizza of radius $25$ cm.The pizza was cut into $16$ equal slices. When only one slice was left, your brother and you both wanted it. So, both of you agreed to cut it into two halves but you like the crust more than your brother does. So, you decided to cut it in a way shown in Fig~\ref{fig:5}. How far up the radius from the center of the circle will you need to cut so that both will have an equal area of the pizza.
+  \begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[scale=0.25]
+      \tikzset{mark coordinate/.style={inner sep=0pt,
+          outer sep=0pt,
+          minimum size=3pt,
+          fill=#1,
+          circle}
+      }
+      \node [mark coordinate=black,label=180:$O$] (O) at (0,0) {}; 
+      \node [mark coordinate=black,label=90:$A$] (A) at (11.25:17.56) {}; 
+      \node [mark coordinate=black,label=270:$B$] (B) at (-11.25:17.56) {}; 
+      \node [mark coordinate=black,label=0:$C$] (C) at (O-|A) {}; 
+      \draw [thick] (11.25:25)--(O)--(-11.25:25);
+      \draw [thick] (11.25:25) arc (11.25:-11.25:25);
+
+      \draw [dashed] (A)-- (B);
+      \draw [dashed] (O)--(C);
+    \end{tikzpicture}
+    \caption{Question 5\label{fig:5}}
+  \end{figure}
+
+  \emph{Soln}: Suppose the length of $OC$ is $l$. Then $\angle AOC = 360^\circ /16/2 = 11.25^\circ$. As a result
+  \begin{align*}
+    AB = 2AC = 2l\tan 11.25^\circ,
+  \end{align*}
+  which implies that the area of $\triangle AOB$ is
+  \begin{align*}
+    \frac{1}{2}OC\times AB = l^2\tan 11.25^\circ.
+  \end{align*}
+
+  On the other hand, the area of the pizza is
+  \begin{align*}
+    \frac{1}{16}\pi r^2 = \frac{625}{16}\pi.
+  \end{align*}
+  If we want to cut the pizza in half, then
+  \begin{align*}
+     l^2\tan 11.25^\circ=\frac{1}{2}\times \frac{625}{16}\pi.
+  \end{align*}
+We can solve $l = 17.56$.
+
+
+\end{enumerate}
+
+\end{document}
+%%% Local Variables:
+%%% TeX-command-default: "Latexmk"
+%%% End:
