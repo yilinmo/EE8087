@@ -1,0 +1,89 @@
+#+BEGIN_SRC ipython :session :exports none
+import numpy as np
+from numpy import log10 as log
+import matplotlib
+import matplotlib.pyplot as plt
+from matplotlib import rc
+rc('font',**{'family':'sans-serif','sans-serif':['Arial']})
+## for Palatino and other serif fonts use:
+#rc('font',**{'family':'serif','serif':['Palatino']})
+rc('text', usetex=True)
+import control
+from control.matlab import *
+from control import bode_plot as bode
+from control import nyquist, margin
+from numpy import convolve as conv
+
+%load_ext tikzmagic
+
+%matplotlib inline
+%config InlineBackend.figure_format = 'svg'
+#+END_SRC
+
+#+RESULTS:
+
+* Conic Sections
+
+* A Brief History of Conic Sections
+*** Doubling the Cube
+https://upload.wikimedia.org/wikipedia/commons/d/db/Cube_and_doubled_cube.svg
+- The citizens of Delos consulted the oracle at Delphi, seeking a solution for their internal political problems at the time, which had intensified relationships among the citizens. 
+- The oracle responded that they must double the size of the altar to Apollo, which was a regular cube. 
+- The answer seemed strange to the Delians and they consulted Plato, who was able to interpret the oracle as the mathematical problem of doubling the volume of a given cube, thus explaining the oracle as the advice of Apollo for the citizens of Delos to occupy themselves with the study of geometry and mathematics in order to calm down their passions.
+
+*** Menaechmun(380-320 BC)
+- Plato later gave the problem to Menaechmus, who solved the problem parabola and hyperbola.
+- However, Plato did not approve this solution since it uses more than compass and ruler
+- Doubling the cube, squaring the circle and trisecting the angle are three ancient Greek geometry problems that attracts numerous mathematicians.
+- The first impossibility result of solving these problems using compass and ruler was given by French mathematician Pierre Wantzel using Field theory.
+- Essentially the proof relies on the fact that $3$ cannot divide $2^n$.
+
+*** Archimedes (287-212 BC)
+- Archimedes wrote the book /The Quadrature of the Parabola/ as a letter to his friends.
+- The book contains 24 propositions regarding parabolas, the most famous of them is a formula of the area enclosed by a parabola and a line.
+https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Parabolic_Segment.svg/583px-Parabolic_Segment.svg.png
+- This represents the most sophisticated use of the method of exhaustion in ancient mathematics, and remained unsurpassed until the development of calculus in the 17th century.
+- He used parabolic mirrors to reflect the sunlight to burn Roman ship during the Siege of Syracuse, which is a part of the Second Punic War.
+https://upload.wikimedia.org/wikipedia/commons/8/80/Archimedes-Mirror_by_Giulio_Parigi.jpg
+- However, he was eventually killed by Roman soldier when the city was captured.
+
+*** Apollonius (late 3rd – early 2nd centuries BC)
+- Known as the "Great Geometer" on the basis of his text /Conics/
+- Of its eight books, only the first four have a credible claim to descent from the original texts of Apollonius
+- Books 5-7 have been translated from the Arabic into Latin. The original Greek has been lost. 
+- Whether Apollonius finished Book 8 is unknown.
+- Contains 387 propositions of conics sections.
+- He is the one to give the name ellipse, parabola, and hyperbola
+- The next advancement in the study of conic sections would be the invention of analytic geometry 1800 years later.
+
+*** Renaissance Period
+- In 1605, Kepler discovered the elliptic orbit of Mars revolving around the sun.
+- In 1609, he published his first law of planetary motion: The orbit of a planet is an *ellipse* with the Sun at one of the two *foci*.
+- In 1637, Descartes invented analytic geometry in his work /La Géométrie/.
+- In 1655, John Wallis published a treatise on conic sections to first define the curves using quadratic equations.
+- In 1748, Euler published his work /Introductio in analysin infinitorum/, establishing the polar form of conic sections.
+
+* Definition
+
+** Conic Sections
+
+- A conic is the curve obtained as the intersection of a plane, called the *cutting plane*, with the surface of a double cone.
+- There are three types of non-degenerate conics, the ellipse, parabola, and hyperbola. 
+- The ellipse arise when the intersection of the cone and plane is a closed curve.
+- The circle is a special kind of ellipse. It is obtained when the cutting plane is perpendicular to the symmetry axis of the cone.
+- If the cutting plane is parallel to exactly one generating line of the cone, then the conic is unbounded and is called a parabola.
+- In the remaining case, the figure is a hyperbola. In this case, the plane will intersect both halves of the cone, producing two separate unbounded curves.
+https://upload.wikimedia.org/wikipedia/commons/1/11/Conic_Sections.svg
+- Planes that pass through the vertex of the cone will intersect the cone in a point, a line or a pair of intersecting lines. These are called degenerate conics.
+- When we say conic sections, we will mean non-degenerate conics if without further notice. 
+
+** Directrix, focus and eccentricity, polar form
+
+** Quadratic equations
+
+* Parabola
+** Archimedes area of the parabola
+** Reflective property
+** Spinning Liquid
+** Bezier Curve
+** Trajectory
