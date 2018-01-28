@@ -22,8 +22,6 @@ from numpy import convolve as conv
 
 #+RESULTS:
 
-* Conic Sections
-
 * A Brief History of Conic Sections
 *** Doubling the Cube
 https://upload.wikimedia.org/wikipedia/commons/d/db/Cube_and_doubled_cube.svg
@@ -68,22 +66,395 @@ https://upload.wikimedia.org/wikipedia/commons/8/80/Archimedes-Mirror_by_Giulio_
 ** Conic Sections
 
 - A conic is the curve obtained as the intersection of a plane, called the *cutting plane*, with the surface of a double cone.
+https://upload.wikimedia.org/wikipedia/commons/1/11/Conic_Sections.svg
 - There are three types of non-degenerate conics, the ellipse, parabola, and hyperbola. 
 - The ellipse arise when the intersection of the cone and plane is a closed curve.
 - The circle is a special kind of ellipse. It is obtained when the cutting plane is perpendicular to the symmetry axis of the cone.
 - If the cutting plane is parallel to exactly one generating line of the cone, then the conic is unbounded and is called a parabola.
 - In the remaining case, the figure is a hyperbola. In this case, the plane will intersect both halves of the cone, producing two separate unbounded curves.
-https://upload.wikimedia.org/wikipedia/commons/1/11/Conic_Sections.svg
 - Planes that pass through the vertex of the cone will intersect the cone in a point, a line or a pair of intersecting lines. These are called degenerate conics.
 - When we say conic sections, we will mean non-degenerate conics if without further notice. 
 
-** Directrix, focus and eccentricity, polar form
+** Directrix, Focus and Eccentricity 
+
+- A conic section is the locus of all points $P$ whose distance to a fixed point $F$ (called the *focus*) is a constant multiple (called the *eccentricity*, $e$) of the distance from $P$ to a fixed line $L$ (called the *directrix* of the conic).
+- Suppose that the focus $F$ is at $(0,0)$ and the line $L$ is $x = a$, then the polar form of the conic section is $$ r = \frac{ae}{1+e\cos\theta}$$
+#+BEGIN_SRC ipython :session :file assets/polar.svg :exports results
+  %%tikz -s 400,400 -f svg -S assets/polar.svg
+  \foreach \ang in {0,...,31} {
+    \draw [lightgray] (0,0) -- (\ang * 180 / 16:4);
+  }
+
+  \foreach \s in {0, 1, 2, 3} {
+    \draw [lightgray] (0,0) circle (\s + 0.5);
+    \draw [lightgray] (0,0) circle (\s);
+  }
+
+  \foreach \ang/\lab/\dir in {
+    0/0/right,
+    1/{\pi/4}/{above right},
+    2/{\pi/2}/above,
+    3/{3\pi/4}/{above left},
+    4/{\pi}/left,
+    5/{5\pi/4}/{below left},
+    7/{7\pi/4}/{below right},
+    6/{3\pi/2}/below} {
+    \draw [lightgray] (0,0) -- (\ang * 180 / 4:4.1);
+    \node [fill=white] at (\ang * 180 / 4:4.2) [\dir] {\scriptsize $\lab$};
+  }
+
+  \draw [style=double] (0,0) circle (4);
+
+  \draw [thick,red] (1,-4)--(1,4);
+
+  \draw [thick, blue, domain=-2.4:2.4, samples=200, smooth]
+    plot (xy polar cs:angle=\x r, radius={1/(1+cos(\x r))});
+
+
+  \node [inner sep=0, outer sep=0, label=270:$F$] (F) at (0,0) {}; 
+  \fill [black] (F) circle (1pt); 
+
+  \node [inner sep=0, outer sep=0, label=90:$P$] (P) at (120:2) {}; 
+  \fill [black] (P) circle (1pt); 
+
+  \node (O) at (1,0){};
+  \node [inner sep=0, outer sep=0, label=0:$P'$] (PP) at (P-|O) {}; 
+  \fill [black] (PP) circle (1pt); 
+
+  \draw [semithick] (F)--node [anchor=north east] {$r$} (P)--(PP);
+  \draw [semithick,->] (0.2,0) arc (0:120:0.2) node[midway,anchor=225]{$\theta$};
+
+  \draw  (-4,0) -- (4,0);
+  \draw  (0,-4) -- (0,4);
+
+  \draw [dashed] (P)--(P|-F);
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/polar.svg]]
+
+
+- For $0 < e < 1$ we obtain an ellipse, for $e = 1$ a parabola, and for $e > 1$ a hyperbola.
+- The circle will be the limit case where $e = 0$.
+- You can check this [[https://www.desmos.com/calculator/ycikqn2pqa][interactive example]].
 
 ** Quadratic equations
 
+*** Ellipse 
+- The standard form of a ellipse is $$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1,\,a> b.$$
+- The foci are at $(\pm c,0)$, where $c = \sqrt{a^2-b^2}$.
+- The eccentricity is $e = c/a$ and the lines $x = \pm a/e$ are the directrices.
+ 
+#+BEGIN_SRC ipython :session :file assets/ellipse.svg :exports results
+  %%tikz -s 600,400 -f svg -S assets/ellipse.svg
+  \draw[->] (-7,0) -- (7.5,0) node[right] {$x$};
+  \draw[->] (0,-4) -- (0,4) node[above] {$y$};
+  \draw[domain=0:2*pi, samples=200,smooth,variable=\t,blue,thick] plot ({5*cos(\t r)},{3*sin(\t r)});
+  \draw [dashed,semithick,red] (6.25,-4)-- node [fill=white]{Directrix}(6.25,4);
+  \draw [dashed,semithick,red] (-6.25,-4)--node [fill=white]{Directrix}(-6.25,4);
+
+  \node [inner sep=0, outer sep=0, label=45:Center] (O) at (0,0) {}; 
+  \fill [black] (O) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=90:Focus] (F1) at (4,0) {}; 
+  \fill [black] (F1) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=90:Focus] (F2) at (-4,0) {}; 
+  \fill [black] (F2) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=90:Vertex] (V2) at (-5,0) {}; 
+  \fill [black] (V2) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=90:Vertex] (V1) at (5,0) {}; 
+  \fill [black] (V1) circle (2pt); 
+
+  \node (major) at (-2,1) {Major Axis};
+  \draw [->,thick] (major)--(-2,0);
+
+  \node (minor) at (2,-1) {Minor Axis};
+  \draw [->,thick] (minor)--(0,-1);
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/ellipse.svg]]
+
+
+*** Parabola
+- The standard form of a parabola is $$y^2 = 4ax,\,a > 0$$.
+- The focus is at $(a,0)$
+- The line $x = -a$ is the directrix.
+#+BEGIN_SRC ipython :session :file assets/parabola.svg :exports results
+  %%tikz -s 400,400 -f svg -S assets/parabola.svg
+  \draw[->] (-2,0) -- (4,0) node[right] {$x$};
+  \draw[->] (0,-4) -- (0,4) node[above] {$y$};
+  \draw[domain=0:2, samples=200,smooth,variable=\t,blue,thick] plot ({\t*\t},{2*\t)});
+  \draw[domain=0:2, samples=200,smooth,variable=\t,blue,thick] plot ({\t*\t},{-2*\t)});
+  \draw [dashed,semithick,red] (-1,-4)-- node [fill=white]{Directrix}(-1,4);
+
+
+  \node [inner sep=0, outer sep=0, label=90:Focus] (F) at (1,0) {}; 
+  \fill [black] (F) circle (2pt); 
+
+
+  \node [inner sep=0, outer sep=0, label=90:Vertex] (V) at (0,0) {}; 
+  \fill [black] (V) circle (2pt); 
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/parabola.svg]]
+
+
+*** Hyperbola
+- The standard form of a hyperbola is $$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$$.
+- 
+#+BEGIN_SRC ipython :session :file assets/hyperbola.svg :exports results
+  %%tikz -s 400,400 -f svg -S assets/hyperbola.svg
+  \draw[->] (-6,0) -- (6,0) node[right] {$x$};
+  \draw[->] (0,-5) -- (0,5) node[above] {$y$};
+  \draw[domain=-1:1, samples=200,smooth,variable=\t,blue,thick] plot ({3*cosh(\t)},{4*sinh(\t)});
+  \draw[domain=-1:1, samples=200,smooth,variable=\t,blue,thick] plot ({-3*cosh(\t)},{4*sinh(\t)});
+  \draw [dashed,semithick,red] (-1.8,-4)-- node [fill=white]{Directrix}(-1.8,4);
+  \draw [dashed,semithick,red] (1.8,-4)-- node [fill=white]{Directrix}(1.8,4);
+
+  \node [inner sep=0, outer sep=0, label=270:Focus] (F) at (5,0) {}; 
+  \fill [black] (F) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=90:Vertex] (V) at (3,0) {}; 
+  \fill [black] (V) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=270:Focus] (F0) at (-5,0) {}; 
+  \fill [black] (F0) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=90:Vertex] (V0) at (-3,0) {}; 
+  \fill [black] (V0) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=45:Center] (O) at (0,0) {}; 
+  \fill [black] (O) circle (2pt); 
+
+  \node (major) at (-4,1) {Major Axis};
+  \draw [->,thick] (major)--(-4,0);
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/hyperbola.svg]]
+
+*** General Quadratic Equation
+- Consider a general quadratic equation $$Ax^2+Bxy+Cy^2+Dx+Ey+F = 0$$.
+- This will represent a conic section that has been rotated and translated from the standard form.
+- We can get the standard form:
+  - rotate the graph such that the major axis is the $x$ axis.
+  - translate the graph such that the center (or vertex for parabola) is the origin
+- An easier way is to use invariants.
+#+BEGIN_SRC ipython :session :file assets/quadratic.svg :exports results
+  %%tikz -s 600,400 -f svg -S assets/quadratic.svg
+  \draw[->] (-5,0) -- (6,0) node[right] {$x$};
+  \draw[->] (0,-4) -- (0,4) node[above] {$y$};
+
+  \begin{scope}[rotate around={30:(0,0)}]
+  \draw[domain=0:2*pi, samples=200,smooth,variable=\t,blue,thick] plot ({5*cos(\t r)+1},{3*sin(\t r)});
+  \draw [dashed, blue](-4,0)--(6,0);
+  \draw [dashed, blue](1,-3)--(1,3);
+  \end{scope}
+
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/quadratic.svg]]
+
+
+*** Invariants
+- Suppose we are given $$Ax^2+Bxy+Cy^2+Dx+Ey+F = 0$$
+- We can write down any point $P = (x,y)$ in the $xy$ plane with the new coordinate $(x',y')$ in the $x'y'$ plane $$x' = \cos \theta x + \sin \theta y + x_0,\,y' = -\sin\theta x + \cos\theta y + y_0.$$
+- As a result, the quadratic equation can be changed into $$A'(x')^2 + B' x' y' + C' (y')^2 + D'x'+E'y' + F'=0$$.
+- What we can prove is that the following quantities remains constant, regardless of $\theta$, $x_0$ and $y_0$:
+  - $\Delta_1 = A+C$
+  - $\Delta_2 = AC-B^2/4$
+  - $\Delta_3 = ACF + BDE/4 − AE^ 2 /4− CD^2/4− FB^2/4$
+
+#+BEGIN_SRC ipython :session :file assets/rotation.svg :exports results
+  %%tikz -s 600,400 -f svg -S assets/rotation.svg
+  \draw[->] (-2,0) -- (4,0) node[right] {$x$};
+  \draw[->] (0,-2) -- (0,4) node[above] {$y$};
+q
+  \begin{scope}[rotate around={30:(0,0)}]
+  \draw[->] (-2,1) -- (4,1) node[right] {$x'$};
+  \draw[->] (1,-2) -- (1,4) node[above] {$y'$};
+  \draw[dashed] (30:4)-|(1,1);
+  \draw[dashed] (30:4)|-(1,1);
+  \end{scope}
+
+\draw [dashed] (60:4)-|(0,0);
+\draw [dashed] (60:4)|-(0,0);
+
+  \node [inner sep=0, outer sep=0, label=45:$P$] (P) at (60:4) {}; 
+  \fill [black] (P) circle (2pt); 
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/rotation.svg]]
+
+*** Determine the Standard Form when $\Delta_2 \neq 0$
+- We assume that $\Delta_3 \neq 0$.
+- If $\Delta_2 \neq 0$, then we assume that the quadratic equation can be rewritten as either an ellipse or hyperbola $$A'(x')^2 + C' (y')^2 + F' = 0.$$
+- By invariance, we have the following equations:
+  - $A'+C' = A+C$
+  - $A'C' = AC-B^2/4$
+  - $A'C'F' = ACF + BDE/4 − AE^ 2 /4− CD^2/4− FB^2/4$
+- The first 2 equations implies that $A'$ and $C'$ are the roots of the following polynomial $$x^2 - \Delta_1 x + \Delta_2.$$
+- After determining $A'$, $C'$ and $F'$, we can arrive at the standard form.
+- For example, consider the following quadratic equation $$x^2- 6xy+y^2+2x-16y+8 = 0.$$
+- We get $\Delta_1 = 1+1 = 2$, $\Delta_2 = 1 - 36/4 = -8$, $\Delta_3 = -81$.
+- Therefore, we conclude $A' = 2$, $C' = -4$, $F' = 10.125$.
+- The standard form is a hyperbola: $$\frac{(x')^2}{5.0625}-\frac{(y')^2}{2.53125}=1.$$ 
+*** Determine the Standard Form when $\Delta_2 = 0$
+- If $\Delta_2 = 0$, then we assume the quadratic equation can be rewritten as a parabola $$C'(y')^2 + D'x' = 0$$.
+- By invariance, we have the following equations:
+  - $C' = A+C$
+  - $C'(D')^2/4 = ACF + BDE/4 − AE^ 2 /4− CD^2/4− FB^2/4$
+
 * Parabola
-** Archimedes area of the parabola
-** Reflective property
+** Reflective Property
+#+BEGIN_SRC ipython :session :file assets/parabolachord.svg :exports results
+  %%tikz -s 400,400 -f svg -S assets/parabolachord.svg
+  \draw[->] (-2,0) -- (4,0) node[right] {$x$};
+  \draw[->] (0,-4) -- (0,4.5) node[above] {$y$};
+  \draw[domain=0:2.1, samples=200,smooth,variable=\t,blue,thick] plot ({\t*\t},{2*\t)});
+  \draw[domain=0:2.1, samples=200,smooth,variable=\t,blue,thick] plot ({\t*\t},{-2*\t)});
+  \draw [semithick,red] (-1,-4)-- (-1,4);
+
+
+  \node [inner sep=0, outer sep=0, label=270:$F$] (F) at (1,0) {}; 
+  \fill [black] (F) circle (2pt); 
+
+
+  \node [inner sep=0, outer sep=0, label=90:$P$] (P) at (4,4) {}; 
+  \fill [black] (P) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=90:$Q$] (Q) at (1,2) {}; 
+  \fill [black] (Q) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=180:$P'$] (PP) at (-1,4) {}; 
+  \fill [black] (PP) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=180:$Q'$] (QQ) at (-1,2) {}; 
+  \fill [black] (P) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=180:$K$] (K) at (-1,0.66667) {}; 
+  \fill [black] (K) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=180:$J$] (J) at (-1,-2.66667) {}; 
+  \fill [black] (J) circle (2pt); 
+
+  \draw (P)--(K)--(F)--(Q)--(QQ);
+  \draw (PP)--(P)--(F)--(J);
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/parabolachord.svg]]
+
+- Since $\triangle KPP'$ and $\triangle KQQ'$ are similar, we have $$\frac{KQ}{QQ'} = \frac{KP}{KP'}.$$
+- Furthermore, from the definition of parabola, $FQ = QQ'$ and $FP = PP'$. As a result, $$\frac{KQ}{FQ} = \frac{KP}{FP}$$
+- In the $\triangle KFP$, using the sine rule, we get $$\frac{\sin\angle KFP}{KP} = \frac{\sin\angle PKF}{FP}$$
+- In the $\triangle KFQ$, using the sine rule, we get $$\frac{\sin\angle KFQ}{KQ} = \frac{\sin\angle PKF}{FQ}$$
+- Therefore, we get $\sin \angle KFP = \sin \angle KFQ$. However, $\sin \angle KFP = \sin \angle KFJ$, which implies that $KF$ bisects $\angle JFQ$.
+
+#+BEGIN_SRC ipython :session :file assets/parabolatangent.svg :exports results
+  %%tikz -s 400,400 -f svg -S assets/paraboltangent.svg
+  \draw[->] (-2,0) -- (4,0) node[right] {$x$};
+  \draw[->] (0,-4) -- (0,4.5) node[above] {$y$};
+  \draw[domain=0:2.1, samples=200,smooth,variable=\t,blue,thick] plot ({\t*\t},{2*\t)});
+  \draw[domain=0:2.1, samples=200,smooth,variable=\t,blue,thick] plot ({\t*\t},{-2*\t)});
+  \draw [semithick,red] (-1,-4)-- (-1,4);
+
+
+  \node [inner sep=0, outer sep=0, label=270:$F$] (F) at (1,0) {}; 
+  \fill [black] (F) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=90:$P$] (P) at (4,4) {}; 
+  \fill [black] (P) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=180:$P'$] (PP) at (-1,4) {}; 
+  \fill [black] (PP) circle (2pt); 
+
+
+  \node [inner sep=0, outer sep=0, label=180:$K$] (K) at (-1,1.5) {}; 
+  \fill [black] (K) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=180:$J$] (J) at (-1,-2.66667) {}; 
+  \fill [black] (J) circle (2pt); 
+
+  \draw (F)--(K)--(P)--(PP);
+  \draw (P)--(J);
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/parabolatangent.svg]]
+
+- Now consider the case where $Q\rightarrow P$. The line $KP$ will converge to the tangent line at $P$.
+- We can conclude that $\angle KFP = 90^\circ$.
+- Furthermore, $FP = PP'$.
+- Hence, $\triangleq KPP'$ and $\triangleq KPF$ are congruent.
+- The tangent line $KP$ bisects the angle $\angle P'PF$.
+
+#+BEGIN_SRC ipython :session :file assets/parabolareflect.svg :exports results
+  %%tikz -s 400,400 -f svg -S assets/parabolreflect.svg
+  \draw[->] (-2,0) -- (5,0) node[right] {$x$};
+  \draw[->] (0,-4) -- (0,4.5) node[above] {$y$};
+  \draw[domain=0:2.1, samples=200,smooth,variable=\t,blue,thick] plot ({\t*\t},{2*\t)});
+  \draw[domain=0:2.1, samples=200,smooth,variable=\t,blue,thick] plot ({\t*\t},{-2*\t)});
+  \draw [semithick,red] (-1,-4)-- (-1,4);
+
+  \node [inner sep=0, outer sep=0, label=270:$F$] (F) at (1,0) {}; 
+  \fill [black] (F) circle (2pt); 
+
+  \foreach \s in {0.5, 1, 1.5, 2} {
+    \draw [black!60] (F) -- (\s*\s,2*\s)--(5,2*\s);
+    \draw [black!60] (F) -- (\s*\s,-2*\s)--(5,-2*\s);
+  }
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/parabolareflect.svg]]
+
+
+- If a reflecting material is formed in the shape of a parabola and a small light bulb is placed at its focus, then the rays of light moving away from the bulb will all reflect out in parallel lines, forming a narrow beam.
+- Flashlights, automobile headlights, and searchlights are all built on this principle.
+
+- The reverse of the reflection property of parabolas is if parallel rays of light enter a parabolic reflector, they will all be reflected and converge at the focus.
+- This principle has been used to collect rays of the Sun to heat water in a pipe, as in roof-top solar collectors, or even for cooking.
+ https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX9-inQfH82Li1vkfvoXGsp5miyGZ8g_pLweHxfFVq8HSIIWSvlw
+- It has also been used to collect sound waves or radio wave.
 ** Spinning Liquid
-** Bezier Curve
-** Trajectory
+- Suppose we have a bucket of liquid that is spinning at an angular speed $\omega$.
+- Let we look at a parcel of liquid material on the surface of the liquid, distance $r$ away from the axis of rotation.
+- We know that its gravity is $mg$ and the centripetal force is $m\omega^2 r$.
+- Therefore, we can compute the buoyancy force, which is perpendicular to the surface of the liquid.
+- As a result, the tangent of the surface at the current point is $$\frac{dh}{dr} = \frac{m\omega ^2 r}{mg} = \frac{\omega^2}{g}r.$$
+- By integration, we can get the curve for the surface to be a parabola: $$h = \frac{\omega^2}{2g}r^2.$$
+#+BEGIN_SRC ipython :session :file assets/spinningliquid.svg :exports results
+%%tikz -s 400,400 -f svg -S assets/spinningliquid.svg
+\fill[lightgray] (-4,1) rectangle (4,-1);
+\fill[white,domain=-4:4, samples=200,smooth,variable=\t] plot ({\t},{\t*\t/16)});
+\draw[->] (-5,0) -- (5,0) node[right] {$r$};
+\draw[->] (0,-2) -- (0,3) node[above] {$h$};
+
+\draw [semithick,->] (2,0.25)--(2,-1.75);
+\node [anchor=90] at (2,-1.75) {$G$};
+
+\draw [semithick,->] (2,0.25)--(1.5,2.25);
+\node [anchor=270] at (1.5,2.25) {$B$};
+
+\draw [dashed] (2,-1.75)--(1.5,0.25)-- (1.5,2.25);
+\draw [semithick, ->] (2,0.25)--(1.5,0.25) ;
+\node [anchor=0] at (1.5,0.25) {$F$};
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/spinningliquid.svg]]
+
+*** Liquid Mirror Telescope
+https://upload.wikimedia.org/wikipedia/commons/c/c3/Liquid_Mirror_Telescope.jpg
+- We can use this fact to create telescope made of liquid.
+- This can reduce the cost of the telescope to $1\%$.
+- However, the telescope can only point upward.
+
