@@ -22,7 +22,7 @@ from numpy import convolve as conv
 
 #+RESULTS:
 
-* A Brief History of Conic Sections
+*** A Brief History of Conic Sections
 *** Doubling the Cube
 https://upload.wikimedia.org/wikipedia/commons/d/db/Cube_and_doubled_cube.svg
 - The citizens of Delos consulted the oracle at Delphi, seeking a solution for their internal political problems at the time, which had intensified relationships among the citizens. 
@@ -61,9 +61,9 @@ https://upload.wikimedia.org/wikipedia/commons/8/80/Archimedes-Mirror_by_Giulio_
 - In 1655, John Wallis published a treatise on conic sections to first define the curves using quadratic equations.
 - In 1748, Euler published his work /Introductio in analysin infinitorum/, establishing the polar form of conic sections.
 
-* Definition
+*** Definition of Conic Curves
 
-** Conic Sections
+*** Conic Sections
 
 - A conic is the curve obtained as the intersection of a plane, called the *cutting plane*, with the surface of a double cone.
 https://upload.wikimedia.org/wikipedia/commons/1/11/Conic_Sections.svg
@@ -75,7 +75,7 @@ https://upload.wikimedia.org/wikipedia/commons/1/11/Conic_Sections.svg
 - Planes that pass through the vertex of the cone will intersect the cone in a point, a line or a pair of intersecting lines. These are called degenerate conics.
 - When we say conic sections, we will mean non-degenerate conics if without further notice. 
 
-** Directrix, Focus and Eccentricity 
+*** Directrix, Focus and Eccentricity 
 
 - A conic section is the locus of all points $P$ whose distance to a fixed point $F$ (called the *focus*) is a constant multiple (called the *eccentricity*, $e$) of the distance from $P$ to a fixed line $L$ (called the *directrix* of the conic).
 - Suppose that the focus $F$ is at $(0,0)$ and the line $L$ is $x = a$, then the polar form of the conic section is $$ r = \frac{ae}{1+e\cos\theta}$$
@@ -138,7 +138,7 @@ https://upload.wikimedia.org/wikipedia/commons/1/11/Conic_Sections.svg
 - The circle will be the limit case where $e = 0$.
 - You can check this [[https://www.desmos.com/calculator/ycikqn2pqa][interactive example]].
 
-** Quadratic equations
+*** Quadratic equations
 
 *** Ellipse 
 - The standard form of a ellipse is $$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1,\,a> b.$$
@@ -312,8 +312,8 @@ q
   - $C' = A+C$
   - $C'(D')^2/4 = ACF + BDE/4 − AE^ 2 /4− CD^2/4− FB^2/4$
 
-* Parabola
-** Reflective Property
+*** Parabola
+*** Reflective Property
 #+BEGIN_SRC ipython :session :file assets/parabolachord.svg :exports results
   %%tikz -s 400,400 -f svg -S assets/parabolachord.svg
   \draw[->] (-2,0) -- (4,0) node[right] {$x$};
@@ -424,7 +424,7 @@ q
 - This principle has been used to collect rays of the Sun to heat water in a pipe, as in roof-top solar collectors, or even for cooking.
  https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX9-inQfH82Li1vkfvoXGsp5miyGZ8g_pLweHxfFVq8HSIIWSvlw
 - It has also been used to collect sound waves or radio wave.
-** Spinning Liquid
+*** Spinning Liquid
 - Suppose we have a bucket of liquid that is spinning at an angular speed $\omega$.
 - Let we look at a parcel of liquid material on the surface of the liquid, distance $r$ away from the axis of rotation.
 - We know that its gravity is $mg$ and the centripetal force is $m\omega^2 r$.
@@ -457,4 +457,109 @@ https://upload.wikimedia.org/wikipedia/commons/c/c3/Liquid_Mirror_Telescope.jpg
 - We can use this fact to create telescope made of liquid.
 - This can reduce the cost of the telescope to $1\%$.
 - However, the telescope can only point upward.
+
+*** Bezier Curve
+*** Linear Bezier Curve
+- How to draw a curve connecting two point $P_0=(x_0,y_0)$ and $P_1=(x_1,y_1)$?
+- The easiest way is to draw a line segment connecting the two points.
+- The segment will satisfy the following parametric equations: $$x = (1-t)x_0+tx_1,\,y=(1-t)y_0+ty_1.$$
+- Or simply $P = (1-t)P_0 + tP_1$.
+- This is called a [[https://www.desmos.com/calculator/1pw4sv1iox][linear Bezier curve]].
+
+
+*** Quadratic Bezier Curve
+- What if we want to connect the two point $P_0$ and $P_2$, while controlling the direction of the curve at $P_0$ and $P_2$?
+- We need to use [[https://www.desmos.com/calculator/j3shfjmzt3][quadratic Bezier curve]].
+- Find $Q_0$ on the linear Bezier curve from $P_0$ to $P_1$: $$Q_0(t) = (1-t)P_0+tP_1.$$
+- Find $Q_1$ on the linear Bezier curve from $P_1$ to $P_2$: $$Q_1(t) = (1-t)P_1+tP_2.$$
+- Find $R$ on the linear Bezier curve from $Q_0$ to $Q_1$: $$R(t) = (1-t)Q_0(t)+tQ_1(t) = (1-t)^2 P_0 + 2t(1-t)P_1 + t^2 P_2.$$
+- The derivative of $R(t)$ is $$\frac{dR(t)}{dt} = 2(1-t)(P_1-P_0)+2t(P_2-P_1).$$
+- We can choose $P_1$, so that the Bezier curve has the desired derivative at $P_0$ and $P_2$.
+
+*** Quadratic Bezier Curve is a Parabola 
+- Suppose after rotation and translation, we have $$P_0 = (0,0),\,P_1 = (a,b),\,P_2 = (c,0).$$
+- Then the quadratic Bezier curve is given by the parametric equation $$x =  2t(1-t)a + t^2 c,\,y = 2t(1-t)b.$$
+- By eliminating $t$, we get the following quadratic equation: $$4b^2x^2 + 4b(c-2a)xy+(c-2a)^2y^2-4b^2cx+4abcy = 0.$$
+- Prove it is indeed a parabola.
+#+BEGIN_SRC ipython :session :file assets/quadraticbezier.svg :exports results
+%%tikz -s 400,400 -f svg -S assets/quadraticbezier.svg
+
+\draw[->] (0,0) -- (4.5,0) node[right] {$x$};
+\draw[->] (0,0) -- (0,3.5) node[above] {$y$};
+\node [inner sep=0, outer sep=0, label=225:$P_0$] (A) at (0,0) {}; 
+\fill [black] (A) circle (2pt); 
+
+\node [inner sep=0, outer sep=0, label=90:$P_1$] (B) at (1,3) {}; 
+\fill [black] (B) circle (2pt); 
+
+\node [inner sep=0, outer sep=0, label=270:$P_2$] (C) at (4,0) {}; 
+\fill [black] (C) circle (2pt); 
+
+\draw [dashed] (A)--(B)--(C);
+\draw [blue,domain=0:1, samples=200,smooth,variable=\t] plot ({2*\t*(1-\t)*1+\t*\t*4},{2*\t*(1-\t)*3});
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/quadraticbezier.svg]]
+
+
+
+*** Application of Bezier Curve
+- Computer Aid Design (CAD): designing the shape of a car
+- Computer Animation
+- Fonts
+https://developer.apple.com/fonts/TrueType-Reference-Manual/RM01/fig05.gif
+
+*** Trajectory of a Projectile
+- Galileo showed that the path of a projectile follows a parabola, if air resistance is negligible.
+https://upload.wikimedia.org/wikipedia/commons/4/4e/ParabolicWaterTrajectory.jpg
+- The trajectory will follow the following differential equations
+  - $a_x = 0$, with $v_x(0) = v_0 \cos\theta$ and $x(0) = 0$.
+  - $a_y = -g$, with $v_y(0) = v_0\sin\theta$ and $y(0) = 0$.
+- At time $t$, the position of the projectile $$x(t) = v_0\cos\theta t,\,y(t) = v_0\sin\theta t - \frac{1}{2}gt^2. $$
+- Eliminating $t$, we can get the parabola $$y = \tan \theta x - \frac{g}{2v_0^2\cos^2\theta}x^2.$$
+
+#+BEGIN_SRC ipython :session :file assets/projectile.svg :exports results
+%%tikz -s 400,400 -f svg -S assets/projectile.svg
+\draw [blue,domain=0:4, samples=200,smooth,variable=\t] plot ({\t},{2*\t-\t*\t/1.5)});
+\draw[->] (0,0) -- (5,0) node[right] {$x$};
+\draw[->] (0,-3) -- (0,2) node[above] {$y$};
+\draw[->] (0,0)--(1/2,1)node [anchor=270] {$v_0$};
+\draw [->] (0.5,0) arc (0:63.4:0.5) node[midway,anchor=210] {$\theta$};
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/spinningliquid.svg]]
+
+*** Maximum Height
+- Suppose the initial speed $v_0$ is fixed.
+- For a given angle $\theta$, since $y(t) = v_0\sin \theta t - \frac{1}{2}gt^2$, the maximum height is achieved at the following time $$t_* =\frac{ v_0\sin \theta }{g}.$$
+- The corresponding height is $$y(t_*) = \frac{v_0^2\sin^2\theta}{2g}.$$
+- To achieve maximum height among all possible angles, we should aim $v_0$ upward, i.e., $\theta = 90^\circ$. This gives a maximum height of $$h_* = \frac{v_0^2}{2g}.$$
+
+*** Horizontal Range
+- Suppose the initial speed $v_0$ is fixed.
+- For a given angle $\theta$, the trajectory of the projectile follows the following parabola:
+$$y = \tan \theta x - \frac{g}{2v_0^2\cos^2\theta}x^2 = x \left(\tan \theta - \frac{g}{2v_0^2\cos^2\theta}x\right).$$
+- Therefore, the horizontal range of the projectile is $$d = \frac{2v_0^2\cos^2\theta\tan\theta}{g} = \frac{v_0^2}{g}\sin 2\theta.$$
+- The maximum horizontal distance is achieved when $\theta = 45^\circ$, and $$d_* = \frac{v_0^2}{g}.$$
+
+*** Safety Envelop
+- Given an initial speed $v_0$, the safety envelop is the boundary between the points that can be hit by a projectile and the points that cannot be hit.
+- It can be proved that the safety envelop is a parabola, passing through $(0,h_*)$ and $(\pm d_*,0)$: $$y-\frac{v_0^2}{2g} = -\frac{g}{2v_0^2}x^2.$$
+- You can check this [[https://www.desmos.com/calculator/ogtqe8jecy][interactive example]].
+- The technique is called calculus of variation, and was developed by Bernoulli and Euler.
+
+#+BEGIN_SRC ipython :session :file assets/parabolaenvelop.svg :exports results
+  %%tikz -s 400,400 -f svg -S assets/parabolaenvelop.svg
+  \foreach \ang in {4,...,12} {
+    \draw [blue,domain=0:4, samples=200,smooth,variable=\t] plot ({2*\t*cos(\ang * 180 / 16)},{2*\t*sin(\ang * 180 / 16)-\t*\t/2)});
+  }
+\draw [red,domain=-5.5:5.5, samples=200,smooth,variable=\t, thick] plot ({\t},{2-\t*\t/8});
+  \draw[->] (-5,0) -- (5,0) node[right] {$x$};
+  \draw[->] (0,-3) -- (0,3) node[above] {$y$};
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/parabolaenvelop.svg]]
 
