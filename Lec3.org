@@ -22,7 +22,7 @@ from numpy import convolve as conv
 
 #+RESULTS:
 
-*** A Brief History of Conic Sections
+* A Brief History of Conic Sections
 *** Doubling the Cube
 https://upload.wikimedia.org/wikipedia/commons/d/db/Cube_and_doubled_cube.svg
 - The citizens of Delos consulted the oracle at Delphi, seeking a solution for their internal political problems at the time, which had intensified relationships among the citizens. 
@@ -61,9 +61,9 @@ https://upload.wikimedia.org/wikipedia/commons/8/80/Archimedes-Mirror_by_Giulio_
 - In 1655, John Wallis published a treatise on conic sections to first define the curves using quadratic equations.
 - In 1748, Euler published his work /Introductio in analysin infinitorum/, establishing the polar form of conic sections.
 
-*** Definition of Conic Curves
+* Definition of Conic Curves
 
-*** Conic Sections
+** Conic Sections
 
 - A conic is the curve obtained as the intersection of a plane, called the *cutting plane*, with the surface of a double cone.
 https://upload.wikimedia.org/wikipedia/commons/1/11/Conic_Sections.svg
@@ -75,7 +75,7 @@ https://upload.wikimedia.org/wikipedia/commons/1/11/Conic_Sections.svg
 - Planes that pass through the vertex of the cone will intersect the cone in a point, a line or a pair of intersecting lines. These are called degenerate conics.
 - When we say conic sections, we will mean non-degenerate conics if without further notice. 
 
-*** Directrix, Focus and Eccentricity 
+** Directrix, Focus and Eccentricity 
 
 - A conic section is the locus of all points $P$ whose distance to a fixed point $F$ (called the *focus*) is a constant multiple (called the *eccentricity*, $e$) of the distance from $P$ to a fixed line $L$ (called the *directrix* of the conic).
 - Suppose that the focus $F$ is at $(0,0)$ and the line $L$ is $x = a$, then the polar form of the conic section is $$ r = \frac{ae}{1+e\cos\theta}$$
@@ -138,7 +138,7 @@ https://upload.wikimedia.org/wikipedia/commons/1/11/Conic_Sections.svg
 - The circle will be the limit case where $e = 0$.
 - You can check this [[https://www.desmos.com/calculator/ycikqn2pqa][interactive example]].
 
-*** Quadratic equations
+** Quadratic equations
 
 *** Ellipse 
 - The standard form of a ellipse is $$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1,\,a> b.$$
@@ -180,7 +180,7 @@ https://upload.wikimedia.org/wikipedia/commons/1/11/Conic_Sections.svg
 
 
 *** Parabola
-- The standard form of a parabola is $$y^2 = 4ax,\,a > 0$$.
+- The standard form of a parabola is $$y^2 = 4ax,\,a > 0.$$
 - The focus is at $(a,0)$
 - The line $x = -a$ is the directrix.
 #+BEGIN_SRC ipython :session :file assets/parabola.svg :exports results
@@ -205,7 +205,7 @@ https://upload.wikimedia.org/wikipedia/commons/1/11/Conic_Sections.svg
 
 
 *** Hyperbola
-- The standard form of a hyperbola is $$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$$.
+- The standard form of a hyperbola is $$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1.$$
 - 
 #+BEGIN_SRC ipython :session :file assets/hyperbola.svg :exports results
   %%tikz -s 400,400 -f svg -S assets/hyperbola.svg
@@ -239,7 +239,7 @@ https://upload.wikimedia.org/wikipedia/commons/1/11/Conic_Sections.svg
 [[file:assets/hyperbola.svg]]
 
 *** General Quadratic Equation
-- Consider a general quadratic equation $$Ax^2+Bxy+Cy^2+Dx+Ey+F = 0$$.
+- Consider a general quadratic equation $$Ax^2+Bxy+Cy^2+Dx+Ey+F = 0.$$
 - This will represent a conic section that has been rotated and translated from the standard form.
 - We can get the standard form:
   - rotate the graph such that the major axis is the $x$ axis.
@@ -265,7 +265,7 @@ https://upload.wikimedia.org/wikipedia/commons/1/11/Conic_Sections.svg
 *** Invariants
 - Suppose we are given $$Ax^2+Bxy+Cy^2+Dx+Ey+F = 0$$
 - We can write down any point $P = (x,y)$ in the $xy$ plane with the new coordinate $(x',y')$ in the $x'y'$ plane $$x' = \cos \theta x + \sin \theta y + x_0,\,y' = -\sin\theta x + \cos\theta y + y_0.$$
-- As a result, the quadratic equation can be changed into $$A'(x')^2 + B' x' y' + C' (y')^2 + D'x'+E'y' + F'=0$$.
+- As a result, the quadratic equation can be changed into $$A'(x')^2 + B' x' y' + C' (y')^2 + D'x'+E'y' + F'=0.$$
 - What we can prove is that the following quantities remains constant, regardless of $\theta$, $x_0$ and $y_0$:
   - $\Delta_1 = A+C$
   - $\Delta_2 = AC-B^2/4$
@@ -304,16 +304,16 @@ q
 - After determining $A'$, $C'$ and $F'$, we can arrive at the standard form.
 - For example, consider the following quadratic equation $$x^2- 6xy+y^2+2x-16y+8 = 0.$$
 - We get $\Delta_1 = 1+1 = 2$, $\Delta_2 = 1 - 36/4 = -8$, $\Delta_3 = -81$.
-- Therefore, we conclude $A' = 2$, $C' = -4$, $F' = 10.125$.
-- The standard form is a hyperbola: $$\frac{(x')^2}{5.0625}-\frac{(y')^2}{2.53125}=1.$$ 
+- Therefore, we conclude $A' = -4$, $C' = 2$, $F' = 10.125$.
+- The standard form is a hyperbola: $$\frac{(x')^2}{2.53125}-\frac{(y')^2}{5.0625}=1.$$ 
 *** Determine the Standard Form when $\Delta_2 = 0$
-- If $\Delta_2 = 0$, then we assume the quadratic equation can be rewritten as a parabola $$C'(y')^2 + D'x' = 0$$.
+- If $\Delta_2 = 0$, then we assume the quadratic equation can be rewritten as a parabola $$C'(y')^2 + D'x' = 0.$$
 - By invariance, we have the following equations:
   - $C' = A+C$
   - $C'(D')^2/4 = ACF + BDE/4 − AE^ 2 /4− CD^2/4− FB^2/4$
 
-*** Parabola
-*** Reflective Property
+* Parabola
+** Reflective Property
 #+BEGIN_SRC ipython :session :file assets/parabolachord.svg :exports results
   %%tikz -s 400,400 -f svg -S assets/parabolachord.svg
   \draw[->] (-2,0) -- (4,0) node[right] {$x$};
@@ -422,9 +422,8 @@ q
 
 - The reverse of the reflection property of parabolas is if parallel rays of light enter a parabolic reflector, they will all be reflected and converge at the focus.
 - This principle has been used to collect rays of the Sun to heat water in a pipe, as in roof-top solar collectors, or even for cooking.
- https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX9-inQfH82Li1vkfvoXGsp5miyGZ8g_pLweHxfFVq8HSIIWSvlw
 - It has also been used to collect sound waves or radio wave.
-*** Spinning Liquid
+** Spinning Liquid
 - Suppose we have a bucket of liquid that is spinning at an angular speed $\omega$.
 - Let we look at a parcel of liquid material on the surface of the liquid, distance $r$ away from the axis of rotation.
 - We know that its gravity is $mg$ and the centripetal force is $m\omega^2 r$.
@@ -432,7 +431,7 @@ q
 - As a result, the tangent of the surface at the current point is $$\frac{dh}{dr} = \frac{m\omega ^2 r}{mg} = \frac{\omega^2}{g}r.$$
 - By integration, we can get the curve for the surface to be a parabola: $$h = \frac{\omega^2}{2g}r^2.$$
 #+BEGIN_SRC ipython :session :file assets/spinningliquid.svg :exports results
-%%tikz -s 400,400 -f svg -S assets/spinningliquid.svg
+%%tikz -s 400,200 -f svg -S assets/spinningliquid.svg
 \fill[lightgray] (-4,1) rectangle (4,-1);
 \fill[white,domain=-4:4, samples=200,smooth,variable=\t] plot ({\t},{\t*\t/16)});
 \draw[->] (-5,0) -- (5,0) node[right] {$r$};
@@ -458,7 +457,7 @@ https://upload.wikimedia.org/wikipedia/commons/c/c3/Liquid_Mirror_Telescope.jpg
 - This can reduce the cost of the telescope to $1\%$.
 - However, the telescope can only point upward.
 
-*** Bezier Curve
+** Bezier Curve
 *** Linear Bezier Curve
 - How to draw a curve connecting two point $P_0=(x_0,y_0)$ and $P_1=(x_1,y_1)$?
 - The easiest way is to draw a line segment connecting the two points.
@@ -510,7 +509,7 @@ https://upload.wikimedia.org/wikipedia/commons/c/c3/Liquid_Mirror_Telescope.jpg
 - Fonts
 https://developer.apple.com/fonts/TrueType-Reference-Manual/RM01/fig05.gif
 
-*** Trajectory of a Projectile
+** Trajectory of a Projectile
 - Galileo showed that the path of a projectile follows a parabola, if air resistance is negligible.
 https://upload.wikimedia.org/wikipedia/commons/4/4e/ParabolicWaterTrajectory.jpg
 - The trajectory will follow the following differential equations
@@ -551,7 +550,7 @@ $$y = \tan \theta x - \frac{g}{2v_0^2\cos^2\theta}x^2 = x \left(\tan \theta - \f
 - The technique is called calculus of variation, and was developed by Bernoulli and Euler.
 
 #+BEGIN_SRC ipython :session :file assets/parabolaenvelop.svg :exports results
-  %%tikz -s 400,400 -f svg -S assets/parabolaenvelop.svg
+  %%tikz -s 400,300 -f svg -S assets/parabolaenvelop.svg
   \foreach \ang in {4,...,12} {
     \draw [blue,domain=0:4, samples=200,smooth,variable=\t] plot ({2*\t*cos(\ang * 180 / 16)},{2*\t*sin(\ang * 180 / 16)-\t*\t/2)});
   }

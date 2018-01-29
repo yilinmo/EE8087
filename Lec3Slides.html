@@ -1,0 +1,827 @@
+---
+layout: slides
+title: Lecture 3 - EE 8087 Conic Sections Part I
+---
+
+<section>
+  <div id="outline-container-org5699d6a" class="outline-2">
+    <h1 id="org5699d6a">Conic Sections Part I</h1>
+  </div>
+</section>
+
+<section>
+  <div id="outline-container-orgfb79b68" class="outline-2">
+    <h2 id="orgfb79b68"> A Brief History of Conic Sections</h2>
+  </div>
+</section>
+
+<section>
+  <div id="outline-container-orgcdea91e" class="outline-2">
+    <h2 id="orgcdea91e"> Doubling the Cube</h2>
+    <div class="outline-text-2" id="text-2">
+
+      <div class="figure"  style="zoom:0.3;">
+	<p><object type="image/svg+xml" data="https://upload.wikimedia.org/wikipedia/commons/d/db/Cube_and_doubled_cube.svg" class="org-svg">
+	    Sorry, your browser does not support SVG.</object>
+	</p>
+      </div>
+      <ul class="org-ul">
+	<li>The citizens of Delos consulted the oracle at Delphi, seeking a solution for their internal political problems at the time, which had intensified relationships among the citizens.</li>
+	<li>The oracle responded that they must double the size of the altar to Apollo, which was a regular cube.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 id="orgcdea91e"> Doubling the Cube</h2>
+  <ul>
+    <li>The answer seemed strange to the Delians and they consulted Plato, who was able to interpret the oracle as the mathematical problem of doubling the volume of a given cube. </li>
+    <li> Plato explained that the oracle as the advice of Apollo for the citizens of Delos to occupy themselves with the study of geometry and mathematics in order to calm down their passions.</li>
+  </ul>
+</section>
+
+<section>
+  <div id="outline-container-orgd418547" class="outline-2">
+    <h2 id="orgd418547"> Menaechmun(380-320 BC)</h2>
+    <div class="outline-text-2" id="text-3">
+      <ul class="org-ul">
+	<li>Plato later gave the problem to Menaechmus, who solved the problem parabola and hyperbola.</li>
+	<li>However, Plato did not approve this solution since it uses more than compass and ruler</li>
+	<li>Doubling the cube, squaring the circle and trisecting the angle are three ancient Greek geometry problems that attracts numerous mathematicians.</li>
+	<li>The first impossibility result of solving these problems using compass and ruler was given by French mathematician Pierre Wantzel in 1837, using Field theory.</li>
+	<li>Essentially the proof relies on the fact that \(3\) cannot divide \(2^n\).</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+<section>
+  <div id="outline-container-org608a36f" class="outline-2">
+    <h2 id="org608a36f"> Archimedes (287-212 BC)</h2>
+    <div class="outline-text-2" id="text-4">
+      <ul class="org-ul">
+	<li>Archimedes wrote the book <i>The Quadrature of the Parabola</i> as a letter to his friends.</li>
+	<li>The most famous theorem in the book is a formula of the area enclosed by a parabola and a line.</li>
+      </ul>
+      <div class="figure" style="zoom:0.75;">
+	<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Parabolic_Segment.svg/583px-Parabolic_Segment.svg.png" alt="583px-Parabolic_Segment.svg.png" />
+	</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div id="outline-container-org608a36f" class="outline-2">
+    <h2 id="org608a36f"> Archimedes (287-212 BC)</h2>
+    <div class="outline-text-2" id="text-4">
+
+      <ul class="org-ul">
+	<li>This represents the most sophisticated use of the method of exhaustion in ancient mathematics, and remained unsurpassed until the development of calculus in the 17th century.</li>
+	<li>Archimedes used parabolic mirrors to reflect the sunlight to burn Roman ship during the Siege of Syracuse, which is part of the Second Punic War.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div id="outline-container-org608a36f" class="outline-2">
+    <h2 id="org608a36f"> Archimedes (287-212 BC)</h2>
+    <div class="outline-text-2" id="text-4">
+      <div class="figure" style="zoom:0.5;">
+	<p><img src="https://upload.wikimedia.org/wikipedia/commons/8/80/Archimedes-Mirror_by_Giulio_Parigi.jpg" alt="Archimedes-Mirror_by_Giulio_Parigi.jpg" />
+	</p>
+      </div>
+      <ul class="org-ul">
+	<li>However, he was eventually killed by Roman soldiers when the city was captured.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div id="outline-container-org7eb1bd4" class="outline-2">
+    <h2 id="org7eb1bd4"> Apollonius (late 3rd – early 2nd centuries BC)</h2>
+    <div class="outline-text-2" id="text-5">
+      <ul class="org-ul">
+	<li>Known as the "Great Geometer" on the basis of his text <i>Conics</i></li>
+	<li>Of its eight books, only the first four have a credible claim to descent from the original texts of Apollonius.</li>
+	<li>Books 5-7 have been translated from the Arabic into Latin. The original Greek has been lost.</li>
+	<li>Whether Apollonius finished Book 8 is unknown.</li>
+	<li>Contains 387 propositions of conics sections.</li>
+	<li>He is the one to give the names ellipse, parabola, and hyperbola.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div id="outline-container-org10fd900" class="outline-2">
+    <h2 id="org10fd900"> Renaissance Period</h2>
+    <div class="outline-text-2" id="text-6">
+      <ul class="org-ul">
+	<li>In 1605, Kepler discovered the elliptic orbit of Mars revolving around the sun.</li>
+	<li>In 1609, he published his first law of planetary motion: The orbit of a planet is an <b>ellipse</b> with the Sun at one of the two <b>foci</b>.</li>
+	<li>In 1637, Descartes invented analytic geometry in his work <i>La Géométrie</i>.</li>
+	<li>In 1655, John Wallis published a treatise on conic sections to first define the curves using quadratic equations.</li>
+	<li>In 1748, Euler published his work <i>Introductio in analysin infinitorum</i>, establishing the polar form of conic sections.</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+<section>
+  <div id="outline-container-org9b39c80" class="outline-2">
+    <h2 id="org9b39c80"> Definition of Conic Curves</h2>
+  </div>
+</section>
+
+<section>
+  <div id="outline-container-orgdd08030" class="outline-2">
+    <h2 id="orgdd08030"> Conic Sections</h2>
+    <div class="outline-text-2" id="text-8">
+      <ul class="org-ul">
+	<li>A conic is the curve obtained as the intersection of a plane, called the <b>cutting plane</b>, with the surface of a double cone.</li>
+      </ul>
+
+      <div class="figure" style="zoom:0.7;">
+
+	<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Conic_Sections.svg/600px-Conic_Sections.svg.png"/>
+	</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div id="outline-container-orgdd08030" class="outline-2">
+    <h2 id="orgdd08030">Non-Degenerate Conic Sections</h2>
+    <div class="outline-text-2" id="text-8">
+
+      <ul class="org-ul">
+	<li>There are three types of non-degenerate conics, the ellipse, parabola, and hyperbola.</li>
+	<li>The ellipse arise when the intersection of the cone and plane is a closed curve.</li>
+	<li>The circle is a special kind of ellipse. It is obtained when the cutting plane is perpendicular to the symmetry axis of the cone.</li>
+	<li>If the cutting plane is parallel to exactly one generating line of the cone, then the conic is unbounded and is called a parabola.</li>
+	<li>In the remaining case, the figure is a hyperbola. In this case, the plane will intersect both halves of the cone, producing two separate unbounded curves.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div id="outline-container-orgdd08030" class="outline-2">
+    <h2 id="orgdd08030">Degenerate Conic Sections</h2>
+    <div class="outline-text-2" id="text-8">
+
+      <ul class="org-ul">
+
+	<li>Planes that pass through the vertex of the cone will intersect the cone in a point, a line or a pair of intersecting lines. These are called degenerate conics.</li>
+	<li>When we say conic sections, we will mean non-degenerate conics if without further notice.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section>
+  <div id="outline-container-org37f053a" class="outline-2">
+    <h2 id="org37f053a"> Directrix, Focus and Eccentricity</h2>
+    <div class="outline-text-2" id="text-9">
+      <ul class="org-ul">
+	<li>A conic section is the locus of all points \(P\) whose distance to a fixed point \(F\) (called the <b>focus</b>) is a constant multiple (called the <b>eccentricity</b>, \(e\)) of the distance from \(P\) to a fixed line \(L\) (called the <b>directrix</b> of the conic).</li>
+	<li>Suppose that the focus \(F\) is at \((0,0)\) and the line \(L\) is \(x = a\), then the polar form of the conic section is \[ r = \frac{ae}{1+e\cos\theta}\]</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div id="outline-container-org37f053a" class="outline-2">
+    <h2 id="org37f053a"> Directrix, Focus and Eccentricity</h2>
+    <div class="outline-text-2" id="text-9">
+
+      <div class="figure" style="zoom:1.5;">
+	<p><object type="image/svg+xml" data="assets/polar.svg" class="org-svg">
+	    Sorry, your browser does not support SVG.</object>
+	</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div id="outline-container-org37f053a" class="outline-2">
+    <h2 id="org37f053a"> Directrix, Focus and Eccentricity</h2>
+    <div class="outline-text-2" id="text-9">
+
+      <ul class="org-ul">
+	<li>
+	  For \(0 < e < 1\) we obtain an ellipse, for \(e = 1\) a parabola, and for \(e > 1\) a hyperbola.
+	</li>
+	<li>
+	  The circle will be the limit case where \(e = 0\).
+	</li>
+	<li>
+	  You can check this <a href="https://www.desmos.com/calculator/ycikqn2pqa">interactive example</a>.
+	</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+  <section>
+    <div id="outline-container-orgc16232c" class="outline-2">
+      <h2 id="orgc16232c"> Quadratic equations</h2>
+    </div>
+
+  </section>
+
+  <section>
+    <div id="outline-container-orgb8e513e" class="outline-2">
+      <h2 id="orgb8e513e"> Ellipse</h2>
+      <div class="outline-text-2" id="text-11">
+	<ul class="org-ul">
+	  <li>The standard form of a ellipse is \[\frac{x^2}{a^2}+\frac{y^2}{b^2}=1,\,a> b.\]</li>
+	<li>The foci are at \((\pm c,0)\), where \(c = \sqrt{a^2-b^2}\).</li>
+	<li>The eccentricity is \(e = c/a\) and the lines \(x = \pm a/e\) are the directrices.</li>
+	</ul>
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <div id="outline-container-orgb8e513e" class="outline-2">
+      <h2 id="orgb8e513e"> Ellipse</h2>
+      <div class="outline-text-2" id="text-11">
+	<div class="figure" style="zoom:1.5;">
+	  <p><object type="image/svg+xml" data="assets/ellipse.svg" class="org-svg">
+	      Sorry, your browser does not support SVG.</object>
+	  </p>
+	</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-org282cb95" class="outline-2">
+      <h2 id="org282cb95"> Parabola</h2>
+      <div class="outline-text-2" id="text-12">
+	<ul class="org-ul">
+	  <li>The standard form of a parabola is \[y^2 = 4ax,\,a > 0.\]</li>
+	  <li>The focus is at \((a,0)\)</li>
+	  <li>The line \(x = -a\) is the directrix.</li>
+	</ul>
+
+	<div class="figure">
+	  <p><object type="image/svg+xml" data="assets/parabola.svg" class="org-svg">
+	      Sorry, your browser does not support SVG.</object>
+	  </p>
+	</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-org0cf5516" class="outline-2">
+      <h2 id="org0cf5516"> Hyperbola</h2>
+      <div class="outline-text-2" id="text-13">
+	<ul class="org-ul">
+	  <li>The standard form of a hyperbola is \[\frac{x^2}{a^2}+\frac{y^2}{b^2}=1.\]</li>
+	  <li>The foci are at \((\pm c,0)\), where \(c = \sqrt{a^2+b^2}\).</li>
+	  <li>The eccentricity is \(e = c/a\) and the lines \(x = \pm a/e\) are the directrices.</li>
+	</ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-org0cf5516" class="outline-2">
+      <h2 id="org0cf5516"> Hyperbola</h2>
+      <div class="outline-text-2" id="text-13">
+
+	<div class="figure" style="zoom:1.5;">
+	  <p><object type="image/svg+xml" data="assets/hyperbola.svg" class="org-svg">
+	      Sorry, your browser does not support SVG.</object>
+	  </p>
+	</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-org14cc506" class="outline-2">
+      <h2 id="org14cc506"> General Quadratic Equation</h2>
+      <div class="outline-text-2" id="text-14">
+	<ul class="org-ul">
+	  <li>Consider a general quadratic equation \[Ax^2+Bxy+Cy^2+Dx+Ey+F = 0.\]</li>
+	  <li>This will represent a conic section that has been rotated and translated from the standard form.</li>
+	  <li>We can get the standard form:
+	    <ul class="org-ul">
+	      <li>rotate the graph such that the major axis is the \(x\) axis.</li>
+	      <li>translate the graph such that the center (or vertex for parabola) is the origin</li>
+	  </ul></li>
+	  <li>An easier way is to use invariants.</li>
+	</ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-org4714480" class="outline-2">
+      <h2 id="org4714480">General Quadratic Equation</h2>
+      <div class="outline-text-2" id="text-15">
+
+	<div class="figure">
+	  <p><object type="image/svg+xml" data="assets/quadratic.svg" class="org-svg">
+	      Sorry, your browser does not support SVG.</object>
+	  </p>
+	</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-org4714480" class="outline-2">
+      <h2 id="org4714480"> Invariants</h2>
+      <div class="outline-text-2" id="text-15">
+
+	<ul class="org-ul">
+	  <li>Suppose we are given \[Ax^2+Bxy+Cy^2+Dx+Ey+F = 0\]</li>
+	  <li>We can write down any point \(P = (x,y)\) in the \(xy\) plane with the new coordinate \((x',y')\) in the \(x'y'\) plane \[x' = \cos \theta x + \sin \theta y + x_0,\,y' = -\sin\theta x + \cos\theta y + y_0.\]</li>
+	  <li>As a result, the quadratic equation can be changed into \[A'(x')^2 + B' x' y' + C' (y')^2 + D'x'+E'y' + F'=0\]</li>
+	  <li>What we can prove is that the following quantities remains constant, regardless of \(\theta\), \(x_0\) and \(y_0\):
+	    <ul class="org-ul">
+	      <li>\(\Delta_1 = A+C\)</li>
+	      <li>\(\Delta_2 = AC-B^2/4\)</li>
+	      <li>\(\Delta_3 = ACF + BDE/4 − AE^ 2 /4− CD^2/4− FB^2/4\)</li>
+	  </ul></li>
+	</ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-org4714480" class="outline-2">
+      <h2 id="org4714480"> Invariants</h2>
+      <div class="outline-text-2" id="text-15">
+
+	<div class="figure" style="zoom:1.5;">
+	  <p><object type="image/svg+xml" data="assets/rotation.svg" class="org-svg">
+	      Sorry, your browser does not support SVG.</object>
+	  </p>
+	</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-orgbf55aad" class="outline-2">
+      <h2 id="orgbf55aad"> Determine the Standard Form when \(\Delta_2 \neq 0\)</h2>
+      <div class="outline-text-2" id="text-16">
+	<ul class="org-ul">
+	  <li>We assume that \(\Delta_3 \neq 0\).</li>
+	  <li>If \(\Delta_2 \neq 0\), then we assume that the quadratic equation can be rewritten as either an ellipse or hyperbola \[A'(x')^2 + C' (y')^2 + F' = 0.\]</li>
+	  <li>By invariance, we have the following equations:
+	    <ul class="org-ul">
+	      <li>\(A'+C' = A+C\)</li>
+	      <li>\(A'C' = AC-B^2/4\)</li>
+	      <li>\(A'C'F' = ACF + BDE/4 − AE^ 2 /4− CD^2/4− FB^2/4\)</li>
+	  </ul></li>
+	  <li>The first 2 equations implies that \(A'\) and \(C'\) are the roots of the following polynomial \[x^2 - \Delta_1 x + \Delta_2.\]</li>
+	</ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-orgbf55aad" class="outline-2">
+      <h2 id="orgbf55aad"> Determine the Standard Form when \(\Delta_2 \neq 0\)</h2>
+      <div class="outline-text-2" id="text-16">
+	<ul class="org-ul">
+
+	  <li>After determining \(A'\), \(C'\) and \(F'\), we can arrive at the standard form.</li>
+	  <li>For example, consider the following quadratic equation \[x^2- 6xy+y^2+2x-16y+8 = 0.\]</li>
+	  <li>We get \(\Delta_1 = 1+1 = 2\), \(\Delta_2 = 1 - 36/4 = -8\), \(\Delta_3 = -81\).</li>
+	  <li>Therefore, we conclude \(A' = -4\), \(C' = 2\), \(F' = 10.125\).</li>
+	  <li>The standard form is a hyperbola: \[\frac{(x')^2}{2.53125}-\frac{(y')^2}{5.0625}=1.\]</li>
+	</ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-org5435050" class="outline-2">
+      <h2 id="org5435050"> Determine the Standard Form when \(\Delta_2 = 0\)</h2>
+      <div class="outline-text-2" id="text-17">
+	<ul class="org-ul">
+	  <li>If \(\Delta_2 = 0\), then we assume the quadratic equation can be rewritten as a parabola \[C'(y')^2 + D'x' = 0.\]</li>
+	  <li>By invariance, we have the following equations:
+	    <ul class="org-ul">
+	      <li>\(C' = A+C\)</li>
+	      <li>\(C'(D')^2/4 = \Delta_3\)</li>
+	  </ul></li>
+	</ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-org634446d" class="outline-2">
+      <h2 id="org634446d"> Parabola</h2>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-org7346932" class="outline-2">
+      <h2 id="org7346932">Reflective Property</h2>
+    </div>
+  </section>
+
+
+  <section>
+    <div id="outline-container-orge2e1f8b" class="outline-2">
+      <h2 id="orge2e1f8b"> Reflective Property</h2>
+      <div class="outline-text-2" id="text-19">
+	<div class="figure" style="zoom:1.5;">
+	  <p><object type="image/svg+xml" data="assets/parabolachord.svg" class="org-svg">
+	      Sorry, your browser does not support SVG.</object>
+	  </p>
+	</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-orge2e1f8b" class="outline-2">
+      <h2 id="orge2e1f8b"> Reflective Property</h2>
+      <div class="outline-text-2" id="text-19">
+	<ul class="org-ul">
+	  <li>Since \(\triangle KPP'\) and \(\triangle KQQ'\) are similar, we have \[\frac{KQ}{QQ'} = \frac{KP}{KP'}.\]</li>
+	  <li>Furthermore, from the definition of parabola, \(FQ = QQ'\) and \(FP = PP'\). As a result, \[\frac{KQ}{FQ} = \frac{KP}{FP}\]</li>
+	  <li>In the \(\triangle KFP\), using the sine rule, we get \[\frac{\sin\angle KFP}{KP} = \frac{\sin\angle PKF}{FP}\]</li>
+	</ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-orge2e1f8b" class="outline-2">
+      <h2 id="orge2e1f8b"> Reflective Property</h2>
+      <div class="outline-text-2" id="text-19">
+	<ul class="org-ul">
+
+	  <li>In the \(\triangle KFQ\), using the sine rule, we get \[\frac{\sin\angle KFQ}{KQ} = \frac{\sin\angle PKF}{FQ}\]</li>
+	  <li>Therefore, we get \(\sin \angle KFP = \sin \angle KFQ\). However, \(\sin \angle KFP = \sin \angle KFJ\), which implies that \(KF\) bisects \(\angle JFQ\).</li>
+	</ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-orge2e1f8b" class="outline-2">
+      <h2 id="orge2e1f8b"> Reflective Property</h2>
+      <div class="outline-text-2" id="text-19">
+	<div class="figure" style="zoom:1.5;">
+	  <p><object type="image/svg+xml" data="assets/parabolatangent.svg" class="org-svg">
+	      Sorry, your browser does not support SVG.</object>
+	  </p>
+	</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-orge2e1f8b" class="outline-2">
+      <h2 id="orge2e1f8b"> Reflective Property</h2>
+      <div class="outline-text-2" id="text-19">
+	<ul class="org-ul">
+	  <li>Now consider the case where \(Q\rightarrow P\). The line \(KP\) will converge to the tangent line at \(P\).</li>
+	  <li>We can conclude that \(\angle KFP = 90^\circ\).</li>
+	  <li>Furthermore, \(FP = PP'\).</li>
+	  <li>Hence, \(\triangle KPP'\) and \(\triangle KPF\) are congruent.</li>
+	  <li>The tangent line \(KP\) bisects the angle \(\angle P'PF\).</li>
+	</ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-orge2e1f8b" class="outline-2">
+      <h2 id="orge2e1f8b"> Reflective Property</h2>
+      <div class="outline-text-2" id="text-19">
+	<div class="figure" style="zoom:1.5;">
+	  <p><object type="image/svg+xml" data="assets/parabolareflect.svg" class="org-svg">
+	      Sorry, your browser does not support SVG.</object>
+	  </p>
+	</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-orge2e1f8b" class="outline-2">
+      <h2 id="orge2e1f8b"> Reflective Property</h2>
+      <div class="outline-text-2" id="text-19">
+	<ul class="org-ul">
+	  <li>If a reflecting material is formed in the shape of a parabola and a small light bulb is placed at its focus, then the rays of light moving away from the bulb will all reflect out in parallel lines, forming a narrow beam.</li>
+	  <li>Flashlights, automobile headlights, and searchlights are all built on this principle.</li>
+
+	  <li>The reverse of the reflection property of parabolas is if parallel rays of light enter a parabolic reflector, they will all be reflected and converge at the focus.</li>
+	  <li>This principle has been used to collect rays of the Sun to heat water in a pipe, as in roof-top solar collectors.
+	  <li>It has also been used to collect sound waves or radio wave.</li>
+	</ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-org7346932" class="outline-2">
+      <h2 id="org7346932">Spinning Liquid</h2>
+    </div>
+  </section>
+  <section>
+    <div id="outline-container-org17bb718" class="outline-2">
+      <h2 id="org17bb718"> Spinning Liquid</h2>
+      <div class="outline-text-2" id="text-20">
+	<ul class="org-ul">
+	  <li>Suppose we have a bucket of liquid that is spinning at an angular speed \(\omega\).</li>
+	  <li>Let we look at a parcel of liquid material on the surface of the liquid, distance \(r\) away from the axis of rotation.</li>
+	  <li>We know that its gravity is \(mg\) and the centripetal force is \(m\omega^2 r\).</li>
+	</ul>
+
+	<div class="figure" style="zoom:1.4;">
+	  <p><object type="image/svg+xml" data="assets/spinningliquid.svg" class="org-svg">
+	      Sorry, your browser does not support SVG.</object>
+	  </p>
+	</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-org17bb718" class="outline-2">
+      <h2 id="org17bb718"> Spinning Liquid</h2>
+      <div class="outline-text-2" id="text-20">
+	<ul class="org-ul">
+	  <li>Therefore, we can compute the buoyancy force, which is perpendicular to the surface of the liquid.</li>
+	  <li>As a result, the tangent of the surface at the current point is \[\frac{dh}{dr} = \frac{m\omega ^2 r}{mg} = \frac{\omega^2}{g}r.\]</li>
+	  <li>By integration, we can get the curve for the surface to be a parabola: \[h = \frac{\omega^2}{2g}r^2.\]</li>
+	</ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-org07d8401" class="outline-2">
+      <h2 id="org07d8401"> Liquid Mirror Telescope</h2>
+      <div class="outline-text-2" id="text-21">
+
+	<ul class="org-ul">
+	  <li>We can use this fact to create telescope made of liquid.</li>
+	  <li>This can reduce the cost of the telescope to \(1\%\) of traditional telescope.</li>
+	  <li>However, the telescope can only point upward.</li>
+	</ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-org07d8401" class="outline-2">
+      <h2 id="org07d8401"> Liquid Mirror Telescope</h2>
+      <div class="outline-text-2" id="text-21">
+	<div class="figure" style="zoom:0.5;">
+	  <p><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Liquid_Mirror_Telescope.jpg" alt="Liquid_Mirror_Telescope.jpg" />
+	  </p>
+	</div>
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <div id="outline-container-org7346932" class="outline-2">
+      <h2 id="org7346932"> Bezier Curve</h2>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-org22689c0" class="outline-2">
+      <h2 id="org22689c0"> Linear Bezier Curve</h2>
+      <div class="outline-text-2" id="text-23">
+	<ul class="org-ul">
+	  <li>How to draw a curve connecting two point \(P_0=(x_0,y_0)\) and \(P_1=(x_1,y_1)\)?</li>
+	  <li>The easiest way is to draw a line segment connecting the two points.</li>
+	  <li>The segment will satisfy the following parametric equations: \[x = (1-t)x_0+tx_1,\,y=(1-t)y_0+ty_1.\]</li>
+	  <li>Or simply \(P = (1-t)P_0 + tP_1\).</li>
+	  <li>This is called a <a href="https://www.desmos.com/calculator/1pw4sv1iox">linear Bezier curve</a>.</li>
+	</ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-org157820c" class="outline-2">
+      <h2 id="org157820c"> Quadratic Bezier Curve</h2>
+      <div class="outline-text-2" id="text-24">
+	<ul class="org-ul">
+	  <li>What if we want to connect the two point \(P_0\) and \(P_2\), while controlling the direction of the curve at \(P_0\) and \(P_2\)?</li>
+	  <li>We need to use <a href="https://www.desmos.com/calculator/j3shfjmzt3">quadratic Bezier curve</a>.</li>
+	  <li>Find \(Q_0\) on the linear Bezier curve from \(P_0\) to \(P_1\): \[Q_0(t) = (1-t)P_0+tP_1.\]</li>
+	  <li>Find \(Q_1\) on the linear Bezier curve from \(P_1\) to \(P_2\): \[Q_1(t) = (1-t)P_1+tP_2.\]</li>
+	  <li>Find \(R\) on the linear Bezier curve from \(Q_0\) to \(Q_1\):
+	    \begin{align*}
+	    R(t) &= (1-t)Q_0(t)+tQ_1(t) \\
+	    &= (1-t)^2 P_0 + 2t(1-t)P_1 + t^2 P_2.
+	    \end{align*}
+	  </li>
+	</ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-org157820c" class="outline-2">
+      <h2 id="org157820c"> Quadratic Bezier Curve</h2>
+      <div class="outline-text-2" id="text-24">
+	<ul class="org-ul">
+	  <li>The derivative of \(R(t)\) is \[\frac{dR(t)}{dt} = 2(1-t)(P_1-P_0)+2t(P_2-P_1).\]</li>
+	  <li>We can choose \(P_1\), so that the Bezier curve has the desired derivative at \(P_0\) and \(P_2\).</li>
+	</ul>
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <div id="outline-container-orge081fa0" class="outline-2">
+      <h2 id="orge081fa0"> Quadratic Bezier Curve is a Parabola</h2>
+      <div class="outline-text-2" id="text-25">
+	<ul class="org-ul">
+	  <li>Suppose after rotation and translation, we have \[P_0 = (0,0),\,P_1 = (a,b),\,P_2 = (c,0).\]</li>
+	</ul>
+
+	<div class="figure" style="zoom:1.1;">
+	  <p><object type="image/svg+xml" data="assets/quadraticbezier.svg" class="org-svg">
+	      Sorry, your browser does not support SVG.</object>
+	  </p>
+	</div>
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <div id="outline-container-orge081fa0" class="outline-2">
+      <h2 id="orge081fa0"> Quadratic Bezier Curve is a Parabola</h2>
+      <div class="outline-text-2" id="text-25">
+	<ul class="org-ul">
+	  <li>Then the quadratic Bezier curve is given by the parametric equation \[x =  2t(1-t)a + t^2 c,\,y = 2t(1-t)b.\]</li>
+	  <li>By eliminating \(t\), we get the following quadratic equation: \[4b^2x^2 + 4b(c-2a)xy+(c-2a)^2y^2-4b^2cx+4abcy = 0.\]</li>
+	  <li>Prove that it is indeed a parabola.</li>
+	</ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="outline-container-org5450e74" class="outline-2">
+      <h2 id="org5450e74"> Application of Bezier Curve</h2>
+      <div class="outline-text-2" id="text-26">
+	<ul class="org-ul">
+	  <li>Computer Aid Design (CAD): designing the shape of a car</li>
+	  <li>Computer Animation</li>
+	  <li>Fonts</li>
+	</ul>
+
+	<div class="figure">
+	  <p><img src="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM01/fig05.gif" alt="fig05.gif" />
+	  </p>
+	</div>
+      </div>
+    </div>
+  </section>
+
+<section>
+  <div id="outline-container-orgfb79b68" class="outline-2">
+    <h2 id="orgfb79b68">Trajectory of a Projectile</h2>
+  </div>
+</section>
+
+<section>
+  <div id="outline-container-orga0cf2c4" class="outline-2">
+    <h2 id="orga0cf2c4"> Trajectory of a Projectile</h2>
+    <div class="outline-text-2" id="text-27">
+      <ul class="org-ul">
+	<li>Galileo showed that the path of a projectile follows a parabola, if air resistance is negligible.</li>
+      </ul>
+
+      <div class="figure" style="zoom:0.25;">
+	<p><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/ParabolicWaterTrajectory.jpg" alt="ParabolicWaterTrajectory.jpg" />
+	</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div id="outline-container-orga0cf2c4" class="outline-2">
+    <h2 id="orga0cf2c4"> Trajectory of a Projectile</h2>
+    <div class="outline-text-2" id="text-27">
+      <ul class="org-ul">
+	<li>The trajectory will follow the following differential equations
+	  <ul class="org-ul">
+	    <li>\(a_x = 0\), with \(v_x(0) = v_0 \cos\theta\) and \(x(0) = 0\).</li>
+	    <li>\(a_y = -g\), with \(v_y(0) = v_0\sin\theta\) and \(y(0) = 0\).</li>
+	</ul></li>
+	<li>At time \(t\), the position of the projectile \[x(t) = v_0\cos\theta t,\,y(t) = v_0\sin\theta t - \frac{1}{2}gt^2. \]</li>
+	<li>Eliminating \(t\), we can get the parabola \[y = \tan \theta x - \frac{g}{2v_0^2\cos^2\theta}x^2.\]</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div id="outline-container-orga0cf2c4" class="outline-2">
+    <h2 id="orga0cf2c4"> Trajectory of a Projectile</h2>
+    <div class="outline-text-2" id="text-27">
+      <div class="figure" style="zoom:1.5;">
+	<p><object type="image/svg+xml" data="assets/projectile.svg" class="org-svg">
+	    Sorry, your browser does not support SVG.</object>
+	</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section>
+  <div id="outline-container-orgf6683e7" class="outline-2">
+    <h2 id="orgf6683e7"> Maximum Height</h2>
+    <div class="outline-text-2" id="text-28">
+      <ul class="org-ul">
+	<li>Suppose the initial speed \(v_0\) is fixed.</li>
+	<li>For a given angle \(\theta\), since \(y(t) = v_0\sin \theta t - \frac{1}{2}gt^2\), the maximum height is achieved at the following time \(t_* =v_0\sin \theta /g\).</li>
+	<li>The corresponding height is \(y(t_*) = v_0^2\sin^2\theta/2g\).</li>
+	<li>To achieve maximum height among all possible angles, we should aim \(v_0\) upward, i.e., \(\theta = 90^\circ\). This gives a maximum height of \[h_* = \frac{v_0^2}{2g}.\]</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+<section>
+  <div id="outline-container-org2332bdb" class="outline-2">
+    <h2 id="org2332bdb"> Horizontal Range</h2>
+    <div class="outline-text-2" id="text-29">
+      <ul class="org-ul">
+	<li>Suppose the initial speed \(v_0\) is fixed.</li>
+	<li>For a given angle \(\theta\), the trajectory of the projectile follows the following parabola:</li>
+      </ul>
+      <p>
+	\[y = \tan \theta x - \frac{g}{2v_0^2\cos^2\theta}x^2 = x \left(\tan \theta - \frac{g}{2v_0^2\cos^2\theta}x\right).\]
+      </p>
+      <ul class="org-ul">
+	<li>Therefore, the horizontal range of the projectile is \[d = \frac{2v_0^2\cos^2\theta\tan\theta}{g} = \frac{v_0^2}{g}\sin 2\theta.\]</li>
+	<li>The maximum horizontal distance is achieved when \(\theta = 45^\circ\), and \(d_* = v_0^2/g.\)</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+<section>
+  <div id="outline-container-orgde66047" class="outline-2">
+    <h2 id="orgde66047"> Safety Envelop</h2>
+    <div class="outline-text-2" id="text-30">
+      <ul class="org-ul">
+	<li>Given an initial speed \(v_0\), the safety envelop is the boundary between the points that can be hit by a projectile and the points that cannot be hit.</li>
+      </ul>
+      <div class="figure" style="zoom:1.5;">
+	<p><object type="image/svg+xml" data="assets/parabolaenvelop.svg" class="org-svg">
+	    Sorry, your browser does not support SVG.</object>
+	</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section>
+  <div id="outline-container-orgde66047" class="outline-2">
+    <h2 id="orgde66047"> Safety Envelop</h2>
+    <div class="outline-text-2" id="text-30">
+      <ul class="org-ul">
+	
+	<li>It can be proved that the safety envelop is a parabola, passing through \((0,h_*)\) and \((\pm d_*,0)\): \[y-\frac{v_0^2}{2g} = -\frac{g}{2v_0^2}x^2.\]</li>
+	<li>You can check this <a href="https://www.desmos.com/calculator/ogtqe8jecy">interactive example</a>.</li>
+	<li>The technique is called calculus of variation, and was developed by Bernoulli and Euler.</li>
+      </ul>
+
+
+    </div>
+  </div>
+</section>
