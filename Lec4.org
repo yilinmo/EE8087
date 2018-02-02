@@ -24,26 +24,343 @@ from numpy import convolve as conv
 
 * Ellipse
 ** Reflective Property of Ellipse
-- Any points $P$ on the ellipse has $PF_1+PF_2=2a$
-- If $P$ is outside the ellipse, then $PF_1 + PF2 > 2a$
-- If $P$ is insider the ellipse, then $PF_1 + PF2 < 2a$
-- Suppose we have a line $L$ and two point $F_1$ and $F_2$, for any point $P$, $PF_1+PF_2$ is minimized when the normal vector of $L$ bisects $\angle F_1PF_2$
-- For any point $P$ on the ellipse, draw a line passing $P$ and its normal vector bisects $\angle F_1PF_2$, then any point $P' \neq P$ on the line have $PF_1+PF_2 > 2a$.
+
+#+BEGIN_SRC ipython :session :file assets/ellipsesum.svg :exports results
+  %%tikz -s 600,400 -f svg -S assets/ellipsesum.svg
+  \draw[->] (-7,0) -- (7.5,0) node[right] {$x$};
+  \draw[->] (0,-4) -- (0,4) node[above] {$y$};
+  \draw[domain=0:2*pi, samples=200,smooth,variable=\t,blue,thick] plot ({5*cos(\t r)},{3*sin(\t r)});
+  \draw [dashed,semithick] (6.25,-4)-- (6.25,4);
+  \draw [dashed,semithick] (-6.25,-4)--(-6.25,4);
+
+  \node [inner sep=0, outer sep=0, label=270:$F_1$] (F1) at (4,0) {}; 
+  \fill [black] (F1) circle (2pt); 
+  \node [inner sep=0, outer sep=0, label=270:$F_2$] (F2) at (-4,0) {}; 
+  \fill [black] (F2) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=90:$P$] (P) at ({5*cos(45 r)},{3*sin(45 r)}) {}; 
+  \fill [black] (P) circle (2pt); 
+
+  \coordinate (a) at (-6.25,0);
+  \node [inner sep=0, outer sep=0, label=180:$P_2$] (P2) at (P-|a) {}; 
+  \fill [black] (P2) circle (2pt); 
+
+  \coordinate (b) at (6.25,0);
+  \node [inner sep=0, outer sep=0, label=0:$P_1$] (P1) at (P-|b) {}; 
+  \fill [black] (P1) circle (2pt); 
+
+  \draw [thick] (F1)--(P)--(F2);
+  \draw [thick] (P1)--(P)--(P2);
+
+  \node [inner sep=0, outer sep=0, label=135:$V_2$] (V2) at (-5,0) {}; 
+  \fill [black] (V2) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=45:$V_1$] (V1) at (5,0) {}; 
+  \fill [black] (V1) circle (2pt); 
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/ellipsesum.svg]]
+- Assuming the ellipse is given by $$\frac{x^2}{a^2}+\frac{y^2}{b^2} = 1,\,a \geq b > 0.$$
+- Since $PF_1 = e PP_1$ and $PF_2 = e PP_2$, we have $$PF_1+PF_2 = e(PP_2 + PP_1) = e\times P_1P_2,$$which is a constant.
+- Now if $P$ is at the vertex $V$, then $V_2F_2 + V_2 F_1 = V_1 F_1 + V_2 F_1 = 2a$.
+- Proposition: any point $P$ on the ellipse have $$PF_1 + PF_2 = 2a.$$
+ 
+#+BEGIN_SRC ipython :session :file assets/ellipseinandout.svg :exports results
+  %%tikz -l calc -s 600,400 -f svg -S assets/ellipseinandout.svg
+  \draw[->] (-7,0) -- (7.5,0) node[right] {$x$};
+  \draw[->] (0,-4) -- (0,4) node[above] {$y$};
+  \draw[domain=0:2*pi, samples=200,smooth,variable=\t,blue,thick] plot ({5*cos(\t r)},{3*sin(\t r)});
+  \draw [dashed,semithick] (6.25,-4)-- (6.25,4);
+  \draw [dashed,semithick] (-6.25,-4)--(-6.25,4);
+
+  \node [inner sep=0, outer sep=0, label=270:$F_1$] (F1) at (4,0) {}; 
+  \fill [black] (F1) circle (2pt); 
+  \node [inner sep=0, outer sep=0, label=270:$F_2$] (F2) at (-4,0) {}; 
+  \fill [black] (F2) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=90:$P$] (P) at ({5*cos(45 r)},{3*sin(45 r)}) {}; 
+  \fill [black] (P) circle (2pt); 
+
+
+  \node [inner sep=0, outer sep=0, label=90:$P_i$] (Pi) at ($(F2)!0.75!(P)$) {};
+  \fill [black] (Pi) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=90:$P_o$] (Po) at ($(F2)!1.25!(P)$) {};
+  \fill [black] (Po) circle (2pt); 
+
+  \draw [thick] (F1)--(Po)--(F2);
+  \draw [thick] (F1)--(P);
+  \draw [thick] (F1)--(Pi);
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/ellipseinandout.svg]]
+- Suppose $P_o$ is outside the ellipse.
+- Then $$P_o F_1 + P_o F_2 = P_o F_1 + P_o P + PF_2 > PF_1 + PF_2 = 2a.$$
+- Similarly, suppose $P_i$ is inside the ellipse.
+- Then $$P_i F_1 + P_i F_2 = P_i F_1 - P_i P + PF_2 < PF_1 + PF_2 = 2a.$$
+- Proposition: any point $P$ outside (inside) the ellipse have $PF_1 + PF_2 > 2a$ ($PF_1 + PF_2 < 2a$) and the converse is also true.
+
+ #+BEGIN_SRC ipython :session :file assets/lineminsumdistance.svg :exports results
+  %%tikz -l calc -s 600,400 -f svg -S assets/lineminsumdistance.svg
+
+  \begin{scope}[rotate around={-15:(0,0)}]
+    \draw  (-4,0)--(4,0);
+
+    \node [inner sep=0, outer sep=0, label=90:$P$] (P) at (0,0) {};
+    \fill [black] (P) circle (2pt); 
+
+\draw [dashed] (0,-1)--(0,1);
+    \node [inner sep=0, outer sep=0, label=90:$P'$] (PP) at (-3,0) {};
+    \fill [black] (PP) circle (2pt); 
+\draw [dashed] (-3,-1)--(-3,1);
+
+    \node [inner sep=0, outer sep=0, label=270:$F_1$] (F1) at (-45:2) {};
+    \fill [black] (F1) circle (2pt); 
+    \draw  (P)--(F1);
+    \draw  (PP)--(F1);
+
+    \node [inner sep=0, outer sep=0, label=270:$F_2$] (F2) at (-135:{2*sqrt(3)}) {};
+    \fill [black] (F2) circle (2pt); 
+    \draw  (P)--(F2);
+    \draw  (PP)--(F2);
+
+    \node [inner sep=0, outer sep=0, label=90:$F_1'$] (FF) at (45:2) {};
+    \fill [black] (FF) circle (2pt); 
+    \draw  (P)--(FF);
+    \draw  (PP)--(FF);
+    \draw  [dashed] (F1)--(FF);
+  \end{scope}
+
+#+END_SRC
+
+  #+RESULTS:
+  [[file:assets/lineminsumdistance.svg]]
+
+
+- Suppose we have a line $L$ and two point $F_1$ and $F_2$ on the same side of the line
+- Our goal is to find a point $P$ on the line, such that the distance $PF_1+PF_2$ is minimized
+- We can find the reflection of point $F_1$ to be $F_1'$.
+- For any point $P$ on the line, $PF_1 = PF_1'$.
+- Therefore, the distance is minimized if $F_2$, $P$ and $F_1'$ are *collinear*.
+- Or when the normal vector bisects $\angle F_2PF_1$.
+ 
+#+BEGIN_SRC ipython :session :file assets/ellipsereflection.svg :exports results
+  %%tikz -l calc -s 600,400 -f svg -S assets/ellipsereflection.svg
+  \draw[->] (-7,0) -- (7.5,0) node[right] {$x$};
+  \draw[->] (0,-4) -- (0,4) node[above] {$y$};
+  \draw[domain=0:2*pi, samples=200,smooth,variable=\t,blue,thick] plot ({5*cos(\t r)},{3*sin(\t r)});
+  \draw [dashed,semithick] (6.25,-4)-- (6.25,4);
+  \draw [dashed,semithick] (-6.25,-4)--(-6.25,4);
+
+  \node [inner sep=0, outer sep=0, label=270:$F_1$] (F1) at (4,0) {}; 
+  \fill [black] (F1) circle (2pt); 
+  \node [inner sep=0, outer sep=0, label=270:$F_2$] (F2) at (-4,0) {}; 
+  \fill [black] (F2) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=90:$P$] (P) at ({5*cos(45 )},{3*sin(45 )}) {}; 
+  \fill [black] (P) circle (2pt); 
+
+  \draw [thick] (F1)--(P)--(F2);
+
+  \coordinate (a) at (0,{3*sqrt(2)});
+  \coordinate (b) at ({5*sqrt(2)},0);
+  \draw [semithick] ($(a)!0.15!(b)$)--($(a)!0.85!(b)$);
+
+  \node [inner sep=0, outer sep=0, label=270:$C$] (c) at ({1.6*sqrt(2)},0) {}; 
+  \fill [black] (c) circle (2pt); 
+  \draw [semithick,dashed] (c)--($(c)!1.25!(P)$);
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/ellipsereflection.svg]]
+
+
+- For any point $P$ on the ellipse, find $CP$ that bisects the angle $\angle F_2 PF_1$.
+- Draw a line $L$ through $P$ that is perpendicular to $CP$.
+- For any point $P'\neq P$ on $L$, $P'F_1 + P'F_2 > PF_1 + PF_2 = 2a$.
+- Therefore, the line $L$ only intersects the ellipsoid on one point $P$.
+- Line $L$ is the tangent line and $CP$ is the normal vector.
+- Proposition: The normal vector at point $P$ bisects $\angle F_2PF_1$.
 
 *** Shockwave Lithotripsy
-*** Whispering gallery
+http://1technation.com/wp-content/uploads/2014/08/biomed-101-aug.jpg
+http://blogs.nejm.org/now/wp-content/uploads/2012/07/Electrohydraulic-Lithotripter.jpg
+- We can use elliptical reflectors to concentrate all the energy to the kidney stone.
+*** Whispering Gallery
+http://poetinthecity.co.uk/undertheskin/wp-content/uploads/2016/11/Whispering_Gallery2.jpg
 *** Elliptical Billiard Table
 
-** Drawing an ellipse
-*** paper strip method
-**** Parametric Equation
-*** Steiner generation
-**** ellipse as an affine transformed circle
-** Portfolio Theory
+https://www.wired.com/wp-content/uploads/2015/11/ap-wrongtheory-pooltable-annot.jpg
+
+http://www.math.cornell.edu/~mec/Summer2009/Remus/Images/ellipse1.gif
+
+- What if we start at position that is not the focus?
+
+*** Infinite Bounces on a Circular Billiard Table
+#+BEGIN_SRC ipython :session :file assets/circularbilliad.svg :exports results
+  %%tikz -l calc -p tkz-euclide -s 400,400 -f svg -S assets/circularbilliad.svg
+
+\tkzPoint (0,0){O}
+\tkzPoint (5,0){P}
+\tkzPoint (-1,3){A}
+\tkzPoint (-1,-3){B}
+
+\tkzPoint (1,2){a}
+\tkzPoint (1,-2){b}
+
+\tkzDrawCircle(O,P)
+\tkzDrawPoints(O,P,A)
+\tkzLabelPoints(O,P)
+
+\draw [dashed,semithick](O) -- ($(A)!(O)!(P)$);
+\draw [dashed,semithick](O) -- ($(B)!(O)!(P)$);
+\draw [dashed,semithick](O) -- (P);
+
+\draw [semithick](A)--(P);
+\draw [semithick](P)--(B);
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/circularbilliad.svg]]
+
+- Suppose we have a circular table, the ball first starts at $A$ and bounces at $P$ and reach $B$.
+- The distance from $O$ to $AP$ is the same as the distance from $O$ to $BP$.
+- Any point on the trajectory is at least $Oa$ distance away from $O$.
+- In other words, the trajectory cannot go inside a circle with radius $Oa$ centered at $O$.
+
+http://www.math.cornell.edu/~mec/Summer2009/Remus/Images/billiard.bmp
+
+*** Infinite Bounces on an Elliptical Billiard Table
+#+BEGIN_SRC ipython :session :file assets/ellipsebounce.svg :exports results
+    %%tikz -l calc -s 600,400 -f svg -S assets/ellipsebounce.svg
+    \draw[domain=0:2*pi, samples=200,smooth,variable=\t,black,thick] plot ({5*cos(\t r)},{4*sin(\t r)});
+
+    \node [inner sep=0, outer sep=0, label=270:$F_1$] (F1) at (3,0) {}; 
+    \fill [black] (F1) circle (2pt); 
+    \node [inner sep=0, outer sep=0, label=270:$F_2$] (F2) at (-3,0) {}; 
+    \fill [black] (F2) circle (2pt); 
+
+    \node [inner sep=0, outer sep=0, label=45:$P$] (P) at (0,4) {}; 
+    \fill [black] (P) circle (2pt); 
+
+   \coordinate (c) at (0,0); 
+    \draw [semithick,dashed] (c)--($(c)!1.25!(P)$);
+
+   \coordinate (A) at (4,0); 
+
+   \coordinate (B) at (-4,0); 
+    \node [inner sep=0, outer sep=0, label=270:$A$]  at (A) {}; 
+    \node [inner sep=0, outer sep=0, label=270:$B$] at (B) {}; 
+
+    \draw [semithick] (A)--(P)--(B);
+
+   \node [inner sep=0, outer sep=0, label=270:$F_1'$] (FF1) at ($({atan(-0.75)}:5)+(P)$) {}; 
+    \fill [black] (FF1) circle (2pt); 
+  
+   \node [inner sep=0, outer sep=0, label=270:$F_2'$] (FF2) at ($({-180-atan(-0.75)}:5)+(P)$) {}; 
+    \fill [black] (FF2) circle (2pt); 
+
+  \draw [dashed] (F1)--(FF1);
+  \draw [dashed] (F2)--(FF2);
+
+  \draw [blue] (F1)--(P)--(FF2)--(F1);
+  \draw [red] (FF1)--(P)--(F2)--(FF1);
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/ellipsebounce.svg]]
+
+- Suppose the table is elliptical with foci $F_1$ and $F_2$
+- The ball first starts at $A$ and bounces at $P$ and reach $B$.
+- Denote the reflection of $F_1$ ($F_2$) with respect to $AP$ ($BP$) to be $F_1'$ ($F_2'$)
+- For any point $P'$ on $AP$, $P'F_1+P'F_2 \geq F_1'F_2$.
+- For any point $P'$ on $BP$, $P'F_1+P'F_2 \geq F_1F_2' = F_1'F_2$.
+- Therefore, any point $P'$ on the trajectory will have $P'F_1+P'F_2  \geq F_1'F_2$.
+- The trajectory cannot enter an ellipse with foci $F_1$ and $F_2$ and major axis of length $F_1'F_2$.
+
+http://www.math.cornell.edu/~mec/Summer2009/Remus/Images/elliptic2.bmp
+
+** Drawing ellipses
+*** Pin and String Method
+https://upload.wikimedia.org/wikipedia/commons/e/e4/Elliko-g.svg
+*** [[https://www.desmos.com/calculator/9e4ecylnix][Paper strip method]]
+#+BEGIN_SRC ipython :session :file assets/ellipsepaperstrip.svg :exports results
+    %%tikz -l calc -s 600,600 -f svg -S assets/ellipsepaperstrip.svg
+  \draw[->] (0,0) -- (6,0) node[right] {$x$};
+  \draw[->] (0,0) -- (0,6) node[above] {$y$};
+
+  \node [inner sep=0, outer sep=0, label=90:$P$] (P) at ({5*cos(45 )},{3*sin(45 )}) {}; 
+  \fill [black] (P) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=180:$A$] (a) at (0,{4*sqrt(2)}) {}; 
+  \fill [black] (a) circle (2pt); 
+  \node [inner sep=0, outer sep=0, label=270:$B$] (b) at ({4*sqrt(2)},0) {}; 
+  \fill [black] (b) circle (2pt); 
+
+  \draw [semithick] (a)--(b);
+  \coordinate (o) at (0,0);
+
+  \draw [dashed] (P)-|(o);
+  \draw [dashed] (o)-|(P);
+  \draw (5,0) arc(180:135:0.657) node [midway,anchor=0] {$\theta$};
+   #+END_SRC
+
+   #+RESULTS:
+   [[file:assets/ellipsepaperstrip.svg]]
+- We start with a strip of paper of length $a+b$.
+- Find point $P$ on the strip such that $AP = a$ and $PB = b$.
+- Move the strip such that $A$ is on the \(y\)-axis and $B$ is on the \(x\)-axis.
+- Suppose the angle of the strip is $\theta$, then $P$ has a *parametric representation*: $$P = (a\cos\theta,b\sin\theta).$$
+- Therefore $P$ is on the ellipse $$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1.$$
+
+*** [[https://www.desmos.com/calculator/migbf6mccc][Steiner Generation]]
+https://upload.wikimedia.org/wikipedia/commons/9/94/Ellipse-steiner-e.svg
+- Create a rectangle, with $A = (-a,2b)$ and $B = (a,2b)$.
+- Find a point $A' = (1-t)B+tA$ on line $AB$.
+- Find a point $B' = (1-t)V_1+tB$ on line $V_1B$.
+- The intersection of the line $A'V_1$ and $B'V_2$ will be on the ellipse $$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1.$$
+- If $b = a$, then $A'V_1$ is perpendicular to $B'V_2$. The trajectory of $P$ will be a circle $$x^2+y^2 = a^2.$$
+- We can scale the \(y\)-axis by $b/a$ and get the ellipse.
+- An ellipse is an affine image of a circle.
+
+** Modern Portfolio Theory
+- Modern portfolio theory (MPT) is a mathematical framework for assembling a portfolio of assets such that the expected return is maximized for a given level of risk.
+- Economist Harry Markowitz introduced MPT in a 1952 essay, for which he was later awarded a Nobel Prize in economics.
+- Suppose we can buy 2 stocks:
+  - The average return for each stock is $R_i$.
+  - The risk (standard deviation) for each stock is $\sigma_i$
+  - The correlation between the two stocks is $\rho$. 
+- Suppose we buy $w_1$ shares of stock 1 and $w_2$ shares of stock 2.
+- The expected return is $w_1 R_1 + w_2 R_2$.
+- The risk is $$\sqrt{w_1^2 \sigma_1^2+w_2^2\sigma_2^2 + w_1w_2 \sigma_1\sigma_2\rho}.$$
+- Assuming $\rho = 0$, and we want to take a maximum risk of $\sigma_p$, then $(w_1,w_2)$ will be on an ellipsoid $$\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1,$$with $a^2 = \sigma_p^2/\sigma_1^2$ and $b^2 = \sigma_p^2/\sigma_2^2$.
+- The tangent line of the ellipse at $(x_0,y_0)$ has the form $$\frac{x_0}{a^2}x+\frac{y_0}{b^2}y = 1.$$
+- Therefore, we have the optimal portfolio must satisfies $$\frac{w_1}{a^2}:\frac{w_2}{b^2}=R_1:R_2.$$
+- We can solve $$w_1 = \frac{R_1a^2}{\sqrt{R_1^2a^2+R_2^2b^2}},\,w_2=\frac{R_2b^2}{\sqrt{R_1^2a^2+R_2^2b^2}}.$$
+#+BEGIN_SRC ipython :session :file assets/portfolio.svg :exports results
+  %%tikz -l calc -s 600,400 -f svg -S assets/portfolio.svg
+  \draw[->] (-6,0) -- (6,0) node[right] {$w_1$};
+  \draw[->] (0,-4) -- (0,4) node[above] {$w_2$};
+  \draw[domain=0:2*pi, samples=200,smooth,variable=\t,blue,thick] plot ({5*cos(\t r)},{3*sin(\t r)});
+
+
+  \node [inner sep=0, outer sep=0, label=90:$P$] (P) at ({5*cos(45 )},{3*sin(45 )}) {}; 
+  \fill [black] (P) circle (2pt); 
+
+ \foreach \t in {-2.4,-1.8,-1.2,-0.6,0} {
+  \draw [semithick] ($({\t},{3*sqrt(2)+\t})!0.15!({5*sqrt(2)+\t},{\t})$)--($({\t},{3*sqrt(2)+\t})!0.85!({5*sqrt(2)+\t},{\t})$);
+  }
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/portfolio.svg]]
+
+
 
 * Hyperbola
 ** Reflective Properties
-
 ** Steiner Generation
 ** Multilateration
 **  hyperboloid
