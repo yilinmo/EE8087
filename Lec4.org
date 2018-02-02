@@ -1,0 +1,46 @@
+#+BEGIN_SRC ipython :session :exports none
+import numpy as np
+from numpy import log10 as log
+import matplotlib
+import matplotlib.pyplot as plt
+from matplotlib import rc
+rc('font',**{'family':'sans-serif','sans-serif':['Arial']})
+## for Palatino and other serif fonts use:
+#rc('font',**{'family':'serif','serif':['Palatino']})
+rc('text', usetex=True)
+import control
+from control.matlab import *
+from control import bode_plot as bode
+from control import nyquist, margin
+from numpy import convolve as conv
+
+%load_ext tikzmagic
+
+%matplotlib inline
+%config InlineBackend.figure_format = 'svg'
+#+END_SRC
+
+#+RESULTS:
+
+* Ellipse
+** Reflective Property of Ellipse
+- Any points $P$ on the ellipse has $PF_1+PF_2=2a$
+- If $P$ is outside the ellipse, then $PF_1 + PF2 > 2a$
+- If $P$ is insider the ellipse, then $PF_1 + PF2 < 2a$
+- Suppose we have a line $L$ and two point $F_1$ and $F_2$, for any point $P$, $PF_1+PF_2$ is minimized when the normal vector of $L$ bisects $\angle F_1PF_2$
+- For any point $P$ on the ellipse, draw a line passing $P$ and its normal vector bisects $\angle F_1PF_2$, then any point $P' \neq P$ on the line have $PF_1+PF_2 > 2a$.
+
+*** Shockwave Lithotripsy
+*** Whispering gallery
+*** Elliptical Billiard Table
+
+** Drawing an ellipse
+*** paper strip method
+**** Parametric Equation
+*** Steiner generation
+**** ellipse as an affine transformed circle
+
+** Elliptical Gear
+
+* Hyperbola
+** Planetary orbits
