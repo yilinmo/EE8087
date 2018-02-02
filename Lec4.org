@@ -39,8 +39,14 @@ from numpy import convolve as conv
 **** Parametric Equation
 *** Steiner generation
 **** ellipse as an affine transformed circle
-
-** Elliptical Gear
+** Portfolio Theory
 
 * Hyperbola
+** Reflective Properties
+
+** Steiner Generation
+** Multilateration
+**  hyperboloid
+*** Straight rod passing through curved hole
+*** Cooling tower
 ** Planetary orbits
