@@ -63,7 +63,7 @@ from numpy import convolve as conv
 [[file:assets/ellipsesum.svg]]
 - Assuming the ellipse is given by $$\frac{x^2}{a^2}+\frac{y^2}{b^2} = 1,\,a \geq b > 0.$$
 - Since $PF_1 = e PP_1$ and $PF_2 = e PP_2$, we have $$PF_1+PF_2 = e(PP_2 + PP_1) = e\times P_1P_2,$$which is a constant.
-- Now if $P$ is at the vertex $V$, then $V_2F_2 + V_2 F_1 = V_1 F_1 + V_2 F_1 = 2a$.
+- Now if $P$ is at the vertex $V_2$, then $V_2F_2 + V_2 F_1 = V_1 F_1 + V_2 F_1 = 2a$.
 - Proposition: any point $P$ on the ellipse have $$PF_1 + PF_2 = 2a.$$
  
 #+BEGIN_SRC ipython :session :file assets/ellipseinandout.svg :exports results
@@ -184,6 +184,7 @@ from numpy import convolve as conv
 - Line $L$ is the tangent line and $CP$ is the normal vector.
 - Proposition: The normal vector at point $P$ bisects $\angle F_2PF_1$.
 
+- The tangent line of an ellipse at point $P =(x_0,y_0)$ is $$\frac{x_0}{a^2}x + \frac{y_0}{b^2}y = 1$$
 *** Shockwave Lithotripsy
 http://1technation.com/wp-content/uploads/2014/08/biomed-101-aug.jpg
 http://blogs.nejm.org/now/wp-content/uploads/2012/07/Electrohydraulic-Lithotripter.jpg
@@ -324,7 +325,7 @@ https://upload.wikimedia.org/wikipedia/commons/9/94/Ellipse-steiner-e.svg
 - If $b = a$, then $A'V_1$ is perpendicular to $B'V_2$. The trajectory of $P$ will be a circle $$x^2+y^2 = a^2.$$
 - We can scale the \(y\)-axis by $b/a$ and get the ellipse.
 - An ellipse is an affine image of a circle.
-
+- Corollary: The area of an ellipse is $\pi ab$.
 ** Modern Portfolio Theory
 - Modern portfolio theory (MPT) is a mathematical framework for assembling a portfolio of assets such that the expected return is maximized for a given level of risk.
 - Economist Harry Markowitz introduced MPT in a 1952 essay, for which he was later awarded a Nobel Prize in economics.
@@ -361,9 +362,209 @@ https://upload.wikimedia.org/wikipedia/commons/9/94/Ellipse-steiner-e.svg
 
 * Hyperbola
 ** Reflective Properties
-** Steiner Generation
+#+BEGIN_SRC ipython :session :file assets/hyperbolaminus.svg :exports results
+  %%tikz -s 600,400 -f svg -S assets/hyperbolaminus.svg
+  \draw[->] (-6,0) -- (6,0) node[right] {$x$};
+  \draw[->] (0,-5) -- (0,5) node[above] {$y$};
+  \draw[domain=-1:1, samples=200,smooth,variable=\t,blue,thick] plot ({3*cosh(\t)},{4*sinh(\t)});
+  \draw[domain=-1:1, samples=200,smooth,variable=\t,blue,thick] plot ({-3*cosh(\t)},{4*sinh(\t)});
+  \draw [dashed,semithick,red] (-1.8,-4)-- (-1.8,4);
+  \draw [dashed,semithick,red] (1.8,-4)-- (1.8,4);
+
+  \node [inner sep=0, outer sep=0, label=270:$F_1$] (F1) at (5,0) {}; 
+  \fill [black] (F1) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=135:$V_1$] (V1) at (3,0) {}; 
+  \fill [black] (V1) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=270:$F_2$] (F2) at (-5,0) {}; 
+  \fill [black] (F2) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=-45:$V_2$] (V2) at (-3,0) {}; 
+  \fill [black] (V2) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=90:$P$] (P) at ({3*cosh(0.5)},{4*sinh(0.5)}) {}; 
+  \fill [black] (P) circle (2pt); 
+
+  \coordinate (a) at (-1.8,0);
+  \node [inner sep=0, outer sep=0, label=180:$P_2$] (P2) at (P-|a) {}; 
+  \fill [black] (P2) circle (2pt); 
+
+  \coordinate (b) at (1.8,0);
+  \node [inner sep=0, outer sep=0, label=45:$P_1$] (P1) at (P-|b) {}; 
+  \fill [black] (P1) circle (2pt); 
+
+  \draw [thick] (F1)--(P)--(F2);
+  \draw [thick] (P1)--(P)--(P2);
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/hyperbolaminus.svg]]
+- Assuming the hyperbola is given by $$\frac{x^2}{a^2}-\frac{y^2}{b^2} = 1,\,a, b > 0.$$
+- Suppose $P$ is on the left branch of the hyperbola.
+- Since $PF_1 = e PP_1$ and $PF_2 = e PP_2$, we have $$PF_2-PF_1 = e(PP_2 - PP_1) = e\times P_2P_1,$$which is a constant.
+- Now if $P$ is at the vertex $V_1$, then $V_1F_2 - V_1 F_1 = V_1 F_2 - V_2 F_2 = V_1V_2 = 2a$.
+- If the $P$ is on the right branch of the hyperbola, then $$PF_2-PF_1 =  -2a.$$
+- Proposition: any point $P$ on the ellipse have $$|PF_1-PF_2|= 2a.$$
+ 
+#+BEGIN_SRC ipython :session :file assets/hyperbolainandout.svg :exports results
+  %%tikz -l calc -s 600,400 -f svg -S assets/hyperbolainandout.svg
+
+  \draw[->] (-6,0) -- (6,0) node[right] {$x$};
+  \draw[->] (0,-5) -- (0,5) node[above] {$y$};
+  \draw[domain=-1:1, samples=200,smooth,variable=\t,blue,thick] plot ({3*cosh(\t)},{4*sinh(\t)});
+  \draw[domain=-1:1, samples=200,smooth,variable=\t,blue,thick] plot ({-3*cosh(\t)},{4*sinh(\t)});
+
+  \node [inner sep=0, outer sep=0, label=270:$F_1$] (F1) at (5,0) {}; 
+  \fill [black] (F1) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=270:$F_2$] (F2) at (-5,0) {}; 
+  \fill [black] (F2) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=90:$P$] (P) at ({3*cosh(0.5)},{4*sinh(0.5)}) {}; 
+  \fill [black] (P) circle (2pt); 
+
+  \draw [thick] (F1)--(P)--(F2);
+  
+  \node [inner sep=0, outer sep=0, label=90:$P_i$] (Pi) at ($(F2)!0.75!(P)$) {};
+  \fill [black] (Pi) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=90:$P_o$] (Po) at ($(F2)!1.25!(P)$) {};
+  \fill [black] (Po) circle (2pt); 
+
+  \draw [thick] (F1)--(Po)--(F2);
+  \draw [thick] (F1)--(P);
+  \draw [thick] (F1)--(Pi);
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/hyperbolainandout.svg]]
+- Suppose $P_o$ is on the left of the hyperbola.
+- Then $$P_o F_2 - P_o F_1 = P F_2 + P_o P - P_oF_1 > PF_2 - PF_1 = 2a.$$
+- Similarly, suppose $P_i$ is inside the ellipse.
+- Then $$P_i F_2 - P_i F_1 = P F_2 - P_i P - P_iF_1 < PF_2 - PF_2 = 2a.$$
+- Proposition: any point $P$ outside (between the two branches of) the ellipse have $|PF_2 - PF_1| > 2a$ ($|PF_2 - PF_1| < 2a$) and the converse is also true.
+
+
+#+BEGIN_SRC ipython :session :file assets/hyperbolareflection.svg :exports results
+  %%tikz -l calc -p tkz-euclide -s 600,400 -f svg -S assets/hyperbolareflection.svg
+  \tkzInit[xmax=6, xmin=-6, ymin=-4, ymax=6]
+  \tkzDrawX\tkzDrawY 
+  \tkzClip
+  \draw[domain=-0.8:1.2, samples=200,smooth,variable=\t,blue,thick] plot ({3*cosh(\t)},{4*sinh(\t)});
+  \draw[domain=-0.8:1.2, samples=200,smooth,variable=\t,blue,thick] plot ({-3*cosh(\t)},{4*sinh(\t)});
+
+  \tkzPoint (5,0){f}
+  \tkzPoint (-5,0){F}
+  \tkzPoint (5,{16/3}){P}
+  \tkzInterLC(F,P)(P,f) \tkzGetFirstPoint{G}
+
+\tkzDefMidPoint(G,f) \tkzGetPoint{D}
+\tkzDefMidPoint(P,D) \tkzGetPoint{H}
+
+  \tkzDrawSegments(F,P f,P H,f G,H F,H)
+  \tkzDrawSegments[dashed](f,G)
+  \tkzDrawLine(P,D)
+  \tkzDrawPoints(F,f,P,G,H)
+  \tkzLabelPoints(F,f,P,G,H)
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/hyperbolareflection.svg]]
+
+
+- For any point $P$ on the left branch of the hyperbola, find a line $L$ that bisects the angle $\angle F Pf$.
+- Find the reflection of focus $f$ with respect to $L$ as $G$. $G$ is on $FP$.
+- Therefore, $Pf = PG$ and $FG = PF - PG = 2a$.
+- For any point $H\neq P$ on $L$, \(Hf = HG.\)
+- In $\triangle FHG$, we have $  HF - Hf =HF-HG  < FG = 2a$.
+- Therefore, the line $L$ only intersects the hyperbola on one point $P$.
+- Line $L$ is the tangent line.
+- Proposition: The tangent line at point $P$ bisects $\angle FPf$.
+- Corollary: The normal vector at point $P$ bisects the exterior angle of $\angle FPf$
+- The tangent line of a hyperbola at point $P =(x_0,y_0)$ is $$\frac{x_0}{a^2}x - \frac{y_0}{b^2}y = 1$$
+
+*** Cassegrain reflector
+https://upload.wikimedia.org/wikipedia/en/2/2c/Cassegrain.en.png
+
 ** Multilateration
-**  hyperboloid
-*** Straight rod passing through curved hole
-*** Cooling tower
+- Hyperbolic paths occur in the LORAN (long range navigation) radio navigation system
+- Suppose we have 3 base station $F_1, F_2$ and $F_3$, which transmit a radio signal at the same time.
+- If we receive the signals from $F_1$, $F_2$ and $F_3$ at time $t_1 < t_2 < t_3$, we know that $$PF_2 - PF_1 = (t_2-t_1)C,\,PF_3 - PF_2 = (t_3 -t_2)C,$$ where $P$ is our position and $C$ is the speed of light.
+- Therefore, $P$ is on two hyperbola. There maybe either $1$ or $2$ intersections of the hyperbola.
+- With the fourth base station $F_4$, we can localize $P$ exactly.
+
+#+BEGIN_SRC ipython :session :file assets/multilateration.svg :exports results
+  %%tikz -l intersections -s 600,400 -f svg -S assets/multilateration.svg
+
+  \node [inner sep=0, outer sep=0, label=270:$F_1$] (F1) at (-2.5,0) {}; 
+  \fill [black] (F1) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=270:$F_2$] (F2) at (2.5,0) {}; 
+  \fill [black] (F2) circle (2pt); 
+
+  \node [inner sep=0, outer sep=0, label=270:$F_3$] (F3) at (2.5,6.5) {}; 
+  \fill [black] (F3) circle (2pt); 
+
+  \draw[name path=line 1, domain=-1.5:1, samples=200,smooth,variable=\t,blue,thick] plot ({3*sinh(\t)+2.5},{-1.25*cosh(\t)+3.25});
+
+  \draw[domain=-1:1, samples=200,smooth,variable=\t,blue,dashed] plot ({3*sinh(\t)+2.5},{1.25*cosh(\t)+3.25});
+
+  \draw[name path=line 2, domain=-1:1, samples=200,smooth,variable=\t,blue,thick] plot ({-2*cosh(\t)},{1.5*sinh(\t)});
+
+  \draw[domain=-1:1.5, samples=200,smooth,variable=\t,blue,dashed] plot ({2*cosh(\t)},{1.5*sinh(\t)});
+
+\fill[black,name intersections={of=line 1 and line 2}]
+    {(intersection-1) circle (2pt) node [above] {$P$}};
+
+\draw (intersection-1)--(F1);
+\draw (intersection-1)--(F2);
+\draw (intersection-1)--(F3);
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/multilateration.svg]]
+
+
+**  Hyperboloid Structure
+
+The world's first hyperboloid structure is a 37-meter water tower built by Vladimir Shukhov in Russia at 1896
+https://upload.wikimedia.org/wikipedia/commons/a/a1/First_Shukhov_Tower_Nizhny_Novgorod_1896.jpg
+*** Cooling Tower
+https://www.scienceabc.com/wp-content/uploads/2015/12/cooling-tower.jpg
+
+*** Hyperboloid Tower in Kobe, Japan
+https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Kobe_port_tower11s3200.jpg/685px-Kobe_port_tower11s3200.jpg
+
+*** Hyperboloid
+- Hyperboloid (of one sheet) can be generated by rotating a hyperbola around its minor axis.
+https://upload.wikimedia.org/wikipedia/commons/4/46/Hyperboloid1.png
+- The hyperbolid satisfies the following equation $$\frac{x^2+y^2}{a^2}-\frac{z^2}{b^2}=1.$$
+
+*** Straight Rod Passing through Curved Hole
+
+#+BEGIN_EXPORT HTML
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IXQ1ZWBhnBk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+#+END_EXPORT
+
+*** Building a Hyperboloid using Straight Sticks
+#+BEGIN_EXPORT HTML
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EigzNppsQp8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+#+END_EXPORT
+
+
 ** Planetary orbits
+*** Kepler's Laws of Planetary Motion
+- *First Law*: The orbit of a planet is an ellipse with the Sun at one of the two foci.
+- *Second Law*: A line segment joining a planet and the Sun sweeps out equal areas during equal intervals of time.
+- *Third Law*: The square of the orbital period of a planet is proportional to the cube of the semi-major axis of its orbit.
+- This can be proved using Newton's law of motion and law of universal gravitation, with the addtional assumption that the mass of the planet is negligible comparing to the mass of the sun
+
+https://upload.wikimedia.org/wikipedia/commons/9/98/Kepler_laws_diagram.svg
+
+- For comets, it is possible that they follow a parabolic or hyperbolic curve if its potential energy and kinetic energy is high enough to escape.
+- The sun will still be at one focus.
+- The second law also holds.
+- However, the comet will never return back to us.
+
+https://upload.wikimedia.org/wikipedia/commons/8/89/OrbitalEccentricityDemo.svg
