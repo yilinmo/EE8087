@@ -1,0 +1,195 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{nicefrac}
+\usepackage{amssymb, amsmath, amsfonts}
+\usepackage{amsthm}
+\usepackage{tikz}
+\usetikzlibrary{matrix,shapes,arrows, calc, intersections}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\usepackage[a4paper, margin=1in]{geometry}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+\newtheorem{assumption}{Assumption}
+
+\newlength\figureheight
+\newlength\figurewidth
+\setlength\figureheight{12cm}
+\setlength\figurewidth{14cm}
+
+\newcommand{\tikzdir}[1]{tikz/#1.tikz}
+\newcommand{\inputtikz}[1]{\input{\tikzdir{#1}}}
+
+\DeclareMathOperator*{\argmin}{arg\; min}     % argmin
+\DeclareMathOperator*{\argmax}{arg\; max}     % argmax
+\DeclareMathOperator*{\tr}{tr}     % trace
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\logdet}{log\;det}
+
+\title{EE8087 Living with Mathematics\\Tutorial 3: Conic Sections}
+\date{}
+\begin{document} \maketitle
+\begin{enumerate}
+\item For a conic curve with its focus at $(0,0)$ and its directrix at $x = 1$. Suppose the eccentricity of the curve is 0.5. Derive the quadratic equation for the curve.
+
+  \emph{Soln:} For any point $P = (x,y)$, the distance from $P$ to focus $(0,0)$ is $\sqrt{x^2+y^2}$. The distance to the directrix is $|x-1|$. Therefore, by the definition of eccentricity, we have
+  \begin{align*}
+    \sqrt{x^2+ y^2} = 0.5|x-1|.
+  \end{align*}
+  Square both sides of the equation, we get
+  \begin{align*}
+    x^2+ y^2 - 0.25(x^2 - 2x + 1) = 0.75x^2 + y^2 +0.5x -0.25 = 0.
+  \end{align*}
+
+
+\item For a parabola with focus $F$ and vertex $V$, We have a point $P$ on the parabola. Assume that $\angle PFV = 135^\circ$ and $PF = 100\sqrt{2}$. Find the point on the parabola that is the closest point to the focus $F$ and calculate its distance to $F$.
+  
+\begin{figure}[h]
+  \centering
+\begin{tikzpicture}
+  \draw[domain=0:2, samples=200,smooth,variable=\t,blue,thick] plot ({\t*\t},{2*\t)});
+  \draw[domain=0:1, samples=200,smooth,variable=\t,blue,thick] plot ({\t*\t},{-2*\t)});
+  \node [inner sep=0, outer sep=0, label=90:$F$] (F) at (1,0) {}; 
+  \fill [black] (F) circle (2pt); 
+  \node [inner sep=0, outer sep=0, label=180:$V$] (V) at (0,0) {}; 
+  \fill [black] (V) circle (2pt); 
+  
+  \node [inner sep=0, outer sep=0, label=90:$P$] (P) at (4,4) {}; 
+  \fill [black] (P) circle (2pt); 
+  \draw (P)--(F)--(V);
+  \coordinate (O) at (-1,0);
+  \draw [dashed] (-1,4.5)--(-1,-2);
+
+  \node [inner sep=0, outer sep=0, label=90:$P'$] (PP) at (P-|O) {}; 
+  \fill [black] (PP) circle (2pt); 
+  \draw (P)--(PP);
+
+  \node [inner sep=0, outer sep=0, label=90:$F'$] (FF) at (P-|F) {}; 
+  \fill [black] (FF) circle (2pt); 
+  \draw (F)--(FF);
+\end{tikzpicture}
+\end{figure}
+\emph{Soln:} Suppose the dashed line is the directrix. Find $P'$ on the directrix such that $PP'$ is perpendicular to the directrix. Find $F'$ on $PP'$ such that $FF'$ is perpendicular to $PP'$.
+
+We know that $\angle F'FP = 13^\circ - 90^\circ = 45^\circ$. Therefore $F'P = 100$. From the definition of parabola, we know that $PP' = PF = 100\sqrt{2}$. Hence, $F'P' = 100(\sqrt{2}-1) = 41.42$.
+
+For any point $Q$ on the parabola, we have $QF$ equals to the distance of $Q$ to the directrix, which is minimized when $Q$ is at the vertex $V$. Therefore, the minimum distance of any point on the parabola to $F$ is $FV = F'P'/2 = 20.71$.
+\newpage
+\item We know that a second order Bezier curve satisfies the following parametric equation:
+\begin{align*}
+  P = (1-t)^2P_0 + 2t(1-t)P_1 + t^2 P_2.
+\end{align*}
+Suppose that we want to draw a curve connecting point $(0,0)$ and $(4,0)$, such that the slope of the curve is $1$ at $(0,0)$ and $-1$ at $(4,0)$. Find a second order Bezier curve to achieve the specification. Write down the curve both in parametric form and as a quadratic equation.
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \draw[->] (0,0) -- (5,0) node[right] {$x$};
+    \draw[->] (0,0) -- (0,2) node[above] {$y$};
+
+    \node [inner sep=0, outer sep=0, label=270:$A$] (A) at (0,0) {}; 
+    \fill [black] (A) circle (2pt); 
+
+    \node [inner sep=0, outer sep=0, label=90:$B$] (B) at (4,0) {}; 
+    \fill [black] (B) circle (2pt); 
+
+    \draw [->] (A)--(1,1);
+    \draw [->] (B)--(5,-1);
+
+    \draw [dashed] (A)--(2,2);
+    \draw [dashed] (B)--(2,2);
+
+    \node [inner sep=0, outer sep=0, label=90:$P_1$] (P1) at (2,2) {}; 
+    \fill [black] (P1) circle (2pt); 
+  \end{tikzpicture}
+\end{figure}
+
+\emph{Soln:} Since the curve starts at $(0,0)$ and ends at $(4,0)$, we know that $P_0 = (0,0)$ and $P_2 = (4,0)$. Furthermore, since tangent line of the curve points towards $P_1$ at $P_0$ and points away from $P_1$ at $P_2$, we can conclude that $P_1 = (2,2)$.
+
+Thus, the parametric equation of the curve is given by
+\begin{align*}
+  x = 4t(1-t) + 4t^2 = 4t,\,y = 4t(1-t).
+\end{align*}
+Hence, $t = x/4$ and the quadratic equation describing the curve is
+\begin{align*}
+ y = -0.25x^2 + x. 
+\end{align*}
+
+
+\item  Suppose we have a cannon at $(0,0)$. Assuming the cannonball leaves the cannon at an initial speed of $v_0=100$ and the gravitational acceleration $g = 10$. How should we aim the cannon if we want to hit a target at $(400,300)$? What is the minimum initial speed $v_0$ needed to hit the target. 
+
+  \emph{Soln:} Suppose the angle at which the projectile is launched is $\theta$, then the trajectory of the cannonball follows the following parabola:
+  \begin{align*}
+    y = x\tan \theta  - \frac{g}{2v_0^2\cos^2\theta}x^2,
+  \end{align*}
+  or
+  \begin{align*}
+    2y\cos^2\theta = 2x\sin \theta\cos\theta - \frac{g}{v_0^2} x^2.
+  \end{align*}
+  Since $2\cos^2\theta = 1+\cos 2\theta$ and $2\sin\theta\cos\theta = \sin 2\theta$, we have
+  \begin{align*}
+    x \sin 2\theta - y\cos 2\theta = \frac{g}{v_0^2}x^2 + y.
+  \end{align*}
+  Since $(400,300)$ is on the curve, we have
+  \begin{align*}
+    400 \sin 2\theta - 300\cos 2\theta = 160 + 300 = 460.
+  \end{align*}
+  The LHS of the equation can be written as
+  \begin{align*}
+     400 \sin 2\theta - 300\cos 2\theta = 500 \sin(2\theta - \phi),
+  \end{align*}
+  where $\phi = \tan^{-1}0.75=36.87$. Therefore,
+  \begin{align*}
+    2\theta-\phi =\sin^{-1}(460/500)\text{ or }180^\circ-\sin^{-1}(460/500),
+  \end{align*}
+which implies that $\theta = 51.90^\circ$ or $\theta = 74.97^\circ$.
+
+Notice that $x\sin 2\theta - y \cos 2\theta \leq \sqrt{x^2+y^2}$, therefore
+\begin{align*}
+ \frac{g}{v_0^2}x^2 + y \leq \sqrt{x^2+y^2} = 500, 
+\end{align*}
+which means that the minimum $v_0 = 89.44$.
+
+\emph{Alternative Soln:} We know that
+\begin{align*}
+    x \sin 2\theta - y\cos 2\theta = \frac{g}{v_0^2}x^2 + y.
+\end{align*}
+Let $\tan \theta = \tau$, we have
+\begin{align*}
+  \cos 2\theta = \frac{1-t^2}/\frac{1+t^2}, \sin 2\theta = \frac{2t}{1+t^2}.
+\end{align*}
+Therefore
+\begin{align*}
+ 2x \tau - y(1-\tau^2) = \left(\frac{g}{v_0^2}x^2+y\right) (1+\tau^2),
+\end{align*}
+which implies that
+\begin{align*}
+  \frac{g}{v_0^2}x^2\; \tau^2 -2x\tau + \left(\frac{g}{v_0^2}x^2+2y\right) = 0,
+\end{align*}
+Solving this quadratic equation we get $\tau = 3.72$ or $\tau = 1.28$, which means $\theta = \tan^{-1} 3.72 = 74.97^\circ$ or $\theta = \tan^{-1}1.28 = 51.90^\circ$.
+
+In order for the quadratic equation to have real solution, we must have
+\begin{align*}
+ (-2x) ^2 \geq 4 \times \frac{g}{v_0^2}x^2 \times \left(\frac{g}{v_0^2}x^2+2y\right) = 4\left(\frac{g}{v_0^2}x^2+y\right)^2-4y^2,
+\end{align*}
+which implies that
+\begin{align*}
+ \sqrt{ x^2+y^2 }\geq \frac{g}{v_0^2}x^2+y.
+\end{align*}
+
+
+
+\end{enumerate}
+
+\end{document}
+%%% Local Variables:
+%%% TeX-command-default: "Latexmk"
+%%% End:
