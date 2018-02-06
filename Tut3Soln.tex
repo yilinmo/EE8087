@@ -49,7 +49,23 @@
     x^2+ y^2 - 0.25(x^2 - 2x + 1) = 0.75x^2 + y^2 +0.5x -0.25 = 0.
   \end{align*}
 
+\emph{Alternative Soln:} Since $e = 0.5 < 1$, we know the curve is an ellipse.
 
+The line that passes through the focus and is perpendicular to the directrix will be the major axis. Therefore, the major axis is the $x$-axis and the center of the ellipse takes the form $(x_0,0)$.
+
+As a result, the ellipse will satisfy the following equation:
+\begin{align*}
+  \frac{(x-x_0)^2}{a^2} + \frac{y^2}{b^2} = 1.
+\end{align*}
+The right focus is at $(x_0+c,0)$ and the right directrix is at $x = x_0 + a/e = x_0 + 2a$.
+\begin{align*}
+  x_0 + c = 0,\,x_0+2a = 1,\,c/a = e= 0.5.
+\end{align*}
+We can solve $a = 2/3$, $c = 1/3$, and $x_0 = -1/3$. Thus, $b^2 = a^2-c^2 = 1/3$. The ellipse is given by
+\begin{align*}
+  \frac{(x+1/3)^2}{4/9} + \frac{y^2}{1/3} = 1.
+\end{align*}
+\newpage
 \item For a parabola with focus $F$ and vertex $V$, We have a point $P$ on the parabola. Assume that $\angle PFV = 135^\circ$ and $PF = 100\sqrt{2}$. Find the point on the parabola that is the closest point to the focus $F$ and calculate its distance to $F$.
   
 \begin{figure}[h]
@@ -82,6 +98,10 @@
 We know that $\angle F'FP = 13^\circ - 90^\circ = 45^\circ$. Therefore $F'P = 100$. From the definition of parabola, we know that $PP' = PF = 100\sqrt{2}$. Hence, $F'P' = 100(\sqrt{2}-1) = 41.42$.
 
 For any point $Q$ on the parabola, we have $QF$ equals to the distance of $Q$ to the directrix, which is minimized when $Q$ is at the vertex $V$. Therefore, the minimum distance of any point on the parabola to $F$ is $FV = F'P'/2 = 20.71$.
+
+
+
+
 \newpage
 \item We know that a second order Bezier curve satisfies the following parametric equation:
 \begin{align*}
