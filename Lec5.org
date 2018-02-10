@@ -1,0 +1,293 @@
+#+BEGIN_SRC ipython :session :exports none
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+from matplotlib import rc
+
+%load_ext tikzmagic
+
+#+END_SRC
+
+#+RESULTS:
+
+* Astronomy
+
+** Measuring the Distance
+"The wonder is, not that the field of stars is so vast, but that man has measured it."
+Anatole France - /The Garden of Epicurus/, 1894.
+*** Size of the Earth
+"The Blue Marble" is a famous photograph of the Earth taken on December 7, 1972, by the crew of the Apollo 17 spacecraft en route to the Moon at a distance of about 29,000 kilometres (18,000 mi).
+https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/1023px-The_Earth_seen_from_Apollo_17.jpg
+
+**** Spherical Earth
+Pythagoras (about 500 BC) provides the earliest arguments for why the Earth is round. The moon, he noted, was also a sphere, so it would follow that the Earth is round as well.
+
+Aristotle (about 340 BC) supported the idea of a spherical Earth, Moon and planets because:  
+
+- the sphere is a perfect solid and the heavens are a region of perfection 
+- the Earth's component pieces, falling naturally towards the centre, would press into a round form 
+- in an eclipse of the Moon, the Earth's shadow is always circular: a flat disc would cast an oval shadow 
+- even in short travels northwards the Pole Star is higher in the sky.
+- ships sailing over the horizon disappear hull first
+
+**** How Far is the Horizon?
+- A man is standing on a $h=30m$ building at point $P$.
+- Assume the Earth is a perfect sphere with radius $R=6371km$.
+- Draw the tangent line from $P$ to the circle.
+- $OP = R + h$, $OQ = R$, and $\angle OQP = 90^\circ$.
+- $QP = \sqrt{(R+h)^2 - R^2} = \sqrt{2Rh+h^2}\approx \sqrt{2Rh} = 19.55km$.
+
+#+BEGIN_SRC ipython :session :file assets/horizon.svg :exports results
+  %%tikz -p tkz-euclide -s 600,400 -f svg -S assets/horizon.svg
+\tkzDefPoint(0,0){Origin}
+\tkzDefPoint(0,4.5){O}
+\pgfmathsetmacro{\Radius}{4}
+
+\tkzTangent[from with R = O](Origin,\Radius cm)  \tkzGetPoints{Q}{I} 
+
+\tkzDrawCircle[R](Origin,\Radius cm)
+
+\tkzDrawSegments[thick,black](O,Q O,I)
+\tkzDrawSegments[thick,red](Origin,Q Origin,I)
+\tkzDrawSegments[thick,red](Origin,O)
+
+\tkzLabelPoints[left,above](Q)
+\tkzLabelPoints[left,below](I)
+\tkzLabelPoint[below](Origin){$O$}
+\tkzLabelPoint[above](O){$P$}
+
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/horizon.svg]]
+
+**** Size of the Earth
+- Eratosthenes (276 BC-194 BC) is the first person to calculate the circumference of the Earth.
+https://upload.wikimedia.org/wikipedia/commons/1/1f/Eratosthenes_measure_of_Earth_circumference.svg
+- His Calculation is based on the following assumptions:
+  1. That the distance between Alexandria and Syene was 5000 stadia,
+  2. That Alexandria is due north of Syene
+  3. That Syene lies on the Tropic of Cancer
+  4. That the Earth is a perfect sphere.
+  5. That light rays emanating from the Sun are parallel.
+- His calculation has an error of 10%, which is remarkably accurate.
+- Eratosthenes is the chief librarian at the Library of Alexandria.
+- He is also famous for inventing the Sieve of Eratosthenes, an algorithm to find all prime numbers up to a given limit.
+
+**** Columbus
+- The size of the earth were known to the panel of experts which King Ferdinand appointed to examine the proposal made by Columbus.
+- They turned Columbus down, because using the original value by Eratosthenes, they calculated how far India was to the west of Spain, and concluded that the distance was far too great.
+- Columbus had an estimate of his own, which severely underestimate the size of the Earth.
+- In the end Queen Isabella overruled the experts, and the rest is history.
+
+*** Moon 
+**** Lunar Eclipse
+- Aristarchus of Samos uses Lunar eclipse to calculate the distance of the moon to the earth.
+https://upload.wikimedia.org/wikipedia/commons/e/ec/Geometry_of_a_Lunar_Eclipse.svg
+- His calculation is based on the following steps:
+  1. the Moon moved in a large circle around Earth with the same speed. Let $R$ be the radius of the circle and $T$ be its period. The speed of the moon is thus $2\pi R /T$.
+  2. An eclipse of the Moon occurs when the Moon passes through the shadow of the Earth, on the opposite side from the Sun. The shadow is roughly the same size of the earth, with width $2r$, where $r$ is the radius of the earth.
+  3. The duration of a total lunar eclipse is $t$.
+  4. Therefore $$2\pi R / T = 2r /t,$$ from which Aristarchus obtained $R \approx 60 r$, which is astonishingly accurate to what we know today $R = 60.32 r$.
+- However, the calculation is not entirely correct since
+  1. He uses the synodic period of $29.5$ days, not the orbital period $27.32$.
+  2. The shadow of the Earth is actually a cone instead of cylinder. The width of the shadow is roughly $25%$ narrower than $2r$ at the orbit of the moon.
+
+
+**** Parallax
+- Parallax is a displacement or difference in the apparent position of an object viewed along two different lines of sight.
+https://upload.wikimedia.org/wikipedia/commons/1/10/Parallax_Example.svg
+- We can use parallax to determine the distance to the moon.
+- The angle $\angle QPO$ is called lunar parallax, which is roughly $1/2$ the apparent angle between Star 1 and Star 2.
+- The distance to the moon can be computed as $$\frac{r}{\sin\angle QPO}\approx \frac{r}{\angle QPO}.$$
+ 
+#+BEGIN_SRC ipython :session :file assets/parallax.svg :exports results
+  %%tikz -p tkz-euclide -s 600,250 -f svg -S assets/parallax.svg
+\tkzDefPoint(0,0){Origin}
+\tkzDefPoint(4,0){O}
+\tkzDefPoint(10,0){B}
+\tkzDefPoint(10,1){C}
+
+\pgfmathsetmacro{\Radius}{1}
+
+\tkzTangent[from with R = O](Origin,\Radius cm)  \tkzGetPoints{Q}{I} 
+
+\tkzDrawCircle[R](Origin,\Radius cm)
+
+\tkzInterLL(Q,O)(B,C) \tkzGetPoint{X}
+\tkzInterLL(I,O)(B,C) \tkzGetPoint{Y}
+
+\tkzDrawSegments[thick,black](X,Q I,Y)
+\tkzDrawSegments[dashed](I,X)
+\tkzDrawSegments[thick,red](Origin,O)
+
+
+\tkzLabelPoints[left,above](Q)
+\tkzLabelPoints[left,below](I)
+
+\tkzLabelPoint[below](Origin){$O$}
+\tkzLabelPoint[above](O){$P$}
+
+\tkzLabelPoint[below](X){Star 1}
+\tkzLabelPoint[above](Y){Star 2}
+
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/parallax.svg]]
+
+https://upload.wikimedia.org/wikipedia/commons/1/13/Lunarparallax_22_3_1988.png
+
+*** Sun and Other Planets
+- The distance between the Earth and the Sun is called /the Astronomical Unit/ or AU for short.
+- Aristarchus of Samos proposed to used half moon to measure the distance.
+- He claimed that during a half moon, the moon forms a right triangle with the Sun and Earth. 
+- By observing the angle between the Sun and Moon, $\phi$, we know that $$\frac{L}{S} = \cos\phi\approx \frac{\pi}{2}-\phi.$$
+- He measured $\phi = 87\degr$ and hence our distance to the sun is 20 times greater than our distance to the moon.
+- This value (or values close to it) was accepted by astronomers for the next two thousand years
+- However, it is roughly $1/20$ of the true value.
+
+#+BEGIN_SRC ipython :session :file assets/aristarchus.svg :exports results
+  %%tikz  -s 600,300 -f svg -S assets/aristarchus.svg
+\node [anchor=90] (E) at (0,0) {Earth};
+\draw (0,0) circle (1);
+
+\node [anchor=270] (M) at (0,3.5) {Moon};
+\draw (0,3) circle (0.5);
+\fill (0,3.5) arc (90:270:0.5);
+
+\node [anchor=270] (S) at (10,3) {Sun};
+\draw (10,3) circle (2);
+
+\draw [dashed, semithick] (0,0)--(0,3)--(10,3)--cycle;
+\draw (0,0.5) arc (90:16.7:0.5) node [midway, above] {$87^\circ$};
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/aristarchus.svg]]
+
+
+**** Kepler's Third Law of Planetary Motion
+- The square of the orbital period of a planet is proportional to the cube of the semi-major axis of its orbit. $$r\propto T^{2/3}.$$
+- Given the orbital period of Jupiter to be 11.862 year. The semi-major axis of the orbit is $$11.862^{2/3} = 5.20 AU.$$
+- The Astronomical Unit is the ruler for astronomers.
+- We can measure everything in terms of AU. However, how large is 1 AU?
+- It is non-trivial to measure solar parallax since it is only $8''.79$, roughly 1/400 of the lunar parallax.
+
+**** Transit of Venus
+- A transit of Venus across the Sun takes place when the planet Venus passes directly between the Sun and a superior planet, becoming visible against (and hence obscuring a small portion of) the solar disk.
+https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/SDO%27s_Ultra-high_Definition_View_of_2012_Venus_Transit_%28304_Angstrom_Full_Disc_02%29.jpg/1024px-SDO%27s_Ultra-high_Definition_View_of_2012_Venus_Transit_%28304_Angstrom_Full_Disc_02%29.jpg
+- It appears in pairs 8 years apart, separated by gaps of more than 100 years.
+- The last transit of Venus was on 5 and 6 June 2012, the prior transit took place on 8 June 2004. 
+- The next transits of Venus will take place on 10–11 December 2117, and 8 December 2125.
+- Edmond Halley proposed an accurate way to calculate solar parallax based on the measurements of a transit of Venus in 1716.
+- He died in 1742, before seeing the next transit in 1761.
+- Observing the transits in 1761 and 1769 was an unprecedented international scientific operation. Dozens of astronomers were dispatched to observing points around the world at great expense and personal danger: several of them died in the endeavour. The various results were collated by Jérôme Lalande to give a figure for the solar parallax of 8.6″.
+ https://upload.wikimedia.org/wikipedia/commons/6/6d/Venus_Transit_%26_Parallax.svg
+
+#+BEGIN_EXPORT HTML
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CfmGPsLvAQ0?start=15" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+#+END_EXPORT
+
+- Direct radar measurements of the distances to Venus and Mars became available in the early 1960.
+- Using speed of light, we can deduce the length of the astronomical unit accurately.
+
+*** Stellar Parallax
+- Parallax method can be used to measure the distance to the stars.
+- However, the Earth is not large enough as the base line.
+- The orbit of the Earth is leveraged instead.
+- The parsec is defined as the distance to the star whose parallax is $1''$, which is roughly $$1\text{AU}\times \frac{\pi}{180\times 60\times 60} = 206264 \text{AU} =3.26 \text{Light Year}.$$
+https://upload.wikimedia.org/wikipedia/commons/7/7d/Stellarparallax_parsec1.svg
+- Still the parallax is incredibly small. Our nearest star is Proxima Centauri, whose parallax is 0.7687 arcsec.
+- The first successful measurement was made in 1838.
+- Even with nowadays technique, we can only measure the distance of stars with 100 parsecs of us.
+- The milky way has a diameter of 31000 to 55000 parsecs.
+*** Standard Candles
+**** Brightness of a Star
+- Magnitude is a logarithmic measure of the brightness of an object. 
+- The smaller the magnitude is, the brighter the star is.
+http://sci.esa.int/science-e-media/img/20/apparent-magnitude.jpg
+
+- For stars, we know that the further away it is from the earth, the dimmer it becomes. The apparent brightness follows the inverse square law.
+- Apparent magnitude $m$ is the magnitude of the star measured from Earth.
+- Absolute magnitude $M$ is the magnitude of the star measured at $10$ parsecs away from the star. $$m - M = 5(\log_{10} d-1).$$
+- The sun is 1 AU or $\pi/648000$ parsecs away from us and has an apparent magnitude of $-26.74$. Therefore, the absolute magnitude of the sun is $$M = -26.74 - 5 (\log_{10} (\pi/648000)-1) = 4.83.$$
+- If we know the absolute magnitude of a star, we can derive its distance from the earth.
+**** Variable Star
+- A variable star is a star whose brightness as seen from Earth (its apparent magnitude) fluctuates.
+- A specific type of variable stars in Cepheid variable star, which was first discovered in 1784.
+#+BEGIN_EXPORT HTML
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/1hMZz0XmPZI?rel=0&amp;start=81" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+#+END_EXPORT
+**** Cepheid Variable Star
+- Henrietta Swan Leavitt investigated 1777 variable stars in the Magellanic Clouds in 1908 at Harvard college observatory.
+- They are roughly the same distance away from the Earth since the Magellanic cloud is really far away.
+- "Leavitt's law": The logarithm of the period is linearly and directly related to the logarithm of the star's average intrinsic optical luminosity  
+https://2ai9u93bg0gn4e99nu2g8mbj-wpengine.netdna-ssl.com/wp-content/uploads/2013/12/693766main_pia15819-43_1024-768.jpg
+- One year later, Ejnar Hertzsprung determined the distance of several Cepheids in the Milky Way
+- With this calibration, the distance to any Cepheid could be accurately determined.
+
+
+**** Galaxy
+- The Great Debate was held on 26 April 1920 at the Smithsonian Museum of Natural History, between the astronomers Harlow Shapley and Heber Curtis.
+- Shapley was arguing in favor of the Milky Way as the entirety of the then known universe.
+- Curtis on the other side contended that Andromeda and other such "nebulae" were separate galaxies.
+- Edwin Hubble identified Cepheid variables in the Andromeda (0.78 million parsecs away) and other "nebula". 
+- Using Leavitt's law, he proved conclusively that these nebulae were much too distant to be part of the Milky Way (1924).
+- They are indeed galaxies outside our own.
+**** Hubble Deep Field
+
+- The Hubble Deep Field image covers a speck of the sky only about the width of a dime 20 meters away. Gazing into this small field, Hubble uncovered a bewildering assortment of at least 1,500 galaxies at various stages of evolution.
+https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/HubbleDeepField.800px.jpg/1045px-HubbleDeepField.800px.jpg
+
+**** Andromeda–Milky Way collision
+- Andromeda galaxy is moving towards us and astronomers predict it will collide with our Milky Way in 4 billion years.
+#+BEGIN_EXPORT HTML
+<iframe width="560" height="315" src="https://www.youtube.com/embed/DBWk7HD3F7Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+#+END_EXPORT
+
+*** Hubble's Law
+- In a 1929 paper, Hubble examined the relation between distance and redshift of galaxies.
+http://physicsanduniverse.com/wp-content/uploads/2014/02/Hubble-Law-2010.jpeg
+- Objects observed in deep space are found to have a red shift, interpreted as a relative velocity away from Earth
+- This Doppler-shift-measured velocity of various galaxies receding from the Earth is approximately proportional to their distance from the Earth. $$v = H_0D.$$
+- If we know the redshift, we can deduce $v$ and the distance $D$ from Hubble's Law.
+- The observable university has a radius of about $14$ billion parsecs.
+** Planetary Motion
+*** Kepler's Laws of Planetary Motion
+- *First Law*: The orbit of a planet is an ellipse with the Sun at one of the two foci.
+- *Second Law*: A line segment joining a planet and the Sun sweeps out equal areas during equal intervals of time.
+- *Third Law*: The square of the orbital period of a planet is proportional to the cube of the semi-major axis of its orbit.
+- Kepler's law can also be applied to satellite orbiting the Earth or the moons orbiting other planet.
+https://upload.wikimedia.org/wikipedia/commons/9/98/Kepler_laws_diagram.svg
+
+- We know that the semi-major axis of the moon is $60$ (radius of the Earth) and the orbital period is 27.32 day.
+- Suppose the orbit of a satellite is described as $$\frac{x^2}{25}+\frac{y^2}{16} = 1.$$
+- The semi-major axis is $5$. Therefore, the orbital period of the satellite is $$T = (5/60)^{3/2}\times 27.32 = 0.657 \text{ day} = 5.68\times 10^4\text{ sec}.$$
+- The area of the ellipse is $S = 20\pi = 62.83$. 
+- Suppose the Earth is located at focus $(3,0)$, then the speed when the satellite is at $(5,0)$ is $$ \frac{v\times 2}{2} = \frac{S}{T}\Rightarrow v = 7.05 km/s.$$
+- The speed when the satellite is at $(-5,0)$ is $$ \frac{v\times 8}{2} = \frac{S}{T}\Rightarrow v = 1.76 km/s.$$
+- The speed when the satellite is at $(0,4)$ is $$ \frac{v\times 5\sin\theta}{2} = \frac{S}{T}\Rightarrow v = 3.52 km/s.$$
+
+#+BEGIN_SRC ipython :session :file assets/satellite.svg :exports results
+  %%tikz -s 600,400 -f svg -S assets/satellite.svg
+
+  \node [inner sep=0, outer sep=0, label=270:$F$] (F) at (3,0) {}; 
+  \fill [black] (F) circle (2pt); 
+
+\draw [fill=red!20 ] (F)--(5,0)--(5,0.8)--cycle;
+\draw [fill=red!20 ] (F)--(0,4)--(-0.4,4)--cycle;
+\draw [fill=red!20 ] (F)--(-5,0)--(-5,-0.2)--cycle;
+
+\draw [thick,->] (5,0)--(5,0.8);
+\draw [thick,->] (0,4)--(-0.4,4);
+\draw [thick,->] (-5,0)--(-5,-0.2);
+
+  \draw[->] (-6,0) -- (6,0) node[right] {$x$};
+  \draw[->] (0,-5) -- (0,5) node[above] {$y$};
+  \draw[domain=0:2*pi, samples=200,smooth,variable=\t,blue] plot ({5*cos(\t r)},{4*sin(\t r)});
+#+END_SRC
+
+#+RESULTS:
+[[file:assets/satellite.svg]]
+
