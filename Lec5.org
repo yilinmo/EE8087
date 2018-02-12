@@ -91,7 +91,7 @@ https://upload.wikimedia.org/wikipedia/commons/e/ec/Geometry_of_a_Lunar_Eclipse.
   4. Therefore $$2\pi R / T = 2r /t,$$ from which Aristarchus obtained $R \approx 60 r$, which is astonishingly accurate to what we know today $R = 60.32 r$.
 - However, the calculation is not entirely correct since
   1. He uses the synodic period of $29.5$ days, not the orbital period $27.32$.
-  2. The shadow of the Earth is actually a cone instead of cylinder. The width of the shadow is roughly $25%$ narrower than $2r$ at the orbit of the moon.
+  2. The shadow of the Earth is actually a cone instead of cylinder. The width of the shadow is roughly $25\%$ narrower than $2r$ at the orbit of the moon.
 
 
 **** Parallax
@@ -142,7 +142,7 @@ https://upload.wikimedia.org/wikipedia/commons/1/13/Lunarparallax_22_3_1988.png
 - The distance between the Earth and the Sun is called /the Astronomical Unit/ or AU for short.
 - Aristarchus of Samos proposed to used half moon to measure the distance.
 - He claimed that during a half moon, the moon forms a right triangle with the Sun and Earth. 
-- By observing the angle between the Sun and Moon, $\phi$, we know that $$\frac{L}{S} = \cos\phi\approx \frac{\pi}{2}-\phi.$$
+- By observing the angle between the Sun and Moon, $\phi$, we know that $$\frac{S}{L} = \cos\phi\approx \frac{\pi}{2}-\phi.$$
 - He measured $\phi = 87\degr$ and hence our distance to the sun is 20 times greater than our distance to the moon.
 - This value (or values close to it) was accepted by astronomers for the next two thousand years
 - However, it is roughly $1/20$ of the true value.
@@ -196,7 +196,7 @@ https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/SDO%27s_Ultra-high_Def
 - Parallax method can be used to measure the distance to the stars.
 - However, the Earth is not large enough as the base line.
 - The orbit of the Earth is leveraged instead.
-- The parsec is defined as the distance to the star whose parallax is $1''$, which is roughly $$1\text{AU}\times \frac{\pi}{180\times 60\times 60} = 206264 \text{AU} =3.26 \text{Light Year}.$$
+- The parsec is defined as the distance to the star whose parallax is $1''$, which is roughly $$1\text{AU}/ \frac{\pi}{180\times 60\times 60} = 206264 \text{AU} =3.26 \text{Light Year}.$$
 https://upload.wikimedia.org/wikipedia/commons/7/7d/Stellarparallax_parsec1.svg
 - Still the parallax is incredibly small. Our nearest star is Proxima Centauri, whose parallax is 0.7687 arcsec.
 - The first successful measurement was made in 1838.
