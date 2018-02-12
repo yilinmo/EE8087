@@ -15,6 +15,7 @@ from matplotlib import rc
 ** Measuring the Distance
 "The wonder is, not that the field of stars is so vast, but that man has measured it."
 Anatole France - /The Garden of Epicurus/, 1894.
+
 *** Size of the Earth
 "The Blue Marble" is a famous photograph of the Earth taken on December 7, 1972, by the crew of the Apollo 17 spacecraft en route to the Moon at a distance of about 29,000 kilometres (18,000 mi).
 https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/1023px-The_Earth_seen_from_Apollo_17.jpg
@@ -159,13 +160,19 @@ https://upload.wikimedia.org/wikipedia/commons/1/13/Lunarparallax_22_3_1988.png
 \node [anchor=270] (S) at (10,3) {Sun};
 \draw (10,3) circle (2);
 
-\draw [dashed, semithick] (0,0)--(0,3)--(10,3)--cycle;
+\draw [dashed, semithick] (0,0)--node [left] {$S$} (0,3)--(10,3)--node [below] {$L$}(0,0);
 \draw (0,0.5) arc (90:16.7:0.5) node [midway, above] {$87^\circ$};
 #+END_SRC
 
 #+RESULTS:
 [[file:assets/aristarchus.svg]]
 
+**** Heliocentric Model
+- Based on his calculation of the distance from the earth to the sun and the angular size of the sun, Aristarchus of Samos conclude that the radius of the sun is 6-7 times the radius of Earth.
+- Now we know it is 110 times the radius of Earth.
+- Nevertheless, Aristarchus concluded that the Sun is bigger than Earth
+- Therefore it does not make sense for the Sun to orbit Earth.
+- He also concluded that the stars are incredibly far away, since we cannot observe parallax with our naked eye.
 
 **** Kepler's Third Law of Planetary Motion
 - The square of the orbital period of a planet is proportional to the cube of the semi-major axis of its orbit. $$r\propto T^{2/3}.$$
@@ -200,8 +207,10 @@ https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/SDO%27s_Ultra-high_Def
 https://upload.wikimedia.org/wikipedia/commons/7/7d/Stellarparallax_parsec1.svg
 - Still the parallax is incredibly small. Our nearest star is Proxima Centauri, whose parallax is 0.7687 arcsec.
 - The first successful measurement was made in 1838.
-- Even with nowadays technique, we can only measure the distance of stars with 100 parsecs of us.
-- The milky way has a diameter of 31000 to 55000 parsecs.
+- Even with nowadays technique, we can only measure the distance of stars within 3,000 parsecs of us.
+
+https://upload.wikimedia.org/wikipedia/commons/0/00/Hubble_stretches_the_stellar_tape_measure_ten_times_further.jpg
+
 *** Standard Candles
 **** Brightness of a Star
 - Magnitude is a logarithmic measure of the brightness of an object. 
@@ -226,6 +235,7 @@ http://sci.esa.int/science-e-media/img/20/apparent-magnitude.jpg
 https://2ai9u93bg0gn4e99nu2g8mbj-wpengine.netdna-ssl.com/wp-content/uploads/2013/12/693766main_pia15819-43_1024-768.jpg
 - One year later, Ejnar Hertzsprung determined the distance of several Cepheids in the Milky Way
 - With this calibration, the distance to any Cepheid could be accurately determined.
+- Other standard candles, such as Type Ia supernova has been discovered.
 
 
 **** Galaxy
@@ -235,6 +245,9 @@ https://2ai9u93bg0gn4e99nu2g8mbj-wpengine.netdna-ssl.com/wp-content/uploads/2013
 - Edwin Hubble identified Cepheid variables in the Andromeda (0.78 million parsecs away) and other "nebula". 
 - Using Leavitt's law, he proved conclusively that these nebulae were much too distant to be part of the Milky Way (1924).
 - They are indeed galaxies outside our own.
+
+http://imgsrc.hubblesite.org/hvi/uploads/image_file/image_attachment/21678/print.jpg
+
 **** Hubble Deep Field
 
 - The Hubble Deep Field image covers a speck of the sky only about the width of a dime 20 meters away. Gazing into this small field, Hubble uncovered a bewildering assortment of at least 1,500 galaxies at various stages of evolution.
@@ -253,6 +266,8 @@ http://physicsanduniverse.com/wp-content/uploads/2014/02/Hubble-Law-2010.jpeg
 - This Doppler-shift-measured velocity of various galaxies receding from the Earth is approximately proportional to their distance from the Earth. $$v = H_0D.$$
 - If we know the redshift, we can deduce $v$ and the distance $D$ from Hubble's Law.
 - The observable university has a radius of about $14$ billion parsecs.
+*** Cosmic Distance Ladder
+https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/image1hs201617aprint.jpg
 ** Planetary Motion
 *** Kepler's Laws of Planetary Motion
 - *First Law*: The orbit of a planet is an ellipse with the Sun at one of the two foci.
