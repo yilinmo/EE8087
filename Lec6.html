@@ -1,0 +1,995 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-02-18 Sun 22:34 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="yilin" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; max-height:300px; }
+  img { height:400px; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgae2200e">1. Trigonometry</a>
+<ul>
+<li><a href="#orga321611">1.1. Basic Properties</a>
+<ul>
+<li><a href="#orgda4bbaa">1.1.1. Pythagoras's Identities</a></li>
+<li><a href="#org8ec2ab8">1.1.2. Sine Rule</a></li>
+<li><a href="#org6eb4135">1.1.3. Cosine Rule</a></li>
+<li><a href="#org6a53363">1.1.4. Angle Sum and Difference Identities</a></li>
+<li><a href="#org2107540">1.1.5. Product-to-Sum and Sum-to-Product Identities</a></li>
+<li><a href="#orgcaad1e6">1.1.6. Double-Angle and Half-Angle Formula</a></li>
+</ul>
+</li>
+<li><a href="#org35e985e">1.2. Applications</a>
+<ul>
+<li><a href="#orge1f358c">1.2.1. Land Survey Problem</a></li>
+<li><a href="#org6fbbd8a">1.2.2. Area</a></li>
+<li><a href="#org344d417">1.2.3. Sum of Sinusoidal Signals</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org2d461d3">2. Conic Sections</a>
+<ul>
+<li><a href="#orge370a93">2.1. Definition of Conic Curves</a>
+<ul>
+<li><a href="#orgb38f12d">2.1.1. Conic Sections</a></li>
+<li><a href="#org78caf66">2.1.2. Directrix, Focus and Eccentricity</a></li>
+<li><a href="#org4059144">2.1.3. Ellipse</a></li>
+<li><a href="#org7437a95">2.1.4. Parabola</a></li>
+<li><a href="#orgb1bf69b">2.1.5. Hyperbola</a></li>
+<li><a href="#org5847388">2.1.6. Translation of Coordinate</a></li>
+<li><a href="#org469710c">2.1.7. Translation and Rotation of Coordinate</a></li>
+<li><a href="#org951c95f">2.1.8. Distances to the Foci</a></li>
+</ul>
+</li>
+<li><a href="#org4170dff">2.2. Reflective Property</a>
+<ul>
+<li><a href="#org7147d85">2.2.1. Parabola</a></li>
+<li><a href="#orgdae8eb2">2.2.2. Ellipse</a></li>
+<li><a href="#org7cbaa1b">2.2.3. Hyperbola</a></li>
+<li><a href="#orga3c82f1">2.2.4. Telescope Design</a></li>
+</ul>
+</li>
+<li><a href="#orgb523718">2.3. Parabola</a>
+<ul>
+<li><a href="#org8d1a61f">2.3.1. Quadratic Bezier Curve</a></li>
+<li><a href="#org35168e1">2.3.2. Trajectory of a Projectile</a></li>
+<li><a href="#org359e530">2.3.3. Vertical Range</a></li>
+<li><a href="#org665a778">2.3.4. Horizontal Range</a></li>
+</ul>
+</li>
+<li><a href="#org716d26b">2.4. Ellipse</a>
+<ul>
+<li><a href="#org789ec24">2.4.1. Paper strip method</a></li>
+</ul>
+</li>
+<li><a href="#org32493cc">2.5. Hyperbola</a>
+<ul>
+<li><a href="#org2c25dd1">2.5.1. Multilateration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org3b0d71d">3. Astronomy</a>
+<ul>
+<li><a href="#orgb2835cc">3.1. Measuring the Distance</a>
+<ul>
+<li><a href="#orgf89667b">3.1.1. Distance to the Horizon</a></li>
+<li><a href="#org5c16961">3.1.2. Stellar Parallax</a></li>
+<li><a href="#org2dfa7fd">3.1.3. Standard Candle</a></li>
+</ul>
+</li>
+<li><a href="#orgc59aebe">3.2. Planetary Motion</a>
+<ul>
+<li><a href="#org5b5c3a2">3.2.1. Kepler's Law of Planetary Motion</a></li>
+<li><a href="#org8fa01b0">3.2.2. Extension</a></li>
+<li><a href="#orgb61c5bf">3.2.3. The Second Law of Planetary Motion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgae2200e" class="outline-2">
+<h2 id="orgae2200e"><span class="section-number-2">1</span> Trigonometry</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-orga321611" class="outline-3">
+<h3 id="orga321611"><span class="section-number-3">1.1</span> Basic Properties</h3>
+<div class="outline-text-3" id="text-1-1">
+</div><div id="outline-container-orgda4bbaa" class="outline-4">
+<h4 id="orgda4bbaa"><span class="section-number-4">1.1.1</span> Pythagoras's Identities</h4>
+<div class="outline-text-4" id="text-1-1-1">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/righttriangle.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+<ul class="org-ul">
+<li>\[\sin \alpha = \frac{BC}{AC},\, \cos\alpha = \frac{AB}{AC},\,\tan\alpha = \frac{BC}{AB}.\]</li>
+<li>\[ AB^2+BC^2 = AC^2.\]</li>
+<li>\[ \sin^2 \alpha+\cos^2\alpha = 1.\]</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8ec2ab8" class="outline-4">
+<h4 id="org8ec2ab8"><span class="section-number-4">1.1.2</span> Sine Rule</h4>
+<div class="outline-text-4" id="text-1-1-2">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/sinerule.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<p>
+\[\frac{\sin A}{a} = \frac{\sin B}{b}= \frac{\sin C}{c}.\]
+</p>
+</div>
+</div>
+<div id="outline-container-org6eb4135" class="outline-4">
+<h4 id="org6eb4135"><span class="section-number-4">1.1.3</span> Cosine Rule</h4>
+<div class="outline-text-4" id="text-1-1-3">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/sinerule.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<ul class="org-ul">
+<li>\[a^2+b^2-2ab\cos A = c^2.\]</li>
+<li>\[b^2+c^2-2bc\cos A = a^2.\]</li>
+<li>\[c^2+a^2-2ca\cos A = b^2.\]</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6a53363" class="outline-4">
+<h4 id="org6a53363"><span class="section-number-4">1.1.4</span> Angle Sum and Difference Identities</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<ul class="org-ul">
+<li>\[\sin(\alpha\pm\beta) = \sin \alpha \cos \beta \pm \sin\beta\cos\alpha.\]</li>
+<li>\[\cos(\alpha\pm\beta) = \cos \alpha \cos \beta \mp \sin\alpha\sin\beta.\]</li>
+<li>\[\tan(\alpha\pm\beta) = \frac{\tan \alpha \pm \tan\beta}{1\mp \tan\alpha\tan\beta}.\]</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2107540" class="outline-4">
+<h4 id="org2107540"><span class="section-number-4">1.1.5</span> Product-to-Sum and Sum-to-Product Identities</h4>
+<div class="outline-text-4" id="text-1-1-5">
+<ul class="org-ul">
+<li>Product to Sum
+<ul class="org-ul">
+<li>\[2\cos \theta \cos \varphi ={\cos(\theta -\varphi )+\cos(\theta +\varphi )}.\]</li>
+<li>\[ 2\sin \theta \sin \varphi ={\cos(\theta -\varphi )-\cos(\theta +\varphi )}.\]</li>
+<li>\[2\sin \theta \cos \varphi ={\sin(\theta + \varphi )+\sin(\theta -\varphi )}.\]</li>
+</ul></li>
+<li>Sum to Product
+<ul class="org-ul">
+<li>\[\sin \theta \pm \sin \varphi =2\sin \left({\frac {\theta \pm \varphi }{2}}\right)\cos \left({\frac {\theta \mp \varphi }{2}}\right).\]</li>
+<li>\[ \cos \theta +\cos \varphi =2\cos \left({\frac {\theta +\varphi }{2}}\right)\cos \left({\frac {\theta -\varphi }{2}}\right).\]</li>
+<li>\[\cos \theta -\cos \varphi =-2\sin \left({\frac {\theta +\varphi }{2}}\right)\sin \left({\frac {\theta -\varphi }{2}}\right).\]</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcaad1e6" class="outline-4">
+<h4 id="orgcaad1e6"><span class="section-number-4">1.1.6</span> Double-Angle and Half-Angle Formula</h4>
+<div class="outline-text-4" id="text-1-1-6">
+<ul class="org-ul">
+<li>Double Angle Formula
+<ul class="org-ul">
+<li>\[\sin (2\theta) = 2 \sin\theta\cos\theta.\]</li>
+<li>\[\cos (2\theta) = \cos^2\theta-\sin^2\theta = 2\cos^2\theta-1 = 1-2\sin^2\theta.\]</li>
+<li>\[\tan (2\theta) = \frac{2\tan\theta}{1-\tan^2\theta}.\]</li>
+</ul></li>
+<li>Half Angle Formula
+<ul class="org-ul">
+<li>\[\sin^2 \theta = \frac{1-\cos 2\theta}{2},\,\cos^2\theta = \frac{1+\cos 2\theta}{2}.\]</li>
+<li>\[\tan \theta = \frac{\sin 2\theta}{1+\cos 2\theta} = \frac{1-\cos 2\theta}{\sin 2\theta}.\]</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org35e985e" class="outline-3">
+<h3 id="org35e985e"><span class="section-number-3">1.2</span> Applications</h3>
+<div class="outline-text-3" id="text-1-2">
+</div><div id="outline-container-orge1f358c" class="outline-4">
+<h4 id="orge1f358c"><span class="section-number-4">1.2.1</span> Land Survey Problem</h4>
+<div class="outline-text-4" id="text-1-2-1">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/survey1.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+<ul class="org-ul">
+<li>\(CO = BO\times \tan \alpha\).</li>
+<li>\(CO = (BO+d)\times \tan \beta\).</li>
+<li>\[CO = d \frac{\tan \alpha\tan\beta}{\tan \alpha-\tan \beta}.\]</li>
+</ul>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/survey2.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<ul class="org-ul">
+<li>In \(\triangle AEB\) and \(\triangle AEC\), \[\frac{EB}{\sin A} = \frac{x}{\sin\alpha},\,\frac{EC}{\sin A} = \frac{x+y}{\sin (\alpha+\beta)}.\]</li>
+<li>\[ EB/EC = \frac{x\sin(\alpha+\beta)}{(x+y)\sin \alpha}.\]</li>
+<li>Similarly \[EC/EB =\frac{ z \sin (\beta+\gamma)}{(z+y)\sin\gamma}.\]</li>
+<li>Therefore \[(y+x)(y+z)\sin\alpha\sin\gamma = xz \sin (\alpha+\beta)\sin(\beta+\gamma).\]</li>
+<li>How to solve \(EA\) and \(EC\)?</li>
+<li>In \(\triangle AEB\) and \(\triangle BEC\), \[\frac{EA}{x}\sin\alpha = \sin\angle EBA = \sin \angle EBC = \frac{EC}{y}\sin \beta.\]</li>
+<li>In \(\triangle EAC\), \[EA^2 + EC^2 - 2EA\times EC\cos (\alpha+\beta) = (x+y)^2.\]</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org6fbbd8a" class="outline-4">
+<h4 id="org6fbbd8a"><span class="section-number-4">1.2.2</span> Area</h4>
+<div class="outline-text-4" id="text-1-2-2">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/circlechordarea.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<ul class="org-ul">
+<li>The area of the large sector \(\pi r^2 \times (1-\alpha/2\pi)\).</li>
+<li>The area of the triangle \(r^2\sin \alpha/2\).</li>
+<li>The area of the whole blue area: \[\frac{1}{2} (2\pi-\alpha+\sin\alpha)r^2.\]</li>
+<li>The area of the red area: \[\frac{1}{2} (\alpha-\sin\alpha)r^2.\]</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org344d417" class="outline-4">
+<h4 id="org344d417"><span class="section-number-4">1.2.3</span> Sum of Sinusoidal Signals</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<ul class="org-ul">
+<li>Suppose \(f\) is the sum of sinusoidal signals with the same frequency \[f(x)=\sum_{i} A_i \sin (\omega x + \theta_i).\]</li>
+<li>Expand each \(\sin (\omega x+\theta_i)\) term, we can get \[f(x) =\left( \sum_i A_i\cos\theta_i \right)\sin (\omega x) + \left( \sum_i A_i\sin\theta_i \right)\cos (\omega x)\]</li>
+<li>Suppose \(f(x) = A\sin (\omega x + \theta)\), then \[A\cos\theta = \sum_i A_i\cos \theta_i,\,A\sin \theta = \sum_i A_i\sin \theta_i.\]</li>
+<li>Therefore, \[A = \sqrt{\left( \sum_i A_i\cos \theta_i\right)^2+\left( \sum_i A_i\sin \theta_i\right)^2},\, \theta = \tan^{-1}\frac{ \sum_i A_i\sin \theta_i}{ \sum_i A_i\cos \theta_i} (+\pi). \]</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2d461d3" class="outline-2">
+<h2 id="org2d461d3"><span class="section-number-2">2</span> Conic Sections</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orge370a93" class="outline-3">
+<h3 id="orge370a93"><span class="section-number-3">2.1</span> Definition of Conic Curves</h3>
+<div class="outline-text-3" id="text-2-1">
+</div><div id="outline-container-orgb38f12d" class="outline-4">
+<h4 id="orgb38f12d"><span class="section-number-4">2.1.1</span> Conic Sections</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<ul class="org-ul">
+<li>A conic is the curve obtained as the intersection of a plane, called the <b>cutting plane</b>, with the surface of a double cone.</li>
+</ul>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="https://upload.wikimedia.org/wikipedia/commons/1/11/Conic_Sections.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org78caf66" class="outline-4">
+<h4 id="org78caf66"><span class="section-number-4">2.1.2</span> Directrix, Focus and Eccentricity</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<ul class="org-ul">
+<li>A conic section is the locus of all points \(P\) whose distance to a fixed point \(F\) (called the <b>focus</b>) is a constant multiple (called the <b>eccentricity</b>, \(e\)) of the distance from \(P\) to a fixed line \(L\) (called the <b>directrix</b> of the conic).</li>
+<li>Suppose that the focus \(F\) is at \((0,0)\) and the line \(L\) is \(x = a\), then the polar form of the conic section is \[ r = \frac{ae}{1+e\cos\theta}\]</li>
+</ul>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/polar.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+
+<ul class="org-ul">
+<li>For \(0 < e < 1\) we obtain an ellipse, for \(e = 1\) a parabola, and for \(e > 1\) a hyperbola.</li>
+<li>The circle will be the limit case where \(e = 0\).</li>
+</ul>
+
+<iframe src="https://www.desmos.com/calculator/ycikqn2pqa" class="stretch" style="border: 1px solid #ccc" frameborder=0></iframe>
+</div>
+</div>
+
+
+<div id="outline-container-org4059144" class="outline-4">
+<h4 id="org4059144"><span class="section-number-4">2.1.3</span> Ellipse</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<ul class="org-ul">
+<li>The standard form of a ellipse is \[\frac{x^2}{a^2}+\frac{y^2}{b^2}=1,\,a> b.\]</li>
+<li>The foci are at \((\pm c,0)\), where \(c = \sqrt{a^2-b^2}\).</li>
+<li>The eccentricity is \(e = c/a\) and the lines \(x = \pm a/e\) are the directrices.</li>
+</ul>
+
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/ellipse.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org7437a95" class="outline-4">
+<h4 id="org7437a95"><span class="section-number-4">2.1.4</span> Parabola</h4>
+<div class="outline-text-4" id="text-2-1-4">
+<ul class="org-ul">
+<li>The standard form of a parabola is \[y^2 = 4ax,\,a > 0.\]</li>
+<li>The focus is at \((a,0)\)</li>
+<li>The line \(x = -a\) is the directrix.</li>
+</ul>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/parabola.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgb1bf69b" class="outline-4">
+<h4 id="orgb1bf69b"><span class="section-number-4">2.1.5</span> Hyperbola</h4>
+<div class="outline-text-4" id="text-2-1-5">
+<ul class="org-ul">
+<li>The standard form of a hyperbola is \[\frac{x^2}{a^2}-\frac{y^2}{b^2}=1.\]</li>
+<li></li>
+</ul>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/hyperbola.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org5847388" class="outline-4">
+<h4 id="org5847388"><span class="section-number-4">2.1.6</span> Translation of Coordinate</h4>
+<div class="outline-text-4" id="text-2-1-6">
+<ul class="org-ul">
+<li>Suppose a standard ellipse is moved \(x_0\) units to the right and \(y_0\) units to the left.</li>
+<li>Then the equation of the ellipse becomes \[\frac{(x-x_0)^2}{a^2}+\frac{(y-y_0)^2}{b^2}=1.\]</li>
+<li>The coordinate of the vertices, foci, center and directrices will shift.</li>
+<li>However, the distance between them remains constant.</li>
+<li>The same is true for hyperbola and parabola.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org469710c" class="outline-4">
+<h4 id="org469710c"><span class="section-number-4">2.1.7</span> Translation and Rotation of Coordinate</h4>
+<div class="outline-text-4" id="text-2-1-7">
+<ul class="org-ul">
+<li>Consider a general quadratic equation \[Ax^2+Bxy+Cy^2+Dx+Ey+F = 0.\]</li>
+<li>This will represent a conic section that has been rotated and translated from the standard form.</li>
+<li>The following quantities remains constant, regardless of the movement:
+<ul class="org-ul">
+<li>\(\Delta_1 = A+C\)</li>
+<li>\(\Delta_2 = AC-B^2/4\)</li>
+<li>\(\Delta_3 = ACF + BDE/4 − AE^ 2 /4− CD^2/4− FB^2/4\)</li>
+</ul></li>
+<li>If the curve is non-degenerate, then \(\Delta_3\neq 0\).</li>
+<li>If \(\Delta_2 \neq 0\), then we assume that the quadratic equation can be rewritten as either an ellipse or hyperbola \[A'(x')^2 + C' (y')^2 + F' = 0.\]</li>
+<li>By invariance, we have the following equations:
+<ul class="org-ul">
+<li>\(A'+C' = A+C\)</li>
+<li>\(A'C' = AC-B^2/4\)</li>
+<li>\(A'C'F' = ACF + BDE/4 − AE^ 2 /4− CD^2/4− FB^2/4\)</li>
+</ul></li>
+<li>If \(\Delta_2 = 0\), then we assume the quadratic equation can be rewritten as a parabola \[C'(y')^2 + D'x' = 0.\]</li>
+<li>By invariance, we have the following equations:
+<ul class="org-ul">
+<li>\(C' = A+C\)</li>
+<li>\(C'(D')^2/4 = ACF + BDE/4 − AE^ 2 /4− CD^2/4− FB^2/4\)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org951c95f" class="outline-4">
+<h4 id="org951c95f"><span class="section-number-4">2.1.8</span> Distances to the Foci</h4>
+<div class="outline-text-4" id="text-2-1-8">
+<ul class="org-ul">
+<li>The ellipse is the set of all points such that the sum of the distances from two fixed points (foci) is constant (\(2a\)).</li>
+<li>A hyperbola is the set of all points such that the difference of the distances from two fixed points (foci) is constant (\(2a\)).</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4170dff" class="outline-3">
+<h3 id="org4170dff"><span class="section-number-3">2.2</span> Reflective Property</h3>
+<div class="outline-text-3" id="text-2-2">
+</div><div id="outline-container-org7147d85" class="outline-4">
+<h4 id="org7147d85"><span class="section-number-4">2.2.1</span> Parabola</h4>
+<div class="outline-text-4" id="text-2-2-1">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/parabolareflect2.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<ul class="org-ul">
+<li>If the light source is located at the focus of a parabola, the light will be reflected in lines parallel to the parabola's axis.</li>
+<li>If a light beam is parallel to the parabola's axis, it will be reflected to the focus point of the parabola.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgdae8eb2" class="outline-4">
+<h4 id="orgdae8eb2"><span class="section-number-4">2.2.2</span> Ellipse</h4>
+<div class="outline-text-4" id="text-2-2-2">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/ellipsereflection2.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+
+<p>
+If the light source is placed at one of the two focal points of an ellipse, the light will be reflected to the other focal point. 
+</p>
+</div>
+</div>
+<div id="outline-container-org7cbaa1b" class="outline-4">
+<h4 id="org7cbaa1b"><span class="section-number-4">2.2.3</span> Hyperbola</h4>
+<div class="outline-text-4" id="text-2-2-3">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/hyperbolareflection2.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+
+<p>
+If the light beam is pointing at one of the two focal points of an hyperbola, the light will be reflected to point at the other focal point. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga3c82f1" class="outline-4">
+<h4 id="orga3c82f1"><span class="section-number-4">2.2.4</span> Telescope Design</h4>
+<div class="outline-text-4" id="text-2-2-4">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/telescope.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+<ul class="org-ul">
+<li>The parabola gathers all the incoming parallel light to its focus \(F\).</li>
+<li>The hyperbola reflects the light pointing at \(F\) to point it at \(f\). Hence, \(F\) and \(f\) are the two foci of the hyperbola.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb523718" class="outline-3">
+<h3 id="orgb523718"><span class="section-number-3">2.3</span> Parabola</h3>
+<div class="outline-text-3" id="text-2-3">
+</div><div id="outline-container-org8d1a61f" class="outline-4">
+<h4 id="org8d1a61f"><span class="section-number-4">2.3.1</span> Quadratic Bezier Curve</h4>
+<div class="outline-text-4" id="text-2-3-1">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/quadraticbezier.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<ul class="org-ul">
+<li>Parametric Form: \[R(t) = (1-t)Q_0(t)+tQ_1(t) = (1-t)^2 P_0 + 2t(1-t)P_1 + t^2 P_2.\]</li>
+<li>The derivative of \(R(t)\) is \[\frac{dR(t)}{dt} = 2(1-t)(P_1-P_0)+2t(P_2-P_1).\]</li>
+<li>Important properties:
+<ul class="org-ul">
+<li>The curve starts at \(P_0\) and ends at \(P_1\).</li>
+<li>The curve points towards \(P_1\) at the beginning and points away from \(P_1\) at the end.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org35168e1" class="outline-4">
+<h4 id="org35168e1"><span class="section-number-4">2.3.2</span> Trajectory of a Projectile</h4>
+<div class="outline-text-4" id="text-2-3-2">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/projectile.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<ul class="org-ul">
+<li>At time \(t\), the position of the projectile \[x(t) = v_0\cos\theta t,\,y(t) = v_0\sin\theta t - \frac{1}{2}gt^2. \]</li>
+<li>Eliminating \(t\), we can get the parabola \[y = \tan \theta x - \frac{g}{2v_0^2\cos^2\theta}x^2.\]</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org359e530" class="outline-4">
+<h4 id="org359e530"><span class="section-number-4">2.3.3</span> Vertical Range</h4>
+<div class="outline-text-4" id="text-2-3-3">
+<ul class="org-ul">
+<li>Suppose the initial speed \(v_0\) is fixed.</li>
+<li>For a given angle \(\theta\), since \(y(t) = v_0\sin \theta t - \frac{1}{2}gt^2\), the maximum height is achieved at the following time \[t_* =\frac{ v_0\sin \theta }{g}.\]</li>
+<li>The corresponding height is \[y(t_*) = \frac{v_0^2\sin^2\theta}{2g}.\]</li>
+<li>To achieve maximum height among all possible angles, we should aim \(v_0\) upward, i.e., \(\theta = 90^\circ\). This gives a maximum height of \[h_* = \frac{v_0^2}{2g}.\]</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org665a778" class="outline-4">
+<h4 id="org665a778"><span class="section-number-4">2.3.4</span> Horizontal Range</h4>
+<div class="outline-text-4" id="text-2-3-4">
+<ul class="org-ul">
+<li>Suppose the initial speed \(v_0\) is fixed.</li>
+<li>For a given angle \(\theta\), the trajectory of the projectile follows the following parabola:</li>
+</ul>
+<p>
+\[y = \tan \theta x - \frac{g}{2v_0^2\cos^2\theta}x^2 = x \left(\tan \theta - \frac{g}{2v_0^2\cos^2\theta}x\right).\]
+</p>
+<ul class="org-ul">
+<li>Therefore, the horizontal range of the projectile is \[d = \frac{2v_0^2\cos^2\theta\tan\theta}{g} = \frac{v_0^2}{g}\sin 2\theta.\]</li>
+<li>The maximum horizontal distance is achieved when \(\theta = 45^\circ\), and \[d_* = \frac{v_0^2}{g}.\]</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org716d26b" class="outline-3">
+<h3 id="org716d26b"><span class="section-number-3">2.4</span> Ellipse</h3>
+<div class="outline-text-3" id="text-2-4">
+</div><div id="outline-container-org789ec24" class="outline-4">
+<h4 id="org789ec24"><span class="section-number-4">2.4.1</span> Paper strip method</h4>
+<div class="outline-text-4" id="text-2-4-1">
+<iframe src="https://www.desmos.com/calculator/9e4ecylnix" class="stretch" style="border: 1px solid #ccc" frameborder=0></iframe>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/ellipsepaperstrip.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+<ul class="org-ul">
+<li>We start with a strip of paper of length \(a+b\).</li>
+<li>Find point \(P\) on the strip such that \(AP = a\) and \(PB = b\).</li>
+<li>Move the strip such that \(A\) is on the \(y\)-axis and \(B\) is on the \(x\)-axis.</li>
+<li>Suppose the angle of the strip is \(\theta\), then \(P\) has a <b>parametric representation</b>: \[P = (a\cos\theta,b\sin\theta).\]</li>
+<li>Therefore \(P\) is on the ellipse \[\frac{x^2}{a^2}+\frac{y^2}{b^2}=1.\]</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org32493cc" class="outline-3">
+<h3 id="org32493cc"><span class="section-number-3">2.5</span> Hyperbola</h3>
+<div class="outline-text-3" id="text-2-5">
+</div><div id="outline-container-org2c25dd1" class="outline-4">
+<h4 id="org2c25dd1"><span class="section-number-4">2.5.1</span> Multilateration</h4>
+<div class="outline-text-4" id="text-2-5-1">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/multilateration.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+<ul class="org-ul">
+<li>Suppose we have 3 base station \(F_1, F_2\) and \(F_3\), which transmit a signal at the same time.</li>
+<li>If we receive the signals from \(F_1\), \(F_2\) and \(F_3\) at time \(t_1 < t_2 < t_3\), we know that \[PF_2 - PF_1 = (t_2-t_1)v,\,PF_3 - PF_2 = (t_3 -t_2)v,\] where \(P\) is our position and \(v\) is the speed of the signal.</li>
+<li>Therefore, \(P\) is on two hyperbola.</li>
+<li>Special case, if \(t_i = t_j\), then \(P\) is on the perpendicular bisector of \(P_i\) and \(P_j\).</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3b0d71d" class="outline-2">
+<h2 id="org3b0d71d"><span class="section-number-2">3</span> Astronomy</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgb2835cc" class="outline-3">
+<h3 id="orgb2835cc"><span class="section-number-3">3.1</span> Measuring the Distance</h3>
+<div class="outline-text-3" id="text-3-1">
+</div><div id="outline-container-orgf89667b" class="outline-4">
+<h4 id="orgf89667b"><span class="section-number-4">3.1.1</span> Distance to the Horizon</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<ul class="org-ul">
+<li>A man is standing on a \(h=30m\) building at point \(P\).</li>
+<li>Assume the Earth is a perfect sphere with radius \(R=6371km\).</li>
+<li>Draw the tangent line from \(P\) to the circle.</li>
+<li>\(OP = R + h\), \(OQ = R\), and \(\angle OQP = 90^\circ\).</li>
+<li>\(QP = \sqrt{(R+h)^2 - R^2} = \sqrt{2Rh+h^2}\approx \sqrt{2Rh} = 19.55km\).</li>
+</ul>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/horizon.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/horizon2.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<ul class="org-ul">
+<li>Person A stands \(h_1\) meters above the sea level.</li>
+<li>Person B stands \(h_2\) meters above the sea level.</li>
+<li>They can see each other if and only if the distance between them \[d \leq \sqrt{2Rh_1}+\sqrt{2Rh_2}.\]</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5c16961" class="outline-4">
+<h4 id="org5c16961"><span class="section-number-4">3.1.2</span> Stellar Parallax</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<ul class="org-ul">
+<li>Parallax is a displacement or difference in the apparent position of an object viewed along two different lines of sight.</li>
+<li>We can use parallax to determine distance.</li>
+<li>Half of the angle \(\angle QPI\) is called parallax angle \(p\).</li>
+<li>When \(Q\) and \(I\) are on the opposite side of Earth, the parallax angle is maximized</li>
+<li>The distance can be computed as \[\frac{r}{\sin\angle QPO}\approx \frac{r}{\angle QPI/2}.\]</li>
+</ul>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/parallax.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<ul class="org-ul">
+<li>However, If \(Q\) and \(I\) are not on the exact opposite side, then the distance is not \(2r/p\).</li>
+</ul>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/parallax2.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2dfa7fd" class="outline-4">
+<h4 id="org2dfa7fd"><span class="section-number-4">3.1.3</span> Standard Candle</h4>
+<div class="outline-text-4" id="text-3-1-3">
+<ul class="org-ul">
+<li>Apparent magnitude \(m\) is the magnitude of the star measured from Earth.</li>
+<li>Absolute magnitude \(M\) is the magnitude of the star measured at \(10\) parsecs away from the star.</li>
+<li>\[m - M = 5(\log_{10} d-1).\]</li>
+<li>\(d\) can be solved from \(m\) and \(M\). (The unit is parsec)</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc59aebe" class="outline-3">
+<h3 id="orgc59aebe"><span class="section-number-3">3.2</span> Planetary Motion</h3>
+<div class="outline-text-3" id="text-3-2">
+</div><div id="outline-container-org5b5c3a2" class="outline-4">
+<h4 id="org5b5c3a2"><span class="section-number-4">3.2.1</span> Kepler's Law of Planetary Motion</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<ul class="org-ul">
+<li><b>First Law</b>: The orbit of a planet is an ellipse with the Sun at one of the two foci.</li>
+<li><b>Second Law</b>: A line segment joining a planet and the Sun sweeps out equal areas during equal intervals of time.</li>
+<li><b>Third Law</b>: The square of the orbital period of a planet is proportional to the cube of the semi-major axis of its orbit.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8fa01b0" class="outline-4">
+<h4 id="org8fa01b0"><span class="section-number-4">3.2.2</span> Extension</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<ul class="org-ul">
+<li>For comet, the trajectory could be a parabola or hyperbola with Sun at the focus. The second law still holds.</li>
+<li>Kepler's law can also be applied to satellite orbiting the Earth or the moons orbiting other planet.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb61c5bf" class="outline-4">
+<h4 id="orgb61c5bf"><span class="section-number-4">3.2.3</span> The Second Law of Planetary Motion</h4>
+<div class="outline-text-4" id="text-3-2-3">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/secondlaw2.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<ul class="org-ul">
+<li>Suppose the period of the planet is \(T\) and the trajectory is given be \[\frac{x^2}{a^2}+\frac{y^2}{b^2} = 1.\]</li>
+<li>The blue sector has an area of \[\pi ab/4-bc/2.\]</li>
+<li>From Kelper's Second Law, the time to go from \(A\) to \(B\) is \[t = \frac{\text{blue area}}{\pi ab} T = \left(\frac{1}{4} - \frac{c}{2\pi a}\right)T.\]</li>
+<li>Similarly, the time to go from \(B\) to \(C\) is \[t = \frac{\text{red area}}{\pi ab} T = \left(\frac{1}{4} + \frac{c}{2\pi a}\right)T.\]</li>
+
+<li>Suppose that point \(P=(x_0,y_0)\), the speed of the planet is \(v\). Then from the second law, we have \[\frac{0.5 vt\times PF\sin\theta}{t} = \frac{\pi ab}{T}\Rightarrow v = \frac{2\pi ab}{T \sin\theta \sqrt{(x_0-c)^2+y_0^2}}. \]</li>
+<li>Notice that \(v\) is along the direction of the tangent line, which is given by \[\frac{x_0}{a^2}x + \frac{y_0}{b^2}y = 1.\]</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: yilin</p>
+<p class="date">Created: 2018-02-18 Sun 22:34</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-02-18 Sun 22:40 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="yilin" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; max-height:300px; }
+  img { height:400px; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org4de2e22">1. Astronomy</a>
+<ul>
+<li><a href="#org2e845bf">1.1. Measuring the Distance</a>
+<ul>
+<li><a href="#org8399a25">1.1.1. Size of the Earth</a></li>
+<li><a href="#org8965602">1.1.2. Moon</a></li>
+<li><a href="#orgbd068a9">1.1.3. Sun and Other Planets</a></li>
+<li><a href="#org5b575d5">1.1.4. Stellar Parallax</a></li>
+<li><a href="#orge95e49e">1.1.5. Standard Candles</a></li>
+<li><a href="#org02f5dd0">1.1.6. Hubble's Law</a></li>
+<li><a href="#orga76561d">1.1.7. Cosmic Distance Ladder</a></li>
+</ul>
+</li>
+<li><a href="#org456af50">1.2. Planetary Motion</a>
+<ul>
+<li><a href="#org1c3731c">1.2.1. Kepler's Laws of Planetary Motion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4de2e22" class="outline-2">
+<h2 id="org4de2e22"><span class="section-number-2">1</span> Astronomy</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-org2e845bf" class="outline-3">
+<h3 id="org2e845bf"><span class="section-number-3">1.1</span> Measuring the Distance</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+"The wonder is, not that the field of stars is so vast, but that man has measured it."
+Anatole France - <i>The Garden of Epicurus</i>, 1894.
+</p>
+</div>
+
+<div id="outline-container-org8399a25" class="outline-4">
+<h4 id="org8399a25"><span class="section-number-4">1.1.1</span> Size of the Earth</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+"The Blue Marble" is a famous photograph of the Earth taken on December 7, 1972, by the crew of the Apollo 17 spacecraft en route to the Moon at a distance of about 29,000 kilometres (18,000 mi).
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/1023px-The_Earth_seen_from_Apollo_17.jpg" alt="1023px-The_Earth_seen_from_Apollo_17.jpg" />
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="org05ec27f"></a>Spherical Earth<br  /><div class="outline-text-5" id="text-1-1-1-1">
+<p>
+Pythagoras (about 500 BC) provides the earliest arguments for why the Earth is round. The moon, he noted, was also a sphere, so it would follow that the Earth is round as well.
+</p>
+
+<p>
+Aristotle (about 340 BC) supported the idea of a spherical Earth, Moon and planets because:  
+</p>
+
+<ul class="org-ul">
+<li>the sphere is a perfect solid and the heavens are a region of perfection</li>
+<li>the Earth's component pieces, falling naturally towards the centre, would press into a round form</li>
+<li>in an eclipse of the Moon, the Earth's shadow is always circular: a flat disc would cast an oval shadow</li>
+<li>even in short travels northwards the Pole Star is higher in the sky.</li>
+<li>ships sailing over the horizon disappear hull first</li>
+</ul>
+</div></li>
+
+<li><a id="org0059875"></a>How Far is the Horizon?<br  /><div class="outline-text-5" id="text-1-1-1-2">
+<ul class="org-ul">
+<li>A man is standing on a \(h=30m\) building at point \(P\).</li>
+<li>Assume the Earth is a perfect sphere with radius \(R=6371km\).</li>
+<li>Draw the tangent line from \(P\) to the circle.</li>
+<li>\(OP = R + h\), \(OQ = R\), and \(\angle OQP = 90^\circ\).</li>
+<li>\(QP = \sqrt{(R+h)^2 - R^2} = \sqrt{2Rh+h^2}\approx \sqrt{2Rh} = 19.55km\).</li>
+</ul>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/horizon.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</div></li>
+
+<li><a id="orgcae8491"></a>Size of the Earth<br  /><div class="outline-text-5" id="text-1-1-1-3">
+<ul class="org-ul">
+<li>Eratosthenes (276 BC-194 BC) is the first person to calculate the circumference of the Earth.</li>
+</ul>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="https://upload.wikimedia.org/wikipedia/commons/1/1f/Eratosthenes_measure_of_Earth_circumference.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+<ul class="org-ul">
+<li>His Calculation is based on the following assumptions:
+<ol class="org-ol">
+<li>That the distance between Alexandria and Syene was 5000 stadia,</li>
+<li>That Alexandria is due north of Syene</li>
+<li>That Syene lies on the Tropic of Cancer</li>
+<li>That the Earth is a perfect sphere.</li>
+<li>That light rays emanating from the Sun are parallel.</li>
+</ol></li>
+<li>His calculation has an error of 10%, which is remarkably accurate.</li>
+<li>Eratosthenes is the chief librarian at the Library of Alexandria.</li>
+<li>He is also famous for inventing the Sieve of Eratosthenes, an algorithm to find all prime numbers up to a given limit.</li>
+</ul>
+</div></li>
+
+<li><a id="org8a04724"></a>Columbus<br  /><div class="outline-text-5" id="text-1-1-1-4">
+<ul class="org-ul">
+<li>The size of the earth were known to the panel of experts which King Ferdinand appointed to examine the proposal made by Columbus.</li>
+<li>They turned Columbus down, because using the original value by Eratosthenes, they calculated how far India was to the west of Spain, and concluded that the distance was far too great.</li>
+<li>Columbus had an estimate of his own, which severely underestimate the size of the Earth.</li>
+<li>In the end Queen Isabella overruled the experts, and the rest is history.</li>
+</ul>
+</div></li></ol>
+</div>
+
+<div id="outline-container-org8965602" class="outline-4">
+<h4 id="org8965602"><span class="section-number-4">1.1.2</span> Moon</h4>
+<div class="outline-text-4" id="text-1-1-2">
+</div><ol class="org-ol"><li><a id="org02eece8"></a>Lunar Eclipse<br  /><div class="outline-text-5" id="text-1-1-2-1">
+<ul class="org-ul">
+<li>Aristarchus of Samos uses Lunar eclipse to calculate the distance of the moon to the earth.</li>
+</ul>
+
+<div class="figure">
+
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Geometry_of_a_Lunar_Eclipse.svg/944px-Geometry_of_a_Lunar_Eclipse.svg.png"  />
+</div>
+<ul class="org-ul">
+<li>His calculation is based on the following steps:
+<ol class="org-ol">
+<li>the Moon moved in a large circle around Earth with the same speed. Let \(R\) be the radius of the circle and \(T\) be its period. The speed of the moon is thus \(2\pi R /T\).</li>
+<li>An eclipse of the Moon occurs when the Moon passes through the shadow of the Earth, on the opposite side from the Sun. The shadow is roughly the same size of the earth, with width \(2r\), where \(r\) is the radius of the earth.</li>
+<li>The duration of a total lunar eclipse is \(t\).</li>
+<li>Therefore \[2\pi R / T = 2r /t,\] from which Aristarchus obtained \(R \approx 60 r\), which is astonishingly accurate to what we know today \(R = 60.32 r\).</li>
+</ol></li>
+<li>However, the calculation is not entirely correct since
+<ol class="org-ol">
+<li>He uses the synodic period of \(29.5\) days, not the orbital period \(27.32\).</li>
+<li>The shadow of the Earth is actually a cone instead of cylinder. The width of the shadow is roughly \(25\%\) narrower than \(2r\) at the orbit of the moon.</li>
+</ol></li>
+</ul>
+</div></li>
+
+
+<li><a id="orgfeac437"></a>Parallax<br  /><div class="outline-text-5" id="text-1-1-2-2">
+<ul class="org-ul">
+<li>Parallax is a displacement or difference in the apparent position of an object viewed along two different lines of sight.</li>
+</ul>
+
+<div class="figure">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Parallax_Example.svg/1280px-Parallax_Example.svg.png"  />
+</div>
+<ul class="org-ul">
+<li>We can use parallax to determine the distance to the moon.</li>
+<li>The angle \(\angle QPO\) is called lunar parallax, which is roughly \(1/2\) the apparent angle between Star 1 and Star 2.</li>
+<li>The distance to the moon can be computed as \[\frac{r}{\sin\angle QPO}\approx \frac{r}{\angle QPO}.\]</li>
+</ul>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/parallax.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+
+<div class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Lunarparallax_22_3_1988.png" alt="Lunarparallax_22_3_1988.png" />
+</p>
+</div>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgbd068a9" class="outline-4">
+<h4 id="orgbd068a9"><span class="section-number-4">1.1.3</span> Sun and Other Planets</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<ul class="org-ul">
+<li>The distance between the Earth and the Sun is called <i>the Astronomical Unit</i> or AU for short.</li>
+<li>Aristarchus of Samos proposed to used half moon to measure the distance.</li>
+<li>He claimed that during a half moon, the moon forms a right triangle with the Sun and Earth.</li>
+<li>By observing the angle between the Sun and Moon, \(\phi\), we know that \[\frac{S}{L} = \cos\phi\approx \frac{\pi}{2}-\phi.\]</li>
+<li>He measured \(\phi = 87^\circ\) and hence our distance to the sun is 20 times greater than our distance to the moon.</li>
+<li>This value (or values close to it) was accepted by astronomers for the next two thousand years</li>
+<li>However, it is roughly \(1/20\) of the true value.</li>
+</ul>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/aristarchus.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</div>
+
+<ol class="org-ol"><li><a id="orga64d07c"></a>Heliocentric Model<br  /><div class="outline-text-5" id="text-1-1-3-1">
+<ul class="org-ul">
+<li>Based on his calculation of the distance from the earth to the sun and the angular size of the sun, Aristarchus of Samos conclude that the radius of the sun is 6-7 times the radius of Earth.</li>
+<li>Now we know it is 110 times the radius of Earth.</li>
+<li>Nevertheless, Aristarchus concluded that the Sun is bigger than Earth</li>
+<li>Therefore it does not make sense for the Sun to orbit Earth.</li>
+<li>He also concluded that the stars are incredibly far away, since we cannot observe parallax with our naked eye.</li>
+</ul>
+</div></li>
+
+<li><a id="org3034cf1"></a>Kepler's Third Law of Planetary Motion<br  /><div class="outline-text-5" id="text-1-1-3-2">
+<ul class="org-ul">
+<li>The square of the orbital period of a planet is proportional to the cube of the semi-major axis of its orbit. \[r\propto T^{2/3}.\]</li>
+<li>Given the orbital period of Jupiter to be 11.862 year. The semi-major axis of the orbit is \[11.862^{2/3} = 5.20 AU.\]</li>
+<li>The Astronomical Unit is the ruler for astronomers.</li>
+<li>We can measure everything in terms of AU. However, how large is 1 AU?</li>
+<li>It is non-trivial to measure solar parallax since it is only \(8''.79\), roughly 1/400 of the lunar parallax.</li>
+</ul>
+</div></li>
+
+<li><a id="orge5a0127"></a>Transit of Venus<br  /><div class="outline-text-5" id="text-1-1-3-3">
+<ul class="org-ul">
+<li>A transit of Venus across the Sun takes place when the planet Venus passes directly between the Sun and a superior planet, becoming visible against (and hence obscuring a small portion of) the solar disk.</li>
+</ul>
+
+<div class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/SDO's_Ultra-high_Definition_View_of_2012_Venus_Transit_(304_Angstrom_Full_Disc_02).jpg/1024px-SDO's_Ultra-high_Definition_View_of_2012_Venus_Transit_(304_Angstrom_Full_Disc_02).jpg" alt="1024px-SDO's_Ultra-high_Definition_View_of_2012_Venus_Transit_(304_Angstrom_Full_Disc_02).jpg" />
+</p>
+</div>
+<ul class="org-ul">
+<li>It appears in pairs 8 years apart, separated by gaps of more than 100 years.</li>
+<li>The last transit of Venus was on 5 and 6 June 2012, the prior transit took place on 8 June 2004.</li>
+<li>The next transits of Venus will take place on 10–11 December 2117, and 8 December 2125.</li>
+<li>Edmond Halley proposed an accurate way to calculate solar parallax based on the measurements of a transit of Venus in 1716.</li>
+<li>He died in 1742, before seeing the next transit in 1761.</li>
+<li>Observing the transits in 1761 and 1769 was an unprecedented international scientific operation. Dozens of astronomers were dispatched to observing points around the world at great expense and personal danger: several of them died in the endeavour. The various results were collated by Jérôme Lalande to give a figure for the solar parallax of 8.6″.
+  <div class="figure">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Venus_Transit_%26_Parallax.svg/1280px-Venus_Transit_%26_Parallax.svg.png" />
+</div>
+</li>
+</ul>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CfmGPsLvAQ0?start=15" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<ul class="org-ul">
+<li>Direct radar measurements of the distances to Venus and Mars became available in the early 1960.</li>
+<li>Using speed of light, we can deduce the length of the astronomical unit accurately.</li>
+</ul>
+</div></li></ol>
+</div>
+
+<div id="outline-container-org5b575d5" class="outline-4">
+<h4 id="org5b575d5"><span class="section-number-4">1.1.4</span> Stellar Parallax</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<ul class="org-ul">
+<li>Parallax method can be used to measure the distance to the stars.</li>
+<li>However, the Earth is not large enough as the base line.</li>
+<li>The orbit of the Earth is leveraged instead.</li>
+<li>The parsec is defined as the distance to the star whose parallax is \(1''\), which is roughly \[1\text{AU}/ \frac{\pi}{180\times 60\times 60} = 206264 \text{AU} =3.26 \text{Light Year}.\]</li>
+</ul>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="https://upload.wikimedia.org/wikipedia/commons/7/7d/Stellarparallax_parsec1.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+<ul class="org-ul">
+<li>Still the parallax is incredibly small. Our nearest star is Proxima Centauri, whose parallax is 0.7687 arcsec.</li>
+<li>The first successful measurement was made in 1838.</li>
+<li>Even with nowadays technique, we can only measure the distance of stars within 3,000 parsecs of us.</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Hubble_stretches_the_stellar_tape_measure_ten_times_further.jpg" alt="Hubble_stretches_the_stellar_tape_measure_ten_times_further.jpg" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge95e49e" class="outline-4">
+<h4 id="orge95e49e"><span class="section-number-4">1.1.5</span> Standard Candles</h4>
+<div class="outline-text-4" id="text-1-1-5">
+</div><ol class="org-ol"><li><a id="org6e16885"></a>Brightness of a Star<br  /><div class="outline-text-5" id="text-1-1-5-1">
+<ul class="org-ul">
+<li>Magnitude is a logarithmic measure of the brightness of an object.</li>
+<li>The smaller the magnitude is, the brighter the star is.</li>
+</ul>
+
+<div class="figure">
+<p><img src="http://sci.esa.int/science-e-media/img/20/apparent-magnitude.jpg" alt="apparent-magnitude.jpg" />
+</p>
+</div>
+
+<ul class="org-ul">
+<li>For stars, we know that the further away it is from the earth, the dimmer it becomes. The apparent brightness follows the inverse square law.</li>
+<li>Apparent magnitude \(m\) is the magnitude of the star measured from Earth.</li>
+<li>Absolute magnitude \(M\) is the magnitude of the star measured at \(10\) parsecs away from the star. \[m - M = 5(\log_{10} d-1).\]</li>
+<li>The sun is 1 AU or \(\pi/648000\) parsecs away from us and has an apparent magnitude of \(-26.74\). Therefore, the absolute magnitude of the sun is \[M = -26.74 - 5 (\log_{10} (\pi/648000)-1) = 4.83.\]</li>
+<li>If we know the absolute magnitude of a star, we can derive its distance from the earth.</li>
+</ul>
+</div></li>
+<li><a id="org96fbc63"></a>Variable Star<br  /><div class="outline-text-5" id="text-1-1-5-2">
+<ul class="org-ul">
+<li>A variable star is a star whose brightness as seen from Earth (its apparent magnitude) fluctuates.</li>
+<li>A specific type of variable stars in Cepheid variable star, which was first discovered in 1784.</li>
+</ul>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/1hMZz0XmPZI?rel=0&amp;start=81" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div></li>
+<li><a id="orgb6c9e4f"></a>Cepheid Variable Star<br  /><div class="outline-text-5" id="text-1-1-5-3">
+<ul class="org-ul">
+<li>Henrietta Swan Leavitt investigated 1777 variable stars in the Magellanic Clouds in 1908 at Harvard college observatory.</li>
+<li>They are roughly the same distance away from the Earth since the Magellanic cloud is really far away.</li>
+<li>"Leavitt's law": The logarithm of the period is linearly and directly related to the logarithm of the star's average intrinsic optical luminosity</li>
+</ul>
+
+<div class="figure">
+<p><img src="https://2ai9u93bg0gn4e99nu2g8mbj-wpengine.netdna-ssl.com/wp-content/uploads/2013/12/693766main_pia15819-43_1024-768.jpg" alt="693766main_pia15819-43_1024-768.jpg" />
+</p>
+</div>
+<ul class="org-ul">
+<li>One year later, Ejnar Hertzsprung determined the distance of several Cepheids in the Milky Way</li>
+<li>With this calibration, the distance to any Cepheid could be accurately determined.</li>
+<li>Other standard candles, such as Type Ia supernova has been discovered.</li>
+</ul>
+</div></li>
+
+
+<li><a id="orgaf22642"></a>Galaxy<br  /><div class="outline-text-5" id="text-1-1-5-4">
+<ul class="org-ul">
+<li>The Great Debate was held on 26 April 1920 at the Smithsonian Museum of Natural History, between the astronomers Harlow Shapley and Heber Curtis.</li>
+<li>Shapley was arguing in favor of the Milky Way as the entirety of the then known universe.</li>
+<li>Curtis on the other side contended that Andromeda and other such "nebulae" were separate galaxies.</li>
+<li>Edwin Hubble identified Cepheid variables in the Andromeda (0.78 million parsecs away) and other "nebula".</li>
+<li>Using Leavitt's law, he proved conclusively that these nebulae were much too distant to be part of the Milky Way (1924).</li>
+<li>They are indeed galaxies outside our own.</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="http://imgsrc.hubblesite.org/hvi/uploads/image_file/image_attachment/21678/print.jpg" alt="print.jpg" />
+</p>
+</div>
+</div></li>
+
+<li><a id="orgf8d4b27"></a>Hubble Deep Field<br  /><div class="outline-text-5" id="text-1-1-5-5">
+<ul class="org-ul">
+<li>The Hubble Deep Field image covers a speck of the sky only about the width of a dime 20 meters away. Gazing into this small field, Hubble uncovered a bewildering assortment of at least 1,500 galaxies at various stages of evolution.</li>
+</ul>
+
+<div class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/HubbleDeepField.800px.jpg/1045px-HubbleDeepField.800px.jpg" alt="1045px-HubbleDeepField.800px.jpg" />
+</p>
+</div>
+</div></li>
+
+<li><a id="org2f012f9"></a>Andromeda–Milky Way collision<br  /><div class="outline-text-5" id="text-1-1-5-6">
+<ul class="org-ul">
+<li>Andromeda galaxy is moving towards us and astronomers predict it will collide with our Milky Way in 4 billion years.</li>
+</ul>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/DBWk7HD3F7Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div></li></ol>
+</div>
+
+<div id="outline-container-org02f5dd0" class="outline-4">
+<h4 id="org02f5dd0"><span class="section-number-4">1.1.6</span> Hubble's Law</h4>
+<div class="outline-text-4" id="text-1-1-6">
+<ul class="org-ul">
+<li>In a 1929 paper, Hubble examined the relation between distance and redshift of galaxies.</li>
+</ul>
+
+<div class="figure">
+<p><img src="http://physicsanduniverse.com/wp-content/uploads/2014/02/Hubble-Law-2010.jpeg" alt="Hubble-Law-2010.jpeg" />
+</p>
+</div>
+<ul class="org-ul">
+<li>Objects observed in deep space are found to have a red shift, interpreted as a relative velocity away from Earth</li>
+<li>This Doppler-shift-measured velocity of various galaxies receding from the Earth is approximately proportional to their distance from the Earth. \[v = H_0D.\]</li>
+<li>If we know the redshift, we can deduce \(v\) and the distance \(D\) from Hubble's Law.</li>
+<li>The observable university has a radius of about \(14\) billion parsecs.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga76561d" class="outline-4">
+<h4 id="orga76561d"><span class="section-number-4">1.1.7</span> Cosmic Distance Ladder</h4>
+<div class="outline-text-4" id="text-1-1-7">
+
+<div class="figure">
+<p><img src="https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/image1hs201617aprint.jpg" alt="image1hs201617aprint.jpg" />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org456af50" class="outline-3">
+<h3 id="org456af50"><span class="section-number-3">1.2</span> Planetary Motion</h3>
+<div class="outline-text-3" id="text-1-2">
+</div><div id="outline-container-org1c3731c" class="outline-4">
+<h4 id="org1c3731c"><span class="section-number-4">1.2.1</span> Kepler's Laws of Planetary Motion</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<ul class="org-ul">
+<li><b>First Law</b>: The orbit of a planet is an ellipse with the Sun at one of the two foci.</li>
+<li><b>Second Law</b>: A line segment joining a planet and the Sun sweeps out equal areas during equal intervals of time.</li>
+<li><b>Third Law</b>: The square of the orbital period of a planet is proportional to the cube of the semi-major axis of its orbit.</li>
+<li>Kepler's law can also be applied to satellite orbiting the Earth or the moons orbiting other planet.</li>
+</ul>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="https://upload.wikimedia.org/wikipedia/commons/9/98/Kepler_laws_diagram.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<ul class="org-ul">
+<li>We know that the semi-major axis of the moon is \(60\) (radius of the Earth) and the orbital period is 27.32 day.</li>
+<li>Suppose the orbit of a satellite is described as \[\frac{x^2}{25}+\frac{y^2}{16} = 1.\]</li>
+<li>The semi-major axis is \(5\). Therefore, the orbital period of the satellite is \[T = (5/60)^{3/2}\times 27.32 = 0.657 \text{ day} = 5.68\times 10^4\text{ sec}.\]</li>
+<li>The area of the ellipse is \(S = 20\pi = 62.83\).</li>
+<li>Suppose the Earth is located at focus \((3,0)\), then the speed when the satellite is at \((5,0)\) is \[ \frac{v\times 2}{2} = \frac{S}{T}\Rightarrow v = 7.05 km/s.\]</li>
+<li>The speed when the satellite is at \((-5,0)\) is \[ \frac{v\times 8}{2} = \frac{S}{T}\Rightarrow v = 1.76 km/s.\]</li>
+<li>The speed when the satellite is at \((0,4)\) is \[ \frac{v\times 5\sin\theta}{2} = \frac{S}{T}\Rightarrow v = 3.52 km/s.\]</li>
+</ul>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/satellite.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: yilin</p>
+<p class="date">Created: 2018-02-18 Sun 22:40</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

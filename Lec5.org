@@ -144,7 +144,7 @@ https://upload.wikimedia.org/wikipedia/commons/1/13/Lunarparallax_22_3_1988.png
 - Aristarchus of Samos proposed to used half moon to measure the distance.
 - He claimed that during a half moon, the moon forms a right triangle with the Sun and Earth. 
 - By observing the angle between the Sun and Moon, $\phi$, we know that $$\frac{S}{L} = \cos\phi\approx \frac{\pi}{2}-\phi.$$
-- He measured $\phi = 87\degr$ and hence our distance to the sun is 20 times greater than our distance to the moon.
+- He measured $\phi = 87^\circ$ and hence our distance to the sun is 20 times greater than our distance to the moon.
 - This value (or values close to it) was accepted by astronomers for the next two thousand years
 - However, it is roughly $1/20$ of the true value.
 

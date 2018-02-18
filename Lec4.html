@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-02-18 Sun 22:40 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="yilin" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; max-height:300px; }
+  img { height:400px; }
+
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgfb14779">1. Ellipse</a>
+<ul>
+<li><a href="#orgbeb37d1">1.1. Reflective Property of Ellipse</a>
+<ul>
+<li><a href="#orgad61f3a">1.1.1. Shockwave Lithotripsy</a></li>
+<li><a href="#orge0e1ef7">1.1.2. Whispering Gallery</a></li>
+<li><a href="#orgc8dedd5">1.1.3. Elliptical Billiard Table</a></li>
+<li><a href="#orgea2e955">1.1.4. Infinite Bounces on a Circular Billiard Table</a></li>
+<li><a href="#orgae7b8e4">1.1.5. Infinite Bounces on an Elliptical Billiard Table</a></li>
+</ul>
+</li>
+<li><a href="#orgb644456">1.2. Drawing ellipses</a>
+<ul>
+<li><a href="#orgac147f0">1.2.1. Pin and String Method</a></li>
+<li><a href="#org04c2197">1.2.2. Paper strip method</a></li>
+<li><a href="#orgbf4c7e9">1.2.3. Steiner Generation</a></li>
+</ul>
+</li>
+<li><a href="#orgeb1c0f3">1.3. Modern Portfolio Theory</a></li>
+</ul>
+</li>
+<li><a href="#orgd2044c0">2. Hyperbola</a>
+<ul>
+<li><a href="#orgfc9e53d">2.1. Reflective Properties</a>
+<ul>
+<li><a href="#org39b3b17">2.1.1. Cassegrain reflector</a></li>
+</ul>
+</li>
+<li><a href="#org30778c8">2.2. Multilateration</a></li>
+<li><a href="#org3ba2141">2.3. Hyperboloid Structure</a>
+<ul>
+<li><a href="#org1cb9bac">2.3.1. Cooling Tower</a></li>
+<li><a href="#org5249a75">2.3.2. Hyperboloid Tower in Kobe, Japan</a></li>
+<li><a href="#org1799575">2.3.3. Hyperboloid</a></li>
+<li><a href="#orge2e7a6f">2.3.4. Straight Rod Passing through Curved Hole</a></li>
+<li><a href="#org01216b9">2.3.5. Building a Hyperboloid using Straight Sticks</a></li>
+</ul>
+</li>
+<li><a href="#org8fd093c">2.4. Planetary orbits</a>
+<ul>
+<li><a href="#orgea0391a">2.4.1. Kepler's Laws of Planetary Motion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfb14779" class="outline-2">
+<h2 id="orgfb14779"><span class="section-number-2">1</span> Ellipse</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-orgbeb37d1" class="outline-3">
+<h3 id="orgbeb37d1"><span class="section-number-3">1.1</span> Reflective Property of Ellipse</h3>
+<div class="outline-text-3" id="text-1-1">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/ellipsesum.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+<ul class="org-ul">
+<li>Assuming the ellipse is given by \[\frac{x^2}{a^2}+\frac{y^2}{b^2} = 1,\,a \geq b > 0.\]</li>
+<li>Since \(PF_1 = e PP_1\) and \(PF_2 = e PP_2\), we have \[PF_1+PF_2 = e(PP_2 + PP_1) = e\times P_1P_2,\]which is a constant.</li>
+<li>Now if \(P\) is at the vertex \(V_2\), then \(V_2F_2 + V_2 F_1 = V_1 F_1 + V_2 F_1 = 2a\).</li>
+<li>Proposition: any point \(P\) on the ellipse have \[PF_1 + PF_2 = 2a.\]</li>
+</ul>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/ellipseinandout.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+<ul class="org-ul">
+<li>Suppose \(P_o\) is outside the ellipse.</li>
+<li>Then \[P_o F_1 + P_o F_2 = P_o F_1 + P_o P + PF_2 > PF_1 + PF_2 = 2a.\]</li>
+<li>Similarly, suppose \(P_i\) is inside the ellipse.</li>
+<li>Then \[P_i F_1 + P_i F_2 = P_i F_1 - P_i P + PF_2 < PF_1 + PF_2 = 2a.\]</li>
+<li><p>
+Proposition: any point \(P\) outside (inside) the ellipse have \(PF_1 + PF_2 > 2a\) (\(PF_1 + PF_2 < 2a\)) and the converse is also true.
+</p>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/lineminsumdistance.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div></li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Suppose we have a line \(L\) and two point \(F_1\) and \(F_2\) on the same side of the line</li>
+<li>Our goal is to find a point \(P\) on the line, such that the distance \(PF_1+PF_2\) is minimized</li>
+<li>We can find the reflection of point \(F_1\) to be \(F_1'\).</li>
+<li>For any point \(P\) on the line, \(PF_1 = PF_1'\).</li>
+<li>Therefore, the distance is minimized if \(F_2\), \(P\) and \(F_1'\) are <b>collinear</b>.</li>
+<li>Or when the normal vector bisects \(\angle F_2PF_1\).</li>
+</ul>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/ellipsereflection.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+
+<ul class="org-ul">
+<li>For any point \(P\) on the ellipse, find \(CP\) that bisects the angle \(\angle F_2 PF_1\).</li>
+<li>Draw a line \(L\) through \(P\) that is perpendicular to \(CP\).</li>
+<li>For any point \(P'\neq P\) on \(L\), \(P'F_1 + P'F_2 > PF_1 + PF_2 = 2a\).</li>
+<li>Therefore, the line \(L\) only intersects the ellipsoid on one point \(P\).</li>
+<li>Line \(L\) is the tangent line and \(CP\) is the normal vector.</li>
+<li>Proposition: The normal vector at point \(P\) bisects \(\angle F_2PF_1\).</li>
+
+<li>The tangent line of an ellipse at point \(P =(x_0,y_0)\) is \[\frac{x_0}{a^2}x + \frac{y_0}{b^2}y = 1\]</li>
+</ul>
+</div>
+<div id="outline-container-orgad61f3a" class="outline-4">
+<h4 id="orgad61f3a"><span class="section-number-4">1.1.1</span> Shockwave Lithotripsy</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+<img src="http://1technation.com/wp-content/uploads/2014/08/biomed-101-aug.jpg" alt="biomed-101-aug.jpg" />
+<img src="http://blogs.nejm.org/now/wp-content/uploads/2012/07/Electrohydraulic-Lithotripter.jpg" alt="Electrohydraulic-Lithotripter.jpg" />
+</p>
+<ul class="org-ul">
+<li>We can use elliptical reflectors to concentrate all the energy to the kidney stone.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge0e1ef7" class="outline-4">
+<h4 id="orge0e1ef7"><span class="section-number-4">1.1.2</span> Whispering Gallery</h4>
+<div class="outline-text-4" id="text-1-1-2">
+
+<div class="figure">
+<p><img src="http://poetinthecity.co.uk/undertheskin/wp-content/uploads/2016/11/Whispering_Gallery2.jpg" alt="Whispering_Gallery2.jpg" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc8dedd5" class="outline-4">
+<h4 id="orgc8dedd5"><span class="section-number-4">1.1.3</span> Elliptical Billiard Table</h4>
+<div class="outline-text-4" id="text-1-1-3">
+
+<div class="figure">
+<p><img src="https://www.wired.com/wp-content/uploads/2015/11/ap-wrongtheory-pooltable-annot.jpg" alt="ap-wrongtheory-pooltable-annot.jpg" />
+</p>
+</div>
+
+
+<div class="figure">
+<p><img src="http://www.math.cornell.edu/~mec/Summer2009/Remus/Images/ellipse1.gif" alt="ellipse1.gif" />
+</p>
+</div>
+
+<ul class="org-ul">
+<li>What if we start at position that is not the focus?</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgea2e955" class="outline-4">
+<h4 id="orgea2e955"><span class="section-number-4">1.1.4</span> Infinite Bounces on a Circular Billiard Table</h4>
+<div class="outline-text-4" id="text-1-1-4">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/circularbilliad.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<ul class="org-ul">
+<li>Suppose we have a circular table, the ball first starts at \(A\) and bounces at \(P\) and reach \(B\).</li>
+<li>The distance from \(O\) to \(AP\) is the same as the distance from \(O\) to \(BP\).</li>
+<li>Any point on the trajectory is at least \(Oa\) distance away from \(O\).</li>
+<li>In other words, the trajectory cannot go inside a circle with radius \(Oa\) centered at \(O\).</li>
+</ul>
+
+<p>
+<a href="http://www.math.cornell.edu/~mec/Summer2009/Remus/Images/billiard.bmp">http://www.math.cornell.edu/~mec/Summer2009/Remus/Images/billiard.bmp</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgae7b8e4" class="outline-4">
+<h4 id="orgae7b8e4"><span class="section-number-4">1.1.5</span> Infinite Bounces on an Elliptical Billiard Table</h4>
+<div class="outline-text-4" id="text-1-1-5">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/ellipsebounce.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<ul class="org-ul">
+<li>Suppose the table is elliptical with foci \(F_1\) and \(F_2\)</li>
+<li>The ball first starts at \(A\) and bounces at \(P\) and reach \(B\).</li>
+<li>Denote the reflection of \(F_1\) (\(F_2\)) with respect to \(AP\) (\(BP\)) to be \(F_1'\) (\(F_2'\))</li>
+<li>For any point \(P'\) on \(AP\), \(P'F_1+P'F_2 \geq F_1'F_2\).</li>
+<li>For any point \(P'\) on \(BP\), \(P'F_1+P'F_2 \geq F_1F_2' = F_1'F_2\).</li>
+<li>Therefore, any point \(P'\) on the trajectory will have \(P'F_1+P'F_2  \geq F_1'F_2\).</li>
+<li>The trajectory cannot enter an ellipse with foci \(F_1\) and \(F_2\) and major axis of length \(F_1'F_2\).</li>
+</ul>
+
+<p>
+<a href="http://www.math.cornell.edu/~mec/Summer2009/Remus/Images/elliptic2.bmp">http://www.math.cornell.edu/~mec/Summer2009/Remus/Images/elliptic2.bmp</a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb644456" class="outline-3">
+<h3 id="orgb644456"><span class="section-number-3">1.2</span> Drawing ellipses</h3>
+<div class="outline-text-3" id="text-1-2">
+</div><div id="outline-container-orgac147f0" class="outline-4">
+<h4 id="orgac147f0"><span class="section-number-4">1.2.1</span> Pin and String Method</h4>
+<div class="outline-text-4" id="text-1-2-1">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="https://upload.wikimedia.org/wikipedia/commons/e/e4/Elliko-g.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org04c2197" class="outline-4">
+<h4 id="org04c2197"><span class="section-number-4">1.2.2</span> <a href="https://www.desmos.com/calculator/9e4ecylnix">Paper strip method</a></h4>
+<div class="outline-text-4" id="text-1-2-2">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/ellipsepaperstrip.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+<ul class="org-ul">
+<li>We start with a strip of paper of length \(a+b\).</li>
+<li>Find point \(P\) on the strip such that \(AP = a\) and \(PB = b\).</li>
+<li>Move the strip such that \(A\) is on the \(y\)-axis and \(B\) is on the \(x\)-axis.</li>
+<li>Suppose the angle of the strip is \(\theta\), then \(P\) has a <b>parametric representation</b>: \[P = (a\cos\theta,b\sin\theta).\]</li>
+<li>Therefore \(P\) is on the ellipse \[\frac{x^2}{a^2}+\frac{y^2}{b^2}=1.\]</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgbf4c7e9" class="outline-4">
+<h4 id="orgbf4c7e9"><span class="section-number-4">1.2.3</span> <a href="https://www.desmos.com/calculator/migbf6mccc">Steiner Generation</a></h4>
+<div class="outline-text-4" id="text-1-2-3">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="https://upload.wikimedia.org/wikipedia/commons/9/94/Ellipse-steiner-e.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+<ul class="org-ul">
+<li>Create a rectangle, with \(A = (-a,2b)\) and \(B = (a,2b)\).</li>
+<li>Find a point \(A' = (1-t)B+tA\) on line \(AB\).</li>
+<li>Find a point \(B' = (1-t)V_1+tB\) on line \(V_1B\).</li>
+<li>The intersection of the line \(A'V_1\) and \(B'V_2\) will be on the ellipse \[\frac{x^2}{a^2}+\frac{y^2}{b^2}=1.\]</li>
+<li>If \(b = a\), then \(A'V_1\) is perpendicular to \(B'V_2\). The trajectory of \(P\) will be a circle \[x^2+y^2 = a^2.\]</li>
+<li>We can scale the \(y\)-axis by \(b/a\) and get the ellipse.</li>
+<li>An ellipse is an affine image of a circle.</li>
+<li>Corollary: The area of an ellipse is \(\pi ab\).</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgeb1c0f3" class="outline-3">
+<h3 id="orgeb1c0f3"><span class="section-number-3">1.3</span> Modern Portfolio Theory</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>Modern portfolio theory (MPT) is a mathematical framework for assembling a portfolio of assets such that the expected return is maximized for a given level of risk.</li>
+<li>Economist Harry Markowitz introduced MPT in a 1952 essay, for which he was later awarded a Nobel Prize in economics.</li>
+<li>Suppose we can buy 2 stocks:
+<ul class="org-ul">
+<li>The average return for each stock is \(R_i\).</li>
+<li>The risk (standard deviation) for each stock is \(\sigma_i\)</li>
+<li>The correlation between the two stocks is \(\rho\).</li>
+</ul></li>
+<li>Suppose we buy \(w_1\) shares of stock 1 and \(w_2\) shares of stock 2.</li>
+<li>The expected return is \(w_1 R_1 + w_2 R_2\).</li>
+<li>The risk is \[\sqrt{w_1^2 \sigma_1^2+w_2^2\sigma_2^2 + w_1w_2 \sigma_1\sigma_2\rho}.\]</li>
+<li>Assuming \(\rho = 0\), and we want to take a maximum risk of \(\sigma_p\), then \((w_1,w_2)\) will be on an ellipsoid \[\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1,\]with \(a^2 = \sigma_p^2/\sigma_1^2\) and \(b^2 = \sigma_p^2/\sigma_2^2\).</li>
+<li>The tangent line of the ellipse at \((x_0,y_0)\) has the form \[\frac{x_0}{a^2}x+\frac{y_0}{b^2}y = 1.\]</li>
+<li>Therefore, we have the optimal portfolio must satisfies \[\frac{w_1}{a^2}:\frac{w_2}{b^2}=R_1:R_2.\]</li>
+<li>We can solve \[w_1 = \frac{R_1a^2}{\sqrt{R_1^2a^2+R_2^2b^2}},\,w_2=\frac{R_2b^2}{\sqrt{R_1^2a^2+R_2^2b^2}}.\]</li>
+</ul>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/portfolio.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgd2044c0" class="outline-2">
+<h2 id="orgd2044c0"><span class="section-number-2">2</span> Hyperbola</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgfc9e53d" class="outline-3">
+<h3 id="orgfc9e53d"><span class="section-number-3">2.1</span> Reflective Properties</h3>
+<div class="outline-text-3" id="text-2-1">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/hyperbolaminus.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+<ul class="org-ul">
+<li>Assuming the hyperbola is given by \[\frac{x^2}{a^2}-\frac{y^2}{b^2} = 1,\,a, b > 0.\]</li>
+<li>Suppose \(P\) is on the left branch of the hyperbola.</li>
+<li>Since \(PF_1 = e PP_1\) and \(PF_2 = e PP_2\), we have \[PF_2-PF_1 = e(PP_2 - PP_1) = e\times P_2P_1,\]which is a constant.</li>
+<li>Now if \(P\) is at the vertex \(V_1\), then \(V_1F_2 - V_1 F_1 = V_1 F_2 - V_2 F_2 = V_1V_2 = 2a\).</li>
+<li>If the \(P\) is on the right branch of the hyperbola, then \[PF_2-PF_1 =  -2a.\]</li>
+<li>Proposition: any point \(P\) on the ellipse have \[|PF_1-PF_2|= 2a.\]</li>
+</ul>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/hyperbolainandout.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+<ul class="org-ul">
+<li>Suppose \(P_o\) is on the left of the hyperbola.</li>
+<li>Then \[P_o F_2 - P_o F_1 = P F_2 + P_o P - P_oF_1 > PF_2 - PF_1 = 2a.\]</li>
+<li>Similarly, suppose \(P_i\) is inside the ellipse.</li>
+<li>Then \[P_i F_2 - P_i F_1 = P F_2 - P_i P - P_iF_1 < PF_2 - PF_2 = 2a.\]</li>
+<li>Proposition: any point \(P\) outside (between the two branches of) the ellipse have \(|PF_2 - PF_1| > 2a\) (\(|PF_2 - PF_1| < 2a\)) and the converse is also true.</li>
+</ul>
+
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/hyperbolareflection.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+
+<ul class="org-ul">
+<li>For any point \(P\) on the left branch of the hyperbola, find a line \(L\) that bisects the angle \(\angle F Pf\).</li>
+<li>Find the reflection of focus \(f\) with respect to \(L\) as \(G\). \(G\) is on \(FP\).</li>
+<li>Therefore, \(Pf = PG\) and \(FG = PF - PG = 2a\).</li>
+<li>For any point \(H\neq P\) on \(L\), \(Hf = HG.\)</li>
+<li>In \(\triangle FHG\), we have \(  HF - Hf =HF-HG  < FG = 2a\).</li>
+<li>Therefore, the line \(L\) only intersects the hyperbola on one point \(P\).</li>
+<li>Line \(L\) is the tangent line.</li>
+<li>Proposition: The tangent line at point \(P\) bisects \(\angle FPf\).</li>
+<li>Corollary: The normal vector at point \(P\) bisects the exterior angle of \(\angle FPf\)</li>
+<li>The tangent line of a hyperbola at point \(P =(x_0,y_0)\) is \[\frac{x_0}{a^2}x - \frac{y_0}{b^2}y = 1\]</li>
+</ul>
+</div>
+
+<div id="outline-container-org39b3b17" class="outline-4">
+<h4 id="org39b3b17"><span class="section-number-4">2.1.1</span> Cassegrain reflector</h4>
+<div class="outline-text-4" id="text-2-1-1">
+
+<div class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/en/2/2c/Cassegrain.en.png" alt="Cassegrain.en.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org30778c8" class="outline-3">
+<h3 id="org30778c8"><span class="section-number-3">2.2</span> Multilateration</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>Hyperbolic paths occur in the LORAN (long range navigation) radio navigation system</li>
+<li>Suppose we have 3 base station \(F_1, F_2\) and \(F_3\), which transmit a radio signal at the same time.</li>
+<li>If we receive the signals from \(F_1\), \(F_2\) and \(F_3\) at time \(t_1 < t_2 < t_3\), we know that \[PF_2 - PF_1 = (t_2-t_1)C,\,PF_3 - PF_2 = (t_3 -t_2)C,\] where \(P\) is our position and \(C\) is the speed of light.</li>
+<li>Therefore, \(P\) is on two hyperbola. There maybe either \(1\) or \(2\) intersections of the hyperbola.</li>
+<li>With the fourth base station \(F_4\), we can localize \(P\) exactly.</li>
+</ul>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="assets/multilateration.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org3ba2141" class="outline-3">
+<h3 id="org3ba2141"><span class="section-number-3">2.3</span> Hyperboloid Structure</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+The world's first hyperboloid structure is a 37-meter water tower built by Vladimir Shukhov in Russia at 1896
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/First_Shukhov_Tower_Nizhny_Novgorod_1896.jpg" alt="First_Shukhov_Tower_Nizhny_Novgorod_1896.jpg" />
+</p>
+</div>
+<div id="outline-container-org1cb9bac" class="outline-4">
+<h4 id="org1cb9bac"><span class="section-number-4">2.3.1</span> Cooling Tower</h4>
+<div class="outline-text-4" id="text-2-3-1">
+
+<div class="figure">
+<p><img src="https://www.scienceabc.com/wp-content/uploads/2015/12/cooling-tower.jpg" alt="cooling-tower.jpg" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5249a75" class="outline-4">
+<h4 id="org5249a75"><span class="section-number-4">2.3.2</span> Hyperboloid Tower in Kobe, Japan</h4>
+<div class="outline-text-4" id="text-2-3-2">
+
+<div class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Kobe_port_tower11s3200.jpg/685px-Kobe_port_tower11s3200.jpg" alt="685px-Kobe_port_tower11s3200.jpg" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1799575" class="outline-4">
+<h4 id="org1799575"><span class="section-number-4">2.3.3</span> Hyperboloid</h4>
+<div class="outline-text-4" id="text-2-3-3">
+<ul class="org-ul">
+<li>Hyperboloid (of one sheet) can be generated by rotating a hyperbola around its minor axis.</li>
+</ul>
+
+<div class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Hyperboloid1.png" alt="Hyperboloid1.png" />
+</p>
+</div>
+<ul class="org-ul">
+<li>The hyperbolid satisfies the following equation \[\frac{x^2+y^2}{a^2}-\frac{z^2}{b^2}=1.\]</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge2e7a6f" class="outline-4">
+<h4 id="orge2e7a6f"><span class="section-number-4">2.3.4</span> Straight Rod Passing through Curved Hole</h4>
+<div class="outline-text-4" id="text-2-3-4">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IXQ1ZWBhnBk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+</div>
+
+<div id="outline-container-org01216b9" class="outline-4">
+<h4 id="org01216b9"><span class="section-number-4">2.3.5</span> Building a Hyperboloid using Straight Sticks</h4>
+<div class="outline-text-4" id="text-2-3-5">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EigzNppsQp8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org8fd093c" class="outline-3">
+<h3 id="org8fd093c"><span class="section-number-3">2.4</span> Planetary orbits</h3>
+<div class="outline-text-3" id="text-2-4">
+</div><div id="outline-container-orgea0391a" class="outline-4">
+<h4 id="orgea0391a"><span class="section-number-4">2.4.1</span> Kepler's Laws of Planetary Motion</h4>
+<div class="outline-text-4" id="text-2-4-1">
+<ul class="org-ul">
+<li><b>First Law</b>: The orbit of a planet is an ellipse with the Sun at one of the two foci.</li>
+<li><b>Second Law</b>: A line segment joining a planet and the Sun sweeps out equal areas during equal intervals of time.</li>
+<li><b>Third Law</b>: The square of the orbital period of a planet is proportional to the cube of the semi-major axis of its orbit.</li>
+<li>This can be proved using Newton's law of motion and law of universal gravitation, with the addtional assumption that the mass of the planet is negligible comparing to the mass of the sun</li>
+</ul>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="https://upload.wikimedia.org/wikipedia/commons/9/98/Kepler_laws_diagram.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<ul class="org-ul">
+<li>For comets, it is possible that they follow a parabolic or hyperbolic curve if its potential energy and kinetic energy is high enough to escape.</li>
+<li>The sun will still be at one focus.</li>
+<li>The second law also holds.</li>
+<li>However, the comet will never return back to us.</li>
+</ul>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="https://upload.wikimedia.org/wikipedia/commons/8/89/OrbitalEccentricityDemo.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: yilin</p>
+<p class="date">Created: 2018-02-18 Sun 22:40</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
