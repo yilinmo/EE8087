@@ -451,7 +451,7 @@ $$y = \tan \theta x - \frac{g}{2v_0^2\cos^2\theta}x^2 = x \left(\tan \theta - \f
 
 [[file:assets/multilateration.svg]]
 - Suppose we have 3 base station $F_1, F_2$ and $F_3$, which transmit a signal at the same time.
-- If we receive the signals from $F_1$, $F_2$ and $F_3$ at time $t_1 < t_2 < t_3$, we know that $$PF_2 - PF_1 = (t_2-t_1)v,\,PF_3 - PF_2 = (t_3 -t_2)v,$$ where $P$ is our position and $v$ is the speed of light.
+- If we receive the signals from $F_1$, $F_2$ and $F_3$ at time $t_1 < t_2 < t_3$, we know that $$PF_2 - PF_1 = (t_2-t_1)v,\,PF_3 - PF_2 = (t_3 -t_2)v,$$ where $P$ is our position and $v$ is the speed of the signal.
 - Therefore, $P$ is on two hyperbola.
 - Special case, if $t_i = t_j$, then $P$ is on the perpendicular bisector of $P_i$ and $P_j$.
 

@@ -1,0 +1,637 @@
+---
+layout: slides
+title: Lecture 6 - EE 8087 Part I Review
+---
+<section>
+<h2 id="org9e7a2f8"> Trigonometry</h2>
+</section>
+
+<section>
+<h3 id="orgb3f6364"> Pythagoras's Identities</h3>
+
+<div class="figure stretch" >
+  <img src="assets/righttriangle.svg" style="border-style:none;box-shadow:none;"/>
+</div>
+<ul class="org-ul">
+<li>\[\sin \alpha = \frac{BC}{AC},\, \cos\alpha = \frac{AB}{AC},\,\tan\alpha = \frac{BC}{AB}.\]</li>
+<li>\[ AB^2+BC^2 = AC^2.\]</li>
+<li>\[ \sin^2 \alpha+\cos^2\alpha = 1.\]</li>
+</ul>
+</section>
+
+<section>
+<h3 id="org8dd4d2d"> Sine Rule</h3>
+
+<div class="figure stretch">
+  <img src="assets/sinerule.svg" style="border-style:none;box-shadow:none;"/>
+</div>
+
+<p>
+\[\frac{\sin A}{a} = \frac{\sin B}{b}= \frac{\sin C}{c}.\]
+</p>
+</section>
+
+<section>
+<h3 id="org0b67be8"> Cosine Rule</h3>
+
+<div class="figure stretch">
+  <img src="assets/sinerule.svg" style="border-style:none;box-shadow:none;"/>
+</div>
+
+<ul class="org-ul">
+<li>\[a^2+b^2-2ab\cos A = c^2.\]</li>
+<li>\[b^2+c^2-2bc\cos A = a^2.\]</li>
+<li>\[c^2+a^2-2ca\cos A = b^2.\]</li>
+</ul>
+
+</section>
+
+<section>
+<h3 id="org4901ee6"> Angle Sum and Difference Identities</h3>
+<ul class="org-ul">
+<li>\[\sin(\alpha\pm\beta) = \sin \alpha \cos \beta \pm \sin\beta\cos\alpha.\]</li>
+<li>\[\cos(\alpha\pm\beta) = \cos \alpha \cos \beta \mp \sin\alpha\sin\beta.\]</li>
+<li>\[\tan(\alpha\pm\beta) = \frac{\tan \alpha \pm \tan\beta}{1\mp \tan\alpha\tan\beta}.\]</li>
+</ul>
+</section>
+
+<section>
+<h3 id="org70fb18b"> Product-to-Sum and Sum-to-Product Identities</h3>
+<ul class="org-ul">
+<li>Product to Sum
+<ul class="org-ul">
+<li>\[2\cos \theta \cos \varphi ={\cos(\theta -\varphi )+\cos(\theta +\varphi )}.\]</li>
+<li>\[ 2\sin \theta \sin \varphi ={\cos(\theta -\varphi )-\cos(\theta +\varphi )}.\]</li>
+<li>\[2\sin \theta \cos \varphi ={\sin(\theta + \varphi )+\sin(\theta -\varphi )}.\]</li>
+</ul></li>
+<li>Sum to Product
+<ul class="org-ul">
+<li>\[\sin \theta \pm \sin \varphi =2\sin \left({\frac {\theta \pm \varphi }{2}}\right)\cos \left({\frac {\theta \mp \varphi }{2}}\right).\]</li>
+<li>\[ \cos \theta +\cos \varphi =2\cos \left({\frac {\theta +\varphi }{2}}\right)\cos \left({\frac {\theta -\varphi }{2}}\right).\]</li>
+<li>\[\cos \theta -\cos \varphi =-2\sin \left({\frac {\theta +\varphi }{2}}\right)\sin \left({\frac {\theta -\varphi }{2}}\right).\]</li>
+</ul></li>
+</ul>
+</section>
+
+<section>
+<h3 id="org47f1300"> Double-Angle and Half-Angle Formula</h3>
+<ul class="org-ul">
+<li>Double Angle Formula
+<ul class="org-ul">
+<li>\[\sin (2\theta) = 2 \sin\theta\cos\theta.\]</li>
+<li>\[\cos (2\theta) = \cos^2\theta-\sin^2\theta = 2\cos^2\theta-1 = 1-2\sin^2\theta.\]</li>
+<li>\[\tan (2\theta) = \frac{2\tan\theta}{1-\tan^2\theta}.\]</li>
+</ul></li>
+<li>Half Angle Formula
+<ul class="org-ul">
+<li>\[\sin^2 \theta = \frac{1-\cos 2\theta}{2},\,\cos^2\theta = \frac{1+\cos 2\theta}{2}.\]</li>
+<li>\[\tan \theta = \frac{\sin 2\theta}{1+\cos 2\theta} = \frac{1-\cos 2\theta}{\sin 2\theta}.\]</li>
+</ul></li>
+</ul>
+</section>
+
+<section>
+<h3 id="org1d4b2d2"> Applications</h3>
+</section>
+
+<section>
+<h3 id="org6d9ac04"> Land Survey Problem</h3>
+
+<div class="figure stretch">
+  <img src="assets/survey1.svg" style="border-style:none;box-shadow:none;"/>
+</div>
+<ul class="org-ul">
+<li>\(CO = BO\times \tan \alpha\).</li>
+<li>\(CO = (BO+d)\times \tan \beta\).</li>
+<li>\[CO = d \frac{\tan \alpha\tan\beta}{\tan \alpha-\tan \beta}.\]</li>
+</ul>
+</section>
+
+<section>
+<div class="figure stretch">
+  <img src="assets/survey2.svg" style="border-style:none;box-shadow:none;"/>
+</div>
+
+<ul class="org-ul">
+<li>In \(\triangle AEB\) and \(\triangle AEC\), \[\frac{EB}{\sin A} = \frac{x}{\sin\alpha},\,\frac{EC}{\sin A} = \frac{x+y}{\sin (\alpha+\beta)}.\]</li>
+<li>\[ EB/EC = \frac{x\sin(\alpha+\beta)}{(x+y)\sin \alpha}.\]</li>
+</ul>
+</section>
+
+<section>
+<ul class="org-ul">
+<li>Similarly \[EC/EB =\frac{ z \sin (\beta+\gamma)}{(z+y)\sin\gamma}.\]</li>
+<li>Therefore \[(y+x)(y+z)\sin\alpha\sin\gamma = xz \sin (\alpha+\beta)\sin(\beta+\gamma).\]</li>
+<li>How to solve \(EA\) and \(EC\)?</li>
+<li>In \(\triangle AEB\) and \(\triangle BEC\), \[\frac{EA}{x}\sin\alpha = \sin\angle EBA = \sin \angle EBC = \frac{EC}{y}\sin \beta.\]</li>
+<li>In \(\triangle EAC\), \[EA^2 + EC^2 - 2EA\times EC\cos (\alpha+\beta) = (x+y)^2.\]</li>
+</ul>
+</section>
+
+<section>
+<h3 id="org4754304">Area</h3>
+
+<div class="figure stretch">
+  <img src="assets/circlechordarea.svg" style="border-style:none;box-shadow:none;"/>
+</div>
+
+<ul class="org-ul">
+<li>The area of the large sector \(\pi r^2 \times (1-\alpha/2\pi)\).</li>
+<li>The area of the triangle \(r^2\sin \alpha/2\).</li>
+</ul>
+</section>
+
+<section>
+<ul class="org-ul">
+<li>The area of the whole blue area: \[\frac{1}{2} (2\pi-\alpha+\sin\alpha)r^2.\]</li>
+<li>The area of the red area: \[\frac{1}{2} (\alpha-\sin\alpha)r^2.\]</li>
+</ul>
+
+</section>
+
+<section>
+<h3 id="org2dec435"> Sum of Sinusoidal Signals</h3>
+<ul class="org-ul">
+<li>Suppose \(f\) is the sum of sinusoidal signals with the same frequency \[f(x)=\sum_{i} A_i \sin (\omega x + \theta_i).\]</li>
+<li>Expand each \(\sin (\omega x+\theta_i)\) term, then \(f(x)\) equals to \[\left( \sum_i A_i\cos\theta_i \right)\sin (\omega x) + \left( \sum_i A_i\sin\theta_i \right)\cos (\omega x)\]</li>
+<li>Suppose \(f(x) = A\sin (\omega x + \theta)\), then \[A\cos\theta = \sum_i A_i\cos \theta_i,\,A\sin \theta = \sum_i A_i\sin \theta_i.\]</li>
+</ul>
+</section>
+
+<section>
+<h3 id="org2dec435"> Sum of Sinusoidal Signals</h3>
+<ul class="org-ul">
+
+  <li>\[A = \sqrt{\left( \sum_i A_i\cos \theta_i\right)^2+\left( \sum_i A_i\sin \theta_i\right)^2},\] </li>
+  <li>If \( \sum_i A_i\cos \theta_i> 0\), then\[\theta = \tan^{-1}\frac{ \sum_i A_i\sin \theta_i}{ \sum_i A_i\cos \theta_i} . \]</li>
+  <li>If \( \sum_i A_i\cos \theta_i< 0\), then\[\theta = \tan^{-1}\frac{ \sum_i A_i\sin \theta_i}{ \sum_i A_i\cos \theta_i} +\pi. \]</li>
+</ul>
+</section>
+
+<section>
+<h2 id="orgc643603"> Conic Sections</h2>
+</section>
+
+<section>
+<h3 id="org61218f1"> Definition of Conic Curves</h3>
+</section>
+
+<section>
+<h3 id="org4fa8490"> Conic Sections</h3>
+<ul class="org-ul">
+<li>A conic is the curve obtained as the intersection of a plane, called the <b>cutting plane</b>, with the surface of a double cone.</li>
+</ul>
+
+<div class="figure stretch">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Conic_Sections.svg" style="border-style:none;box-shadow:none;" />
+</div>
+
+</section>
+
+<section>
+<h3 id="orgf87f546"> Directrix, Focus and Eccentricity</h3>
+<ul class="org-ul">
+<li>A conic section is the locus of all points \(P\) whose distance to a fixed point \(F\) (called the <b>focus</b>) is a constant multiple (called the <b>eccentricity</b>, \(e\)) of the distance from \(P\) to a fixed line \(L\) (called the <b>directrix</b> of the conic).</li>
+<li>Suppose that the focus \(F\) is at \((0,0)\) and the line \(L\) is \(x = a\), then the polar form of the conic section is \[ r = \frac{ae}{1+e\cos\theta}\]</li>
+</ul>
+
+</section>
+
+<section>
+<h3 id="orgf87f546"> Directrix, Focus and Eccentricity</h3>
+
+<div class="figure stretch">
+  <img src="assets/polar.svg" style="border-style:none;box-shadow:none;"/>
+</div>
+
+
+<ul class="org-ul">
+<li>For \(0 < e < 1\) we obtain an ellipse, for \(e = 1\) a parabola, and for \(e > 1\) a hyperbola.</li>
+<li>The circle will be the limit case where \(e = 0\).</li>
+</ul>
+
+</section>
+
+<section>
+<h3 id="orgf87f546"> Directrix, Focus and Eccentricity</h3>
+<iframe src="https://www.desmos.com/calculator/ycikqn2pqa" class="stretch" style="border: 1px solid #ccc" frameborder=0></iframe>
+
+
+</section>
+
+<section>
+<h3 id="orgd8d2c0d"> Ellipse</h3>
+<ul class="org-ul">
+<li>The standard form of a ellipse is \[\frac{x^2}{a^2}+\frac{y^2}{b^2}=1,\,a> b.\]</li>
+<li>The foci are at \((\pm c,0)\), where \(c = \sqrt{a^2-b^2}\).</li>
+<li>The eccentricity is \(e = c/a\) and the lines \(x = \pm a/e\) are the directrices.</li>
+</ul>
+
+<div class="figure stretch">
+  <img src="assets/ellipse.svg" style="border-style:none;box-shadow:none;"/>
+</div>
+
+</section>
+
+<section>
+<h3 id="org22bb8c6"> Parabola</h3>
+<ul class="org-ul">
+<li>The standard form of a parabola is \[y^2 = 4ax,\,a > 0.\]</li>
+<li>The focus is at \((a,0)\)</li>
+<li>The line \(x = -a\) is the directrix.</li>
+</ul>
+
+
+<div class="figure stretch">
+  <img src="assets/parabola.svg" style="border-style:none;box-shadow:none;"/>
+</div>
+
+
+</section>
+
+<section>
+<h3 id="orgcaca874"> Hyperbola</h3>
+<ul class="org-ul">
+<li>The standard form of a hyperbola is \[\frac{x^2}{a^2}-\frac{y^2}{b^2}=1.\]</li>
+<li>The foci are at \((\pm c,0)\), where \(c = \sqrt{a^2+b^2}\).</li>
+<li>The eccentricity is \(e = c/a\) and the lines \(x = \pm a/e\) are the directrices.</li>
+</ul>
+
+
+<div class="figure stretch">
+  <img src="assets/hyperbola.svg" style="border-style:none;box-shadow:none;"/>
+</div>
+</section>
+
+<section>
+<h3 id="org8a49e68"> Translation of Coordinate</h3>
+<ul class="org-ul">
+<li>Suppose a standard ellipse is moved \(x_0\) units to the right and \(y_0\) units to the left.</li>
+<li>Then the equation of the ellipse becomes \[\frac{(x-x_0)^2}{a^2}+\frac{(y-y_0)^2}{b^2}=1.\]</li>
+<li>The coordinate of the vertices, foci, center and directrices will shift.</li>
+<li>However, the distance between them remains constant.</li>
+<li>The same is true for hyperbola and parabola.</li>
+</ul>
+</section>
+
+<section>
+<h3 id="org53ff092"> Translation and Rotation of Coordinate</h3>
+<ul class="org-ul">
+<li>Consider a general quadratic equation \[Ax^2+Bxy+Cy^2+Dx+Ey+F = 0.\]</li>
+<li>This will represent a conic section that has been rotated and translated from the standard form.</li>
+<li>The following quantities remains constant, regardless of the movement:
+<ul class="org-ul">
+<li>\(\Delta_1 = A+C\)</li>
+<li>\(\Delta_2 = AC-B^2/4\)</li>
+<li>\(\Delta_3 = ACF + BDE/4 − AE^ 2 /4− CD^2/4− FB^2/4\)</li>
+</ul></li>
+</ul>
+</section>
+
+<section>
+<h3> Translation and Rotation of Coordinate</h3>
+<ul class="org-ul">
+<li>If the curve is non-degenerate, then \(\Delta_3\neq 0\).</li>
+<li>If \(\Delta_2 \neq 0\), then we assume that the quadratic equation can be rewritten as either an ellipse or hyperbola \[A'(x')^2 + C' (y')^2 + F' = 0.\]</li>
+<li>By invariance, we have the following equations:
+<ul class="org-ul">
+<li>\(A'+C' = A+C\)</li>
+<li>\(A'C' = AC-B^2/4\)</li>
+<li>\(A'C'F' = ACF + BDE/4 − AE^ 2 /4− CD^2/4− FB^2/4\)</li>
+</ul></li>
+</ul>
+</section>
+
+<section>
+<h3> Translation and Rotation of Coordinate</h3>
+<ul class="org-ul">
+
+<li>If \(\Delta_2 = 0\), then we assume the quadratic equation can be rewritten as a parabola \[C'(y')^2 + D'x' = 0.\]</li>
+<li>By invariance, we have the following equations:
+<ul class="org-ul">
+<li>\(C' = A+C\)</li>
+<li>\(C'(D')^2/4 = ACF + BDE/4 − AE^ 2 /4− CD^2/4− FB^2/4\)</li>
+</ul></li>
+</ul>
+
+
+</section>
+
+<section>
+<h3 id="org8c9da44"> Distances to the Foci</h3>
+<ul class="org-ul">
+<li>The ellipse is the set of all points such that the sum of the distances from two fixed points (foci) is constant (\(2a\)).</li>
+<li>A hyperbola is the set of all points such that the difference of the distances from two fixed points (foci) is constant (\(2a\)).</li>
+</ul>
+
+</section>
+
+<section>
+<h3 id="orgd7b126c"> Reflective Property</h3>
+</section>
+
+<section>
+<h3 id="orged3d2c0"> Parabola</h3>
+
+<div class="figure stretch">
+  <img src="assets/parabolareflect2.svg" style="border-style:none;box-shadow:none;"/>
+</div>
+
+<ul class="org-ul">
+<li>If the light source is located at the focus of a parabola, the light will be reflected in lines parallel to the parabola's axis.</li>
+<li>If a light beam is parallel to the parabola's axis, it will be reflected to the focus point of the parabola.</li>
+</ul>
+</section>
+
+<section>
+<h3 id="orgfa74f7c"> Ellipse</h3>
+
+<div class="figure stretch">
+  <img src="assets/ellipsereflection2.svg" style="border-style:none;box-shadow:none;"/>
+</div>
+
+
+<p>
+If the light source is placed at one of the two focal points of an ellipse, the light will be reflected to the other focal point. 
+</p>
+</section>
+
+<section>
+<h3 id="org90b4fce"> Hyperbola</h3>
+
+<div class="figure stretch">
+  <img src="assets/hyperbolareflection2.svg" style="border-style:none;box-shadow:none;"/>
+</div>
+
+
+<p>
+If the light beam is pointing at one of the two focal points of an hyperbola, the light will be reflected to point at the other focal point. 
+</p>
+
+</section>
+
+<section>
+<h3 id="org1fed512"> Telescope Design</h3>
+
+<div class="figure stretch">
+  <img src="assets/telescope.svg" style="border-style:none;box-shadow:none;"/>
+</div>
+<ul class="org-ul">
+<li>The parabola gathers all the incoming parallel light to its focus \(F\).</li>
+<li>The hyperbola reflects the light pointing at \(F\) to point it at \(f\). Hence, \(F\) and \(f\) are the two foci of the hyperbola.</li>
+</ul>
+
+</section>
+
+<section>
+<h3 id="org593b54d"> Parabola</h3>
+</section>
+
+<section>
+  <h3 id="org0fbff4d"> Quadratic Bezier Curve</h3>
+
+
+  <ul class="org-ul">
+    <li>Parametric Form: \[R(t) =  (1-t)^2 P_0 + 2t(1-t)P_1 + t^2 P_2.\]</li>
+    <li>The derivative of \(R(t)\) is \[\frac{dR(t)}{dt} = 2(1-t)(P_1-P_0)+2t(P_2-P_1).\]</li>
+
+  </ul>
+</section>
+
+<section>
+  <h3> Quadratic Bezier Curve</h3>
+
+  <div class="figure stretch">
+    <img src="assets/quadraticbezier.svg" style="border-style:none;box-shadow:none;"/>
+  </div>
+  Important properties:
+  <ul class="org-ul">
+    <li>The curve starts at \(P_0\) and ends at \(P_1\).</li>
+    <li>The curve points towards \(P_1\) at the beginning and points away from \(P_1\) at the end.</li>
+  </ul>
+
+</section>
+
+<section>
+  <h3 id="org6791419"> Trajectory of a Projectile</h3>
+
+  <div class="figure stretch">
+    <img src="assets/projectile.svg" style="border-style:none;box-shadow:none;"/>
+  </div>
+
+  <ul class="org-ul">
+    <li>At time \(t\), the position of the projectile \[x(t) = v_0\cos\theta t,\,y(t) = v_0\sin\theta t - \frac{1}{2}gt^2. \]</li>
+    <li>Eliminating \(t\), we can get the parabola \[y = \tan \theta x - \frac{g}{2v_0^2\cos^2\theta}x^2.\]</li>
+  </ul>
+
+</section>
+
+<section>
+  <h3 id="org4cd03af"> Vertical Range</h3>
+  <ul class="org-ul">
+    <li>For a given angle \(\theta\), since \(y(t) = v_0\sin \theta t - \frac{1}{2}gt^2\), the maximum height is achieved at the following time \(t_* = v_0\sin \theta/g.\)</li>
+    <li>The corresponding height is \[y(t_*) = \frac{v_0^2\sin^2\theta}{2g}.\]</li>
+    <li>To achieve maximum height among all possible angles, we should aim \(v_0\) upward, i.e., \(\theta = 90^\circ\). This gives a maximum height of \[h_* = \frac{v_0^2}{2g}.\]</li>
+  </ul>
+
+</section>
+
+<section>
+  <h3 id="orge367d3f"> Horizontal Range</h3>
+  <ul class="org-ul">
+    <li>For a given angle \(\theta\), the trajectory of the projectile follows the following parabola:</li>
+  </ul>
+  <p>
+    \[y = \tan \theta x - \frac{g}{2v_0^2\cos^2\theta}x^2 = x \left(\tan \theta - \frac{g}{2v_0^2\cos^2\theta}x\right).\]
+  </p>
+  <ul class="org-ul">
+    <li>Therefore, the horizontal range of the projectile is \[d = \frac{2v_0^2\cos^2\theta\tan\theta}{g} = \frac{v_0^2}{g}\sin 2\theta.\]</li>
+    <li>The maximum horizontal distance is achieved when \(\theta = 45^\circ\), and \[d_* = \frac{v_0^2}{g}.\]</li>
+  </ul>
+
+</section>
+
+<section>
+  <h3 id="orgae0a99b"> Ellipse</h3>
+</section>
+
+<section>
+  <h3 id="orge56d4fa">Paper strip method</h3>
+  <iframe src="https://www.desmos.com/calculator/9e4ecylnix" class="stretch" style="border: 1px solid #ccc" frameborder=0></iframe>
+
+</section>
+
+<section>
+  <h3>Paper strip method</h3>
+
+  <div class="figure stretch">
+    <img src="assets/ellipsepaperstrip.svg" style="border-style:none;box-shadow:none;"/>
+  </div>
+  <ul class="org-ul">
+    <li>We start with a strip of paper of length \(a+b\).</li>
+    <li>Find point \(P\) on the strip such that \(AP = a\) and \(PB = b\).</li>
+    <li>Move the strip such that \(A\) is on the \(y\)-axis and \(B\) is on the \(x\)-axis.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>Paper strip method</h3>
+  <ul class="org-ul">
+    <li>Suppose the angle of the strip is \(\theta\), then \(P\) has a <b>parametric representation</b>: \[P = (a\cos\theta,b\sin\theta).\]</li>
+    <li>Therefore \(P\) is on the ellipse \[\frac{x^2}{a^2}+\frac{y^2}{b^2}=1.\]</li>
+  </ul>
+</section>
+
+<section>
+  <h3 id="orgebcf6cf"> Hyperbola</h3>
+</section>
+
+<section>
+  <h3 id="orgff5d44f"> Multilateration</h3>
+
+  <div class="figure stretch">
+    <img src="assets/multilateration.svg" style="border-style:none;box-shadow:none;"/>
+  </div>
+  <p> Suppose we have 3 base station \(F_1, F_2\) and \(F_3\), which transmit a signal at the same time. </p>
+</section>
+
+<section>
+  <h3> Multilateration</h3>
+
+  <ul class="org-ul">
+    <li>If we receive the signals from \(F_1\), \(F_2\) and \(F_3\) at time \(t_1 < t_2 < t_3\), we know that \[PF_2 - PF_1 = (t_2-t_1)v,\,PF_3 - PF_2 = (t_3 -t_2)v,\] where \(P\) is our position and \(v\) is the speed of the signal.</li>
+<li>Therefore, \(P\) is on two hyperbola.</li>
+    <li>Special case, if \(t_i = t_j\), then \(P\) is on the perpendicular bisector of \(P_i\) and \(P_j\).</li>
+  </ul>
+
+</section>
+
+<section>
+  <h2 id="orgbf18788"> Astronomy</h2>
+</section>
+
+<section>
+  <h3 id="orgfd7dbed"> Measuring the Distance</h3>
+</section>
+
+<section>
+  <h3 id="org6e90942"> Distance to the Horizon</h3>
+  <ul class="org-ul">
+    <li>A man is standing on a \(h=30m\) building at point \(P\).</li>
+    <li>Assume the Earth is a perfect sphere with radius \(R=6371km\).</li>
+    <li>Draw the tangent line from \(P\) to the circle.</li>
+    <li>\(OP = R + h\), \(OQ = R\), and \(\angle OQP = 90^\circ\).</li>
+    <li>\(QP = \sqrt{(R+h)^2 - R^2} = \sqrt{2Rh+h^2}\approx \sqrt{2Rh} = 19.55km\).</li>
+  </ul>
+
+  <div class="figure stretch">
+    <img src="assets/horizon.svg" style="border-style:none;box-shadow:none;"/>
+  </div>
+</section>
+
+<section>
+  <h3> Distance to the Horizon</h3>
+
+
+  <div class="figure stretch">
+    <img src="assets/horizon2.svg" style="border-style:none;box-shadow:none;"/>
+  </div>
+
+  <ul class="org-ul">
+    <li>Person A stands \(h_1\) meters above the sea level.</li>
+    <li>Person B stands \(h_2\) meters above the sea level.</li>
+    <li>They can see each other if and only if the distance between them \[d \leq \sqrt{2Rh_1}+\sqrt{2Rh_2}.\]</li>
+  </ul>
+
+</section>
+
+<section>
+  <h3 id="org2d5c7ab"> Stellar Parallax</h3>
+  <ul class="org-ul">
+    <li>Parallax is a displacement or difference in the apparent position of an object viewed along two different lines of sight.</li>
+    <li>We can use parallax to determine distance.</li>
+  </ul>
+  <div class="figure stretch">
+    <img src="assets/parallax.svg" style="border-style:none;box-shadow:none;"/>
+  </div>
+</section>
+
+<section>
+  <h3> Stellar Parallax</h3>
+  <ul class="org-ul">
+    <li>Half of the angle \(\angle QPI\) is called parallax angle \(p\).</li>
+    <li>When \(Q\) and \(I\) are on the opposite side of Earth, the parallax angle is maximized</li>
+    <li>The distance can be computed as \[\frac{r}{\sin\angle QPO}\approx \frac{r}{\angle QPI/2}.\]</li>
+  </ul>
+
+
+  <ul class="org-ul">
+    <li>However, If \(Q\) and \(I\) are not on the exact opposite side, then the distance is not \(2r/p\).</li>
+  </ul>
+
+  <div class="figure stretch">
+    <img src="assets/parallax2.svg" style="border-style:none;box-shadow:none;"/>
+  </div>
+
+</section>
+
+<section>
+  <h3 id="org9a9328a"> Standard Candle</h3>
+  <ul class="org-ul">
+    <li>Apparent magnitude \(m\) is the magnitude of the star measured from Earth.</li>
+    <li>Absolute magnitude \(M\) is the magnitude of the star measured at \(10\) parsecs away from the star.</li>
+    <li>\[m - M = 5(\log_{10} d-1).\]</li>
+    <li>\(d\) can be solved from \(m\) and \(M\). (The unit is parsec)</li>
+  </ul>
+</section>
+
+<section>
+  <h3 id="org82a6277"> Planetary Motion</h3>
+</section>
+
+<section>
+  <h3 id="orgb1e0c7d"> Kepler's Law of Planetary Motion</h3>
+  <ul class="org-ul">
+    <li><b>First Law</b>: The orbit of a planet is an ellipse with the Sun at one of the two foci.</li>
+    <li><b>Second Law</b>: A line segment joining a planet and the Sun sweeps out equal areas during equal intervals of time.</li>
+    <li><b>Third Law</b>: The square of the orbital period of a planet is proportional to the cube of the semi-major axis of its orbit.</li>
+  </ul>
+</section>
+
+<section>
+  <h3 id="orge795fd6"> Extension</h3>
+  <ul class="org-ul">
+    <li>For comet, the trajectory could be a parabola or hyperbola with Sun at the focus. The second law still holds.</li>
+    <li>Kepler's law can also be applied to satellite orbiting the Earth or the moons orbiting other planet.</li>
+  </ul>
+
+</section>
+
+<section>
+  <h3 id="orgcc405cc"> The Second Law of Planetary Motion</h3>
+
+  <div class="figure stretch">
+    <img src="assets/secondlaw2.svg" style="border-style:none;box-shadow:none;"/>
+  </div>
+
+    <p>Suppose the period of the planet is \(T\) and the trajectory is given be \[\frac{x^2}{a^2}+\frac{y^2}{b^2} = 1.\]</p>
+
+</section>
+
+<section>
+  <h3> The Second Law of Planetary Motion</h3>
+  <ul class="org-ul">
+    <li>The blue sector has an area of \[\pi ab/4-bc/2.\]</li>
+    <li>From Kelper's Second Law, the time to go from \(A\) to \(B\) is \[t = \frac{\text{blue area}}{\pi ab} T = \left(\frac{1}{4} - \frac{c}{2\pi a}\right)T.\]</li>
+    <li>Similarly, the time to go from \(B\) to \(C\) is \[t = \frac{\text{red area}}{\pi ab} T = \left(\frac{1}{4} + \frac{c}{2\pi a}\right)T.\]</li>
+  </ul>
+</section>
+
+<section>
+  <h3> The Second Law of Planetary Motion</h3>
+  <ul class="org-ul">
+
+    <li>Suppose that point \(P=(x_0,y_0)\), the speed of the planet is \(v\). Then from the second law, we have \[\frac{0.5 vt\times PF\sin\theta}{t} = \frac{\pi ab}{T}\Rightarrow v = \frac{2\pi ab}{T \sin\theta \sqrt{(x_0-c)^2+y_0^2}}. \]</li>
+    <li>Notice that \(v\) is along the direction of the tangent line, which is given by \[\frac{x_0}{a^2}x + \frac{y_0}{b^2}y = 1.\]</li>
+  </ul>
+</section>
