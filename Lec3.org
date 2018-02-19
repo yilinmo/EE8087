@@ -310,7 +310,7 @@ q
 - If $\Delta_2 = 0$, then we assume the quadratic equation can be rewritten as a parabola $$C'(y')^2 + D'x' = 0.$$
 - By invariance, we have the following equations:
   - $C' = A+C$
-  - $C'(D')^2/4 = ACF + BDE/4 − AE^ 2 /4− CD^2/4− FB^2/4$
+  - $-C'(D')^2/4 = ACF + BDE/4 − AE^ 2 /4− CD^2/4− FB^2/4$
 
 * Parabola
 ** Reflective Property
