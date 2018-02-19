@@ -174,8 +174,49 @@ Hence, $R$ is on the following ellipse:
 \begin{align*}
   \frac{x^2}{1.5^2}+\frac{y^2}{0.5^2} = 1.
 \end{align*}
+\newpage
+
+\item Find the MINIMUM value of $3\sin x + 4\cos x$.
+  
+\emph{Soln:} Suppose that 
+\begin{align*}
+  3\sin x + 4\cos x = A \sin (x+\theta) = A\cos\theta\sin x + A \sin\theta \cos x.
+\end{align*}
+Then $A\cos \theta = 3$ and $A\sin \theta = 4$, by Pythagoras's identities, we have $A = \sqrt{A^2\cos^2\theta + A^2 \sin^2\theta}=5$. Hence, the minimum value is $-5$.
+
+  \newpage
 
 
+\item We have 3 base stations at $A = (-4,0)$, $B = (0,0)$ and $C = (4,0)$. Suppose the signal sends by the each station travels at a speed of $1$ and the three base stations broadcast the signal simultaneously at an unknown time. The signals from stations $A$, $B$ and $C$ are received by a boat at time $4$, $2$, $4$ respectively. Find the position of the boat $P$.
+
+
+  \begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \draw[->] (6,0) -- (-6,0) node[right] {$x$};
+      \draw[->] (0,-1) -- (0,4) node[above] {$y$};
+
+      \node [inner sep=0, outer sep=0, label=45:$P$] (P) at (-0.529,1.706) {}; 
+      \fill [black] (P) circle (2pt); 
+      \node [inner sep=0, outer sep=0, label=180:$A$] (a) at (-5,0) {}; 
+      \fill [black] (a) circle (2pt); 
+
+      \node [inner sep=0, outer sep=0, label=45:$B$] (b) at (0,0) {}; 
+      \fill [black] (b) circle (2pt); 
+
+      \node [inner sep=0, outer sep=0, label=270:$C$] (c) at (5,0) {}; 
+      \fill [black] (c) circle (2pt); 
+
+      \draw (a)--(P)--(c);
+      \draw (b)--(P);
+    \end{tikzpicture}
+  \end{figure}
+
+\emph{Soln:} Since $t_A = t_C$, $P$ is on the perpendicular bisectors of $AC$, which is the $y$-axis. On the other hand, since $PC-PB = 2$, we know that $P$ is on a hyperbola with $2a = 2$ and $2c = BC = 4$, which implies that $b = \sqrt{c^2-a^2} = \sqrt{3}$. The center of the hyperbola is $(2,0)$. As a result, the equation for the hyperbola is
+\begin{align*}
+  \frac{(x-2)^2}{1}-\frac{y^2}{3} = 1.
+\end{align*}
+Since $P$ is on the $y$-axis, $x = 0$ and hence $y = \pm 3$.
 
 
 \end{enumerate}
