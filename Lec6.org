@@ -407,7 +407,7 @@ $$\frac{\sin A}{a} = \frac{\sin B}{b}= \frac{\sin C}{c}.$$
 - Parametric Form: $$R(t) = (1-t)Q_0(t)+tQ_1(t) = (1-t)^2 P_0 + 2t(1-t)P_1 + t^2 P_2.$$
 - The derivative of $R(t)$ is $$\frac{dR(t)}{dt} = 2(1-t)(P_1-P_0)+2t(P_2-P_1).$$
 - Important properties:
-  - The curve starts at $P_0$ and ends at $P_1$.
+  - The curve starts at $P_0$ and ends at $P_2$.
   - The curve points towards $P_1$ at the beginning and points away from $P_1$ at the end.
 
 *** Trajectory of a Projectile
