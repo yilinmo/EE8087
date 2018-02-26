@@ -1,0 +1,254 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+
+\usepackage{nicefrac}
+\usepackage{amssymb, amsmath, amsfonts}
+\usepackage{amsthm}
+\usepackage{tikz}
+\usetikzlibrary{matrix,shapes,arrows, calc, intersections}
+\usetikzlibrary{decorations.markings}
+\usepackage{pgfplots}
+\usepackage{tkz-euclide}
+\usetkzobj{all} % important you want to use angles
+\usepgfplotslibrary{groupplots}
+\usepackage[a4paper, margin=1in]{geometry}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+\newtheorem{assumption}{Assumption}
+
+\newlength\figureheight
+\newlength\figurewidth
+\setlength\figureheight{12cm}
+\setlength\figurewidth{14cm}
+
+\newcommand{\tikzdir}[1]{tikz/#1.tikz}
+\newcommand{\inputtikz}[1]{\input{\tikzdir{#1}}}
+
+\DeclareMathOperator*{\argmin}{arg\; min}     % argmin
+\DeclareMathOperator*{\argmax}{arg\; max}     % argmax
+\DeclareMathOperator*{\tr}{tr}     % trace
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\logdet}{log\;det}
+
+\title{EE8087 Living with Mathematics\\Past Year Exam}
+\date{}
+\begin{document} \maketitle
+\begin{itemize}
+\item \emph{16-17 Semester 2, Q2:}
+  \begin{enumerate}[label=(\alph*)]
+  \item  The locus will be one branch of the hyperbola with one focus at $A$ and one focus at $B$. Therefore, the center of the hyperbola is at $(A+B)/2 = (0,0)$ and $2c = AB = 10$. Furthermore, $2a = 6$, which implies $a = 3, c= 5$ and $b = \sqrt{c^2-a^2} = 4$.
+
+    The locus is
+    \begin{align}
+      \frac{x^2}{3^2}-\frac{y^2}{4^2} = 1, \,x\geq 0.
+      \label{eq:hyperbola}
+    \end{align}
+    Notice that the locus will only be the right branch since the left branch of the hyperbola corresponds to $t_B-t_A = 6$.
+  \item If $t_C-t_A=0$, then the ship is on the perpendicular bisector of $AC$, which is $y = 2.5$. Therefore, from \eqref{eq:hyperbola}, we can solve $x = 3.54$.
+  \item Suppose we fix $y$, then $x = a\sqrt{1+y^2/b^2}$. If $a \rightarrow 0$, then $x \rightarrow  0$, which implies that the hyperbola converges to the $y$-axis.
+  \end{enumerate}
+\item \emph{15-16 Semester 2, Q3:}
+  \begin{enumerate}[label=(\alph*)]
+\item The force on the ladder is illustrated in Fig~\ref{fig:ladder}:
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}[scale=2]
+      \tkzInit[xmax=2.5, ymax=2.5]
+      \tkzDrawX
+      \tkzDrawY
+      \tkzDefPoint(2,0){A}
+      \tkzDefPoint(0,2){B}
+      \tkzDefPoint(1,1){C}
+      \tkzDrawSegment[thick](A,B)
+      \draw[thick,->] (A)--(2,0.3) node[anchor=-90] {$F_1$};
+      \draw[thick,->] (A)--(1.8,0) node[anchor=-45] {$F_2$};
+      \draw[thick,->] (C)--(1,0.5) node[anchor=90] {$G$};
+      \draw[thick,->] (B)--(0,2.1) node[anchor=-135] {$F_4$};
+      \draw[thick,->] (B)--(0.2,2) node[anchor=180] {$F_3$};
+  \end{tikzpicture}
+
+  \caption{15-16 Semester 2, Q3\label{fig:ladder} }
+\end{figure}
+
+Suppose the ladder does not slide down, then we must ensure that the horizontal force and vertical force is 0, which implies that 
+\begin{align}
+  F_1 + F_4 = G,\, F_2 = F_3. 
+  \label{eq:force}
+\end{align}
+On the other hand, the torque of all the forces must be $0$, which implies that
+\begin{align}
+  F_1 l\sin \theta=F_3 l \cos\theta + G \times \frac{1}{2}l \sin \theta.
+  \label{eq:torque}
+\end{align}
+
+Finally, the friction $F_2$ and $F_4$ are limited by
+\begin{align*}
+  F_2 \leq F_1 \mu,\,F_4\leq F_3\mu,
+\end{align*}
+which further implies that $F_4\leq \mu^2 F_1$.
+
+From \eqref{eq:force} and \eqref{eq:torque}, we get
+\begin{align*}
+  F_4 = G - F_1,\, F_2 = F_3 = (F_1-0.5G)\tan \theta.
+\end{align*}
+
+Since $F_4 = G-F_1 \leq \mu^2F_1$, we get $F_1 \geq (1+\mu^2)^{-1}G = 0.917G$.
+
+On the other hand,
+\begin{align*}
+ F_2 =(F_1-0.5G) \tan\theta \leq \mu F_1\Rightarrow F_1 \leq\frac{0.5\tan\theta} {\tan\theta-\mu}G = 0.714G,
+\end{align*}
+which is a contradiction. Hence, the ladder will slide down.
+\item Notice that the above argument works for any $G > 0$. Hence, the ladder will slide down regardless of the Bob's weight.
+  \item To prevent the ladder from sliding down, we must have
+\begin{align*}
+  \frac{0.5\tan\theta} {\tan\theta-\mu} \geq \frac{1}{1+\mu^2},
+\end{align*}
+which implies that 
+\begin{align*}
+  \tan \theta \leq \frac{2\mu}{1-\mu^2}\Rightarrow \theta \leq 33.4^\circ. 
+\end{align*}
+
+    \end{enumerate}
+\item \emph{15-16 Semester 2, Q4:}
+  \begin{enumerate}[label=(\alph*)]
+    \item Assuming the parabola has the form $y^2 = 4ax$. The meteor is closet to the Earth when it is at the vertex of the parabola. Hence, $a = 10^4$km.
+      \item The Earth is at $(a,0)$ and the line connecting the Earth and point $A$ has the following form:
+        \begin{align*}
+          y = \tan 60^\circ (x -a) = \sqrt{3}(x-a).
+        \end{align*}
+        Hence, we can solve the coordinate of $A$ to be $(3a,2\sqrt{3}a)$. \emph{(You can also use Quiz 1, Q2 to solve the coordinate.)}
+
+        Now since it takes $30$min $= 0.5$hour for the meteor to travel from $A$ to $O$ and $\dot x(t)$ is constant, we know at time $t$ (hour), $x$ is at
+\begin{align*}
+ x(t) = 3a - 6at.
+\end{align*}
+
+Therefore, $y(t) = \sqrt{4ax(t)}$ and hence the velocity is
+\begin{align*}
+  \dot y(t) = \frac{d\sqrt{4ax(t)}}{dt} = \frac{1}{2\sqrt{4ax(t)}} \dot x(t) = \frac{1}{2\sqrt{4a(3a - 6at)}} \times -6a.
+\end{align*}
+The unit is km per hour.
+
+        \emph{(Notice this question violates Kepler's Second Law and Newton's Second Law.)}
+      \item At time $t$, the distance of the meteor to the Earth is
+\begin{align*}
+  \sqrt{(x(t)-a)^2 + y(t)^2} = \sqrt{x^2(t)-2ax(t)+a^2 + 4ax(t)} = x(t) +a = 4a-6at.
+\end{align*}
+On the other hand, the rocket will travel a distance of $6\times 10^4 t$ distance. Therefore,
+\begin{align*}
+  4a-6at = 6\times 10^4 t \Rightarrow t = 1/3,
+\end{align*}
+and $x(t) = a, y(t) = 2a$. Therefore, the elevation angle is $90^\circ$.
+      \end{enumerate}
+
+\item \emph{14-15 Semester 2, Q1:}
+  \begin{enumerate}[label=(\alph*)]
+    \item Tutorial 1, Q2.
+      
+    \item D1 and D2 can be found when the elevation angle of Tree B equals to certain angle.
+
+    \end{enumerate}
+\item \emph{14-15 Semester 2, Q2:}
+
+  Suppose the star is fixed at the origin and the planet $A$ is at
+\begin{align*}
+  x_A = R\cos (\omega t+\alpha),\,y_A = R \sin (\omega t+ \alpha).
+\end{align*}
+
+Since the moon $B$ is orbiting the planet $A$, we have
+\begin{align*}
+  x_B-x_A = r\cos(\omega t + \beta),\,y_A = r\sin(\omega t + \beta).
+\end{align*}
+Therefore, we have
+\begin{align*}
+  x_B &= R\cos (\omega t+ \alpha)+ r \cos (\omega t +\beta),\\
+  y_B &= R\sin (\omega t+ \alpha)+ r \sin (\omega t +\beta).\\
+\end{align*}
+As a result, the distance from $B$ to $O$ is 
+\begin{align*}
+  x_B^2+y_B^2 = R^2+r^2 +2Rr \cos(\alpha-\beta).
+\end{align*}
+Therefore, the trajectory of $B$ is a circle centered at the star $O$ with radius $\sqrt{R^2+r^2 + 2Rr\cos(\alpha-\beta)}$.
+
+\item \emph{12-13 Semester 2, Q3:}
+  
+This question is the same as Tutorial 4, Q2.
+
+\item \emph{12-13 Semester 2, Q4:}
+  \begin{enumerate}[label=(\alph*)]
+  \item Suppose the radius of the small circle is $r$. Suppose the small circle touches the big circle at $P$ and the center of the small circle is $o$ and the center of the big circle is $O$. Then we know $O$, $o$ and $P$ are colinear, with $OP = R = 1.2$.
+    
+Furthermore, $oP = r $ and $Oo = \sqrt{r^2+(r-0.3)^2}$. As a result,
+\begin{align*}
+  r + \sqrt{r^2+(r-0.3)^3} = 1.2\Rightarrow r = 0.3(2\sqrt{6}-3) = 0.570.
+\end{align*}
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}[scale=3]
+      \tkzInit[xmax=1.5, xmin=-1.5, ymin=-1.5, ymax=1.5]
+      \tkzClip
+
+  \tkzDefPoint(0,0){O}  
+  \tkzDefPoint(1.2,0){A}  
+  \tkzDefPoint(-1.2,0){a}  
+  \tkzDefPoint(-0.3,0){B}  
+  \tkzDefPoint(-0.3,0.1){b}  
+
+  \tkzInterLC(b,B)(O,A) \tkzGetPoints{D}{E}
+
+  \tkzDefPoint(-0.3,0.3){OO}  
+  \tkzDefPoint(-0.3,1.2){l}  
+  \tkzDefPoint(0.3,1.2){L}  
+  
+  \tkzInterLL(l,L)(O,OO)\tkzGetPoint{G}
+
+  \tkzDefMidPoint(O,OO) \tkzGetPoint{C}
+  \tkzDefMidPoint(G,C) \tkzGetPoint{CC}
+  \tkzInterCC(CC,C)(C,O)
+  \tkzInterLC(l,L)(G,tkzFirstPointResult)\tkzGetPoints{p}{Q}
+
+  \tkzDefPointBy[projection=onto O--A](Q)
+  \tkzGetPoint{QQ}
+
+  \tkzDefLine[perpendicular=through B](O,OO)
+  \tkzInterLL(B,tkzPointResult)(Q,QQ)
+
+  \tkzGetPoint{o}
+  \tkzDrawCircle(o,QQ)
+
+  \tkzDrawSegments(A,a E,B)
+  \tkzLabelSegment[below=1pt](a,B){$0.9$}
+  \tkzLabelSegment[above=1pt](B,O){$0.3$}
+
+  \tkzInterLC(O,o)(O,A)
+  \tkzGetPoints{p}{P}
+  \tkzDrawSegments[dashed](O,P o,QQ)
+
+  \tkzDrawCircle(O,A)
+  \tkzDrawPoints(O,B,o,P,QQ)
+  \tkzLabelPoints(O,B,o,P)
+
+\end{tikzpicture}
+\caption{12-13 Semester 2, Q4}
+\end{figure}
+
+\item Similar to 14-15 Semester 2, Q1.
+\end{enumerate}
+
+\end{itemize}
+
+\end{document}
+%%% Local Variables:
+%%% TeX-command-default: "Latexmk"
+%%% End:
+
